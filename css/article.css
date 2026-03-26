@@ -1,0 +1,335 @@
+/* ============================================================
+   article.css — DigiRoad editorial article page styles
+   ============================================================ */
+
+:root {
+  --art-col: 760px;
+  --art-wide: 960px;
+  --art-gap: 24px;
+}
+
+/* ── Main wrapper ─────────────────────────────────────────── */
+
+.art-main {
+  background: #ffffff;
+  padding-top: 96px;
+}
+
+/* ── Reading column container ─────────────────────────────── */
+
+.art-container {
+  max-width: var(--art-col);
+  margin: 0 auto;
+  padding: 0 var(--art-gap);
+}
+
+/* ── Back link ────────────────────────────────────────────── */
+
+.art-back-wrap {
+  padding: 28px 0 0;
+}
+
+.art-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #059669;
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  text-decoration: none;
+}
+
+.art-back-link svg {
+  transition: transform 0.18s;
+}
+
+.art-back-link:hover {
+  color: #047857;
+}
+
+.art-back-link:hover svg {
+  transform: translateX(-3px);
+}
+
+/* ── Article header ───────────────────────────────────────── */
+
+.art-header {
+  padding: 36px 0 32px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  margin-bottom: 36px;
+}
+
+.art-meta-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.art-tag {
+  display: inline-block;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  /* Partnerships style */
+  background: rgba(245, 158, 11, 0.10);
+  color: #b45309;
+}
+
+.art-sep {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.art-date,
+.art-read-time {
+  font-size: 13px;
+  color: #94a3b8;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-title {
+  font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: #0b1220;
+  margin-bottom: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-lead {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #475569;
+  max-width: 680px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Featured visual ──────────────────────────────────────── */
+
+.art-visual-outer {
+  max-width: var(--art-wide);
+  margin: 0 auto 48px;
+  padding: 0 var(--art-gap);
+}
+
+.art-visual {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.06);
+  background: #0b2e26;
+}
+
+.art-visual svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.art-visual-caption {
+  margin-top: 12px;
+  font-size: 12.5px;
+  color: #94a3b8;
+  text-align: center;
+  font-style: italic;
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Article body ─────────────────────────────────────────── */
+
+.art-body {
+  padding-bottom: 72px;
+}
+
+.art-standfirst {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #0b1220;
+  line-height: 1.65;
+  margin-bottom: 28px;
+  padding-left: 16px;
+  border-left: 3px solid #10b981;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-body p {
+  font-size: 1.025rem;
+  line-height: 1.82;
+  color: #334155;
+  margin-bottom: 22px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── Pull quote ───────────────────────────────────────────── */
+
+.art-pullquote {
+  margin: 40px 0;
+  padding: 32px 36px;
+  background: rgba(16, 185, 129, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  border-left: 4px solid #10b981;
+  border-radius: 0 12px 12px 0;
+}
+
+.art-quote-mark {
+  margin-bottom: 14px;
+  display: block;
+}
+
+.art-pullquote p {
+  font-size: 1.08rem;
+  font-style: italic;
+  font-weight: 500;
+  color: #0b1220;
+  line-height: 1.72;
+  margin-bottom: 20px;
+}
+
+.art-pullquote cite {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-style: normal;
+  font-size: 13px;
+  color: #64748b;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-pullquote cite strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0b1220;
+}
+
+/* ── More from DigiRoad section ───────────────────────────── */
+
+.art-more-section {
+  background: #f5f6f5;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 64px 24px 80px;
+}
+
+.art-more-inner {
+  max-width: var(--art-wide);
+  margin: 0 auto;
+}
+
+.art-more-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.art-more-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #0b1220;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #059669;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  transition: gap 0.18s;
+}
+
+.art-more-link:hover {
+  gap: 8px;
+}
+
+.art-more-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 56px 24px;
+  border: 1px dashed rgba(16, 185, 129, 0.25);
+  border-radius: 16px;
+  background: rgba(16, 185, 129, 0.025);
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.art-more-empty-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Scroll animations ────────────────────────────────────── */
+
+[data-anim] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-anim].visible {
+  opacity: 1;
+  transform: none;
+}
+
+[data-anim][data-delay="1"] { transition-delay: 0.1s; }
+[data-anim][data-delay="2"] { transition-delay: 0.2s; }
+[data-anim][data-delay="3"] { transition-delay: 0.3s; }
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .art-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .art-pullquote {
+    padding: 24px;
+  }
+
+  .art-more-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .art-lead {
+    font-size: 1rem;
+  }
+
+  .art-body p {
+    font-size: 0.975rem;
+  }
+
+  .art-header {
+    padding: 28px 0 24px;
+  }
+
+  .art-pullquote {
+    padding: 20px 20px;
+  }
+}

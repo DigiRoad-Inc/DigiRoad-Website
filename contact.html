@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | DigiRoad</title>
+  <meta name="description" content="Tell us about your institution and goals. DigiRoad works with universities, banks, and institutions to build modern digital and financial infrastructure." />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     FLOATING NAVBAR
+═══════════════════════════════════════ -->
+<header class="nav-float-wrap" id="navFloat"></header>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="contact-hero">
+  <div class="contact-hero-glow"></div>
+  <div class="contact-hero-inner">
+    <div class="contact-hero-eyebrow">
+      <span class="contact-hero-eyebrow-dot"></span>
+      Contact Sales Team
+    </div>
+    <h1>Let's Build Something<br><span class="hero-accent">Together</span></h1>
+    <p class="contact-hero-sub">
+      Tell us about your institution, your goals, and how you envision working with DigiRoad.
+    </p>
+    <p class="contact-hero-support">
+      We work with universities, banks, and institutions to build modern digital and financial infrastructure.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MAIN SECTION
+═══════════════════════════════════════ -->
+<section class="contact-main">
+  <div class="contact-grid">
+
+    <!-- ── FORM ── -->
+    <div class="contact-form-card" id="formCard">
+      <form id="contactForm" novalidate>
+
+        <!-- 1. Contact Information -->
+        <div class="form-section">
+          <div class="form-section-title">Contact Information</div>
+          <div class="form-row cols-2">
+            <div class="form-field">
+              <label class="form-label" for="fullName">Full Name</label>
+              <input class="form-input" id="fullName" name="fullName" type="text" placeholder="Jane Doe" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="workEmail">Work Email</label>
+              <input class="form-input" id="workEmail" name="workEmail" type="email" placeholder="jane@university.edu" required />
+            </div>
+          </div>
+          <div class="form-row cols-2" style="margin-top:16px;">
+            <div class="form-field">
+              <label class="form-label" for="orgName">Organisation / Institution</label>
+              <input class="form-input" id="orgName" name="orgName" type="text" placeholder="University of Cape Town" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="website">Website <span>(optional)</span></label>
+              <input class="form-input" id="website" name="website" type="url" placeholder="https://uct.ac.za" />
+            </div>
+          </div>
+          <div class="form-row cols-2" style="margin-top:16px;">
+            <div class="form-field">
+              <label class="form-label" for="jobLevel">Job Level</label>
+              <select class="form-select" id="jobLevel" name="jobLevel" required>
+                <option value="" disabled selected>Select level…</option>
+                <option value="c-suite">C-Suite / Executive</option>
+                <option value="vp">VP / Director</option>
+                <option value="manager">Manager / Head of</option>
+                <option value="senior">Senior Individual Contributor</option>
+                <option value="individual">Individual Contributor</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="jobFunction">Job Function</label>
+              <select class="form-select" id="jobFunction" name="jobFunction" required>
+                <option value="" disabled selected>Select function…</option>
+                <option value="it">IT / Technology</option>
+                <option value="finance">Finance / Treasury</option>
+                <option value="operations">Operations</option>
+                <option value="academic">Academic / Research</option>
+                <option value="student-services">Student Services</option>
+                <option value="strategy">Strategy / Transformation</option>
+                <option value="procurement">Procurement</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- 2. Organisation Details -->
+        <div class="form-section">
+          <div class="form-section-title">Organisation Details</div>
+          <div class="form-row cols-2">
+            <div class="form-field">
+              <label class="form-label" for="orgType">Organisation Type</label>
+              <select class="form-select" id="orgType" name="orgType" required>
+                <option value="" disabled selected>Select type…</option>
+                <option value="university">University</option>
+                <option value="bank">Bank</option>
+                <option value="government">Government</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="orgSize">Organisation Size <span>(optional)</span></label>
+              <select class="form-select" id="orgSize" name="orgSize">
+                <option value="" disabled selected>Select size…</option>
+                <option value="small">Small (&lt;500 students / staff)</option>
+                <option value="medium">Medium (500–5,000)</option>
+                <option value="large">Large (5,000–30,000)</option>
+                <option value="enterprise">Enterprise (30,000+)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row cols-2" style="margin-top:16px;">
+            <div class="form-field">
+              <label class="form-label" for="country">Country</label>
+              <input class="form-input" id="country" name="country" type="text" placeholder="South Africa" required />
+            </div>
+            <div class="form-field">
+              <label class="form-label" for="city">City <span>(optional)</span></label>
+              <input class="form-input" id="city" name="city" type="text" placeholder="Cape Town" />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <!-- 3. Project Details -->
+        <div class="form-section">
+          <div class="form-section-title">Project Details</div>
+          <div class="form-row cols-1">
+            <div class="form-field">
+              <label class="form-label" for="projectDesc">What are you looking to build or explore?</label>
+              <textarea class="form-textarea" id="projectDesc" name="projectDesc" placeholder="Describe your goals, current challenges, or how you envision working with DigiRoad…" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-field" style="margin-top:20px;">
+            <div class="form-label">Areas of Interest <span>(select all that apply)</span></div>
+            <div class="chip-group" id="interestChips">
+              <div class="chip" data-value="ecampus">eCampus</div>
+              <div class="chip" data-value="unipay">UniPay</div>
+              <div class="chip" data-value="connect">DigiRoad Connect</div>
+              <div class="chip" data-value="platform">Full Platform</div>
+            </div>
+          </div>
+
+          <div class="form-field" style="margin-top:20px;">
+            <label class="form-label" for="timeline">Timeline</label>
+            <select class="form-select" id="timeline" name="timeline">
+              <option value="" disabled selected>When are you looking to get started?</option>
+              <option value="immediately">Immediately</option>
+              <option value="3-6months">3–6 months</option>
+              <option value="6-12months">6–12 months</option>
+              <option value="exploring">Just exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="contact-submit-row">
+          <div class="contact-submit-note">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1.5L1.5 4V7.5C1.5 10.5 3.9 13.2 7 14C10.1 13.2 12.5 10.5 12.5 7.5V4L7 1.5Z" stroke="#9ca3af" stroke-width="1.2" stroke-linejoin="round"/>
+              <path d="M4.5 7L6 8.5L9.5 5" stroke="#9ca3af" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Your data is secure and never shared
+          </div>
+          <button type="submit" class="btn-contact-submit" id="submitBtn">
+            Send Message
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+      </form>
+
+      <!-- Success state -->
+      <div class="contact-success" id="successState">
+        <div class="success-icon">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <path d="M7 16L13 22L25 10" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h2 class="success-h2">Message Received</h2>
+        <p class="success-p">Thank you for reaching out. Our team will review your request and get back to you within 24–48 hours.</p>
+      </div>
+    </div>
+
+    <!-- ── SIDEBAR ── -->
+    <div class="contact-sidebar">
+
+      <!-- Illustration Card -->
+      <div class="contact-illustration-card">
+        <div class="illustration-svg-wrap">
+          <!-- Network / collaboration SVG illustration -->
+          <svg width="220" height="180" viewBox="0 0 220 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background rings -->
+            <circle cx="110" cy="90" r="84" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="4 6"/>
+            <circle cx="110" cy="90" r="62" stroke="#10b981" stroke-width="0.5" stroke-opacity="0.2" stroke-dasharray="3 5"/>
+
+            <!-- Connection lines -->
+            <line x1="110" y1="90" x2="42" y2="42" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+            <line x1="110" y1="90" x2="178" y2="42" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+            <line x1="110" y1="90" x2="28" y2="110" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+            <line x1="110" y1="90" x2="192" y2="110" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+            <line x1="110" y1="90" x2="78" y2="154" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+            <line x1="110" y1="90" x2="142" y2="154" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+
+            <!-- Data flow pulses on lines -->
+            <circle r="3" fill="#10b981" fill-opacity="0.7">
+              <animateMotion dur="2.5s" repeatCount="indefinite">
+                <mpath href="#path1"/>
+              </animateMotion>
+            </circle>
+            <path id="path1" d="M110 90 L42 42" fill="none"/>
+
+            <circle r="2.5" fill="#10b981" fill-opacity="0.6">
+              <animateMotion dur="3s" repeatCount="indefinite" begin="0.8s">
+                <mpath href="#path2"/>
+              </animateMotion>
+            </circle>
+            <path id="path2" d="M110 90 L178 42" fill="none"/>
+
+            <circle r="2.5" fill="#10b981" fill-opacity="0.6">
+              <animateMotion dur="2.8s" repeatCount="indefinite" begin="1.4s">
+                <mpath href="#path3"/>
+              </animateMotion>
+            </circle>
+            <path id="path3" d="M110 90 L192 110" fill="none"/>
+
+            <!-- Outer nodes -->
+            <!-- Node: University (top-left) -->
+            <circle cx="42" cy="42" r="18" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+            <rect x="34" y="35" width="16" height="14" rx="2" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.8" fill="none"/>
+            <path d="M34 40h16" stroke="#10b981" stroke-width="1" stroke-opacity="0.6"/>
+            <rect x="38" y="42" width="3" height="7" rx="0.5" fill="#10b981" fill-opacity="0.5"/>
+            <rect x="43" y="42" width="3" height="7" rx="0.5" fill="#10b981" fill-opacity="0.5"/>
+            <path d="M38 35L42 31L46 35" stroke="#10b981" stroke-width="1.2" fill="none" stroke-opacity="0.8"/>
+
+            <!-- Node: Bank (top-right) -->
+            <circle cx="178" cy="42" r="18" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+            <rect x="170" y="47" width="16" height="10" rx="2" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.8" fill="none"/>
+            <path d="M170 51h16" stroke="#10b981" stroke-width="1" stroke-opacity="0.5"/>
+            <path d="M178 34L172 38h12L178 34Z" stroke="#10b981" stroke-width="1.2" fill="#10b981" fill-opacity="0.2" stroke-opacity="0.8"/>
+
+            <!-- Node: Govt (left) -->
+            <circle cx="28" cy="110" r="16" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
+            <circle cx="28" cy="110" r="6" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.7" fill="#10b981" fill-opacity="0.15"/>
+            <path d="M22 110A6 6 0 0134 110" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.6" fill="none"/>
+
+            <!-- Node: right -->
+            <circle cx="192" cy="110" r="16" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
+            <rect x="185" y="104" width="14" height="12" rx="2" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+            <path d="M188 108h8M188 111h5" stroke="#10b981" stroke-width="1" stroke-opacity="0.6"/>
+
+            <!-- Node: bottom-left -->
+            <circle cx="78" cy="154" r="16" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
+            <circle cx="78" cy="150" r="4" fill="#10b981" fill-opacity="0.4" stroke="#10b981" stroke-width="1"/>
+            <path d="M70 160c0-4.4 3.6-8 8-8" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.7" fill="none" stroke-linecap="round"/>
+            <path d="M78 160v-6" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+
+            <!-- Node: bottom-right -->
+            <circle cx="142" cy="154" r="16" fill="rgba(16,185,129,0.08)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.4"/>
+            <path d="M136 154c0-3.3 2.7-6 6-6s6 2.7 6 6-2.7 6-6 6" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+            <circle cx="142" cy="154" r="2.5" fill="#10b981" fill-opacity="0.7"/>
+
+            <!-- Central hub -->
+            <circle cx="110" cy="90" r="22" fill="rgba(16,185,129,0.12)" stroke="#10b981" stroke-width="1.5" stroke-opacity="0.7"/>
+            <circle cx="110" cy="90" r="14" fill="rgba(16,185,129,0.18)" stroke="#10b981" stroke-width="1.2"/>
+            <!-- D letter stylised -->
+            <path d="M104 82h6c4.4 0 8 3.6 8 8s-3.6 8-8 8h-6V82Z" fill="#10b981" fill-opacity="0.6"/>
+            <path d="M104 82v16" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="illustration-tagline">One Platform. Many Institutions.</div>
+        <div class="illustration-desc">DigiRoad connects the global student economy ,  from campus to bank to government, in one unified infrastructure.</div>
+      </div>
+
+
+      <!-- Who we work with -->
+      <div class="contact-who-card">
+        <div class="who-card-title">Who we work with</div>
+        <div class="who-item">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 2L2 6v10h14V6L9 2Z" stroke="#10b981" stroke-width="1.3" stroke-linejoin="round"/>
+              <rect x="6" y="10" width="6" height="6" rx="1" stroke="#10b981" stroke-width="1.3"/>
+              <path d="M7 8h4M7 6h2" stroke="#10b981" stroke-width="1" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="who-text">
+            <h4>Universities</h4>
+            <p>Modernising campus infrastructure, student services, and financial operations.</p>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="2" y="7" width="14" height="9" rx="2" stroke="#10b981" stroke-width="1.3"/>
+              <path d="M5 7V5.5A4 4 0 0113 5.5V7" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M9 10v3" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="who-text">
+            <h4>Banks &amp; Fintechs</h4>
+            <p>Entering the student economy with compliant payment rails and identity layers.</p>
+          </div>
+        </div>
+        <div class="who-item">
+          <div class="who-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="7" stroke="#10b981" stroke-width="1.3"/>
+              <path d="M9 2C9 2 12 5 12 9S9 16 9 16M9 2C9 2 6 5 6 9S9 16 9 16M2 9h14" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="who-text">
+            <h4>Governments &amp; Institutions</h4>
+            <p>Building digital ecosystems that connect citizens to public services at scale.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- end sidebar -->
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" />
+        </a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Solutions</h5>
+        <ul>
+          <li><a href="ecampus.html">eCampus</a></li>
+          <li><a href="connect.html">DigiRoad Connect</a></li>
+          <li><a href="unipay.html">UniPay</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="support.html">Get Support</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiRoad Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/form-submit.js"></script>
+<script src="js/nav.js"></script>
+<script>
+(function () {
+  // ── Chip multi-select ─────────────────────────────────────────────
+  var chips = document.querySelectorAll('#interestChips .chip');
+  chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      chip.classList.toggle('selected');
+    });
+  });
+
+  // ── Form submit ───────────────────────────────────────────────────
+  var form        = document.getElementById('contactForm');
+  var submitBtn   = document.getElementById('submitBtn');
+  var formCard    = document.getElementById('formCard');
+  var successState = document.getElementById('successState');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Basic validation
+    var required = form.querySelectorAll('[required]');
+    var valid = true;
+    required.forEach(function (field) {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#f87171';
+        field.style.boxShadow = '0 0 0 3px rgba(248,113,113,0.12)';
+        valid = false;
+
+        field.addEventListener('input', function () {
+          field.style.borderColor = '';
+          field.style.boxShadow = '';
+        }, { once: true });
+      }
+    });
+
+    if (!valid) return;
+
+    // Loading state
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" style="animation:spin 0.8s linear infinite"><path d="M8 2a6 6 0 016 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg> Sending…';
+
+    var interests = Array.from(document.querySelectorAll('.interest-chip.selected, .chip.on')).map(function (c) { return c.dataset.val || c.textContent.trim(); });
+
+    submitForm('contact', {
+      full_name:    document.getElementById('fullName').value.trim(),
+      email:        document.getElementById('workEmail').value.trim(),
+      org_name:     document.getElementById('orgName').value.trim(),
+      website:      document.getElementById('website').value.trim(),
+      job_level:    document.getElementById('jobLevel').value,
+      job_function: document.getElementById('jobFunction').value,
+      org_type:     document.getElementById('orgType').value,
+      org_size:     document.getElementById('orgSize').value,
+      country:      document.getElementById('country').value.trim(),
+      city:         document.getElementById('city').value.trim(),
+      project_desc: document.getElementById('projectDesc').value.trim(),
+      interests:    interests,
+      timeline:     document.getElementById('timeline').value
+    },
+    function () {
+      form.style.display = 'none';
+      successState.style.display = 'block';
+    },
+    function (errMsg) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message';
+      var existing = form.querySelector('.db-err-banner');
+      if (existing) existing.remove();
+      var banner = document.createElement('p');
+      banner.className = 'db-err-banner';
+      banner.style.cssText = 'color:#dc2626;font-size:13px;margin-top:12px;text-align:center;';
+      banner.textContent = errMsg;
+      form.appendChild(banner);
+    });
+  });
+
+  // ── Scroll-reveal via IntersectionObserver ────────────────────────
+  var revealEls = document.querySelectorAll('.who-item, .process-step');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealEls.forEach(function (el, i) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(12px)';
+      el.style.transition = 'opacity 0.45s ease ' + (i * 0.08) + 's, transform 0.45s ease ' + (i * 0.08) + 's';
+      io.observe(el);
+    });
+  }
+})();
+</script>
+<style>
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+</style>
+
+</body>
+</html>

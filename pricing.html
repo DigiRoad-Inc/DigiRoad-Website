@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | DigiRoad</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #f5f6f5; --white: #ffffff; --ink: #0b1220; --ink-2: #475569; --ink-3: #94a3b8;
+      --g500: #10b981; --g600: #059669; --g700: #047857; --g900: #0b2e26;
+      --border: rgba(0,0,0,0.07); --radius: 16px;
+      --shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.09), 0 12px 32px rgba(0,0,0,0.07);
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .pr-wrap { padding-top: 80px; }
+
+    /* ── Shared utilities ── */
+    .section-inner { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 0.11em; text-transform: uppercase; color: var(--g600); margin-bottom: 16px; }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--g500); flex-shrink: 0; }
+    .section-head { margin-bottom: 44px; }
+    .section-head h2 { font-size: clamp(1.6rem, 2.8vw, 2.1rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 10px; line-height: 1.15; }
+    .section-head p { font-size: 0.95rem; color: var(--ink-2); max-width: 520px; line-height: 1.65; }
+    .section-head.center { text-align: center; }
+    .section-head.center p { margin: 0 auto; }
+
+    /* ── Animations ── */
+    [data-anim] { opacity: 0; transform: translateY(22px); transition: opacity 0.58s cubic-bezier(0.22,1,0.36,1), transform 0.58s cubic-bezier(0.22,1,0.36,1); }
+    [data-anim].visible { opacity: 1; transform: none; }
+    [data-anim][data-d="1"] { transition-delay: 0.07s; }
+    [data-anim][data-d="2"] { transition-delay: 0.14s; }
+    [data-anim][data-d="3"] { transition-delay: 0.21s; }
+    [data-anim][data-d="4"] { transition-delay: 0.28s; }
+    [data-anim][data-d="5"] { transition-delay: 0.35s; }
+
+    /* ══════════════════════════════════════
+       §1  HERO
+    ══════════════════════════════════════ */
+    .pr-hero {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 92px 24px 0;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .pr-hero-glow {
+      position: absolute;
+      top: -80px; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 420px;
+      background: radial-gradient(ellipse at 50% 30%, rgba(16,185,129,0.09) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .pr-hero-content { max-width: 680px; margin: 0 auto; position: relative; }
+    .pr-hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.7rem);
+      font-weight: 800;
+      letter-spacing: -0.036em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 18px;
+    }
+    .pr-hero h1 em { font-style: normal; color: var(--g700); }
+    .pr-hero-sub { font-size: 1.05rem; color: var(--ink-2); line-height: 1.65; margin-bottom: 8px; }
+    .pr-hero-tag { font-size: 0.9rem; color: var(--g600); font-weight: 600; margin-bottom: 36px; }
+    .pr-hero-cta {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--g700); color: #fff;
+      padding: 14px 28px; border-radius: 100px;
+      font-size: 0.92rem; font-weight: 700;
+      box-shadow: 0 4px 14px rgba(4,120,87,0.28);
+      transition: background 0.18s, transform 0.15s, box-shadow 0.18s;
+    }
+    .pr-hero-cta:hover { background: var(--g900); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(4,120,87,0.36); }
+
+    /* Hero visual: stacked layers */
+    .pr-hero-visual { margin-top: 56px; display: flex; justify-content: center; position: relative; }
+    .pr-hero-visual svg { width: 100%; max-width: 620px; height: auto; overflow: visible; }
+
+    /* ══════════════════════════════════════
+       §2  PHILOSOPHY
+    ══════════════════════════════════════ */
+    .pr-philosophy { padding: 80px 0; }
+    .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .philosophy-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 30px 26px;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .philosophy-card:hover { box-shadow: var(--shadow-hover); border-color: rgba(16,185,129,0.2); transform: translateY(-2px); }
+    .ph-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(16,185,129,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .philosophy-card h3 { font-size: 0.97rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .philosophy-card p { font-size: 0.84rem; color: var(--ink-2); line-height: 1.6; }
+
+
+    /* ══════════════════════════════════════
+       §4  REVENUE MODEL  ← KEY SECTION
+    ══════════════════════════════════════ */
+    .pr-revenue { padding: 80px 0; }
+
+    /* Main interchange card */
+    .interchange-card {
+      background: linear-gradient(135deg, var(--g900) 0%, #0d3d2e 50%, #0b4a37 100%);
+      border-radius: 24px;
+      padding: 56px 52px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .interchange-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .interchange-card::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .interchange-card-inner { display: grid; grid-template-columns: 1fr 380px; gap: 56px; align-items: center; position: relative; z-index: 1; }
+    .interchange-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--g500); margin-bottom: 16px; }
+    .interchange-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--g500); }
+    .interchange-card h3 { font-size: clamp(1.6rem, 2.5vw, 2rem); font-weight: 800; letter-spacing: -0.03em; color: #fff; line-height: 1.15; margin-bottom: 14px; }
+    .interchange-card h3 span { color: var(--g500); }
+    .interchange-card p { font-size: 0.92rem; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 24px; }
+    .interchange-key { display: inline-flex; align-items: center; gap: 10px; background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.25); border-radius: 100px; padding: 10px 18px; font-size: 0.84rem; font-weight: 600; color: #fff; }
+    .interchange-key svg { flex-shrink: 0; }
+
+    /* Benefit pills */
+    .interchange-benefits { display: flex; flex-direction: column; gap: 10px; }
+    .int-benefit {
+      display: flex; align-items: flex-start; gap: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 14px 16px;
+    }
+    .int-benefit-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(16,185,129,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .int-benefit-text h5 { font-size: 0.86rem; font-weight: 700; color: #fff; margin-bottom: 2px; }
+    .int-benefit-text p { font-size: 0.78rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
+
+    /* Flow diagram */
+    .flow-diagram { margin-top: 24px; }
+    .flow-diagram-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 20px; text-align: center; }
+    .flow-nodes {
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; background: var(--white);
+      border: 1px solid var(--border); border-radius: 20px;
+      padding: 32px 24px;
+      overflow-x: auto;
+    }
+    .flow-node { text-align: center; flex-shrink: 0; }
+    .flow-node-circle {
+      width: 56px; height: 56px; border-radius: 50%;
+      border: 2px solid var(--border);
+      background: var(--paper);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 10px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .flow-node.active .flow-node-circle { border-color: var(--g500); background: rgba(16,185,129,0.07); }
+    .flow-node.highlight .flow-node-circle { border-color: var(--g700); background: rgba(4,120,87,0.1); }
+    .flow-node-label { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+    .flow-node-sub { font-size: 0.69rem; color: var(--ink-3); margin-top: 2px; }
+    .flow-arrow {
+      display: flex; align-items: center; flex-shrink: 0;
+      padding: 0 8px; margin-bottom: 20px;
+    }
+    .flow-arrow svg { animation: flow-pulse 2.2s ease-in-out infinite; }
+    @keyframes flow-pulse { 0%,100%{opacity:0.35;transform:translateX(0)} 50%{opacity:1;transform:translateX(3px)} }
+
+    /* Revenue supporting cards */
+    .revenue-support-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .rev-sup-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px 22px; display: flex; align-items: flex-start; gap: 14px;
+      transition: box-shadow 0.18s, border-color 0.18s;
+    }
+    .rev-sup-card:hover { box-shadow: var(--shadow); border-color: rgba(16,185,129,0.18); }
+    .rev-sup-icon { width: 38px; height: 38px; border-radius: 9px; background: rgba(16,185,129,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .rev-sup-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .rev-sup-card p { font-size: 0.82rem; color: var(--ink-2); line-height: 1.55; }
+
+    /* ══════════════════════════════════════
+       §5  PLATFORM MODULES
+    ══════════════════════════════════════ */
+    .pr-modules { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 80px 0; }
+    .modules-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .module-card {
+      border: 1px solid var(--border); border-radius: 20px; padding: 36px 30px;
+      position: relative; overflow: hidden;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+    }
+    .module-card:hover { box-shadow: var(--shadow-hover); border-color: rgba(16,185,129,0.22); transform: translateY(-3px); }
+    .module-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--g500), var(--g700)); opacity: 0; transition: opacity 0.2s; }
+    .module-card:hover::before { opacity: 1; }
+    .module-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(16,185,129,0.08); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .module-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--g600); background: rgba(16,185,129,0.08); padding: 4px 10px; border-radius: 100px; margin-bottom: 14px; }
+    .module-card h3 { font-size: 1.15rem; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 10px; }
+    .module-card p { font-size: 0.88rem; color: var(--ink-2); line-height: 1.65; margin-bottom: 20px; }
+    .module-features { display: flex; flex-direction: column; gap: 7px; margin-bottom: 22px; }
+    .module-feature { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--ink-2); }
+    .module-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--g500); flex-shrink: 0; }
+    .module-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.83rem; font-weight: 600; color: var(--g700); transition: gap 0.15s; }
+    .module-card:hover .module-link { gap: 9px; }
+
+    /* ══════════════════════════════════════
+       §7  FORM
+    ══════════════════════════════════════ */
+    .pr-form-section { background: var(--white); border-top: 1px solid var(--border); padding: 80px 0; }
+    .form-layout { display: grid; grid-template-columns: 1fr 520px; gap: 72px; align-items: start; }
+    .form-left h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 800; letter-spacing: -0.03em; color: var(--ink); margin-bottom: 14px; line-height: 1.15; }
+    .form-left p { font-size: 0.92rem; color: var(--ink-2); line-height: 1.65; margin-bottom: 30px; }
+    .trust-list { display: flex; flex-direction: column; gap: 13px; }
+    .trust-item { display: flex; align-items: flex-start; gap: 11px; }
+    .trust-check { width: 21px; height: 21px; border-radius: 50%; background: rgba(16,185,129,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .trust-item p { font-size: 0.87rem; color: var(--ink-2); line-height: 1.5; }
+    .trust-item strong { color: var(--ink); font-weight: 600; }
+
+    /* Form card */
+    .form-card { background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 40px; box-shadow: var(--shadow); }
+    .form-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+    .form-card > p { font-size: 0.84rem; color: var(--ink-2); margin-bottom: 28px; }
+    .form-fieldset { border: none; padding: 0; margin: 0 0 22px; }
+    .form-legend { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; display: block; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { display: flex; flex-direction: column; gap: 5px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 0.78rem; font-weight: 600; color: var(--ink); }
+    .form-input, .form-select, .form-textarea {
+      padding: 10px 13px; border-radius: 10px; border: 1.5px solid var(--border);
+      background: var(--paper); font-size: 0.87rem; font-family: 'Inter', sans-serif;
+      color: var(--ink); outline: none;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--ink-3); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--g500); box-shadow: 0 0 0 3px rgba(16,185,129,0.1); background: var(--white); }
+    .form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 4L6 8L10 4' stroke='%2394a3b8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 13px center; background-size: 12px; padding-right: 36px; }
+    .form-textarea { resize: vertical; min-height: 96px; width: 100%; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 100px; border: 1.5px solid var(--border); background: var(--paper); font-size: 0.82rem; font-weight: 500; color: var(--ink-2); cursor: pointer; transition: all 0.15s; user-select: none; }
+    .chip:hover { border-color: var(--g500); color: var(--g700); background: rgba(16,185,129,0.04); }
+    .chip.on { border-color: var(--g600); background: rgba(16,185,129,0.08); color: var(--g700); font-weight: 600; }
+    .chip.on::before { content: '✓ '; font-size: 0.74rem; }
+    .form-submit { width: 100%; padding: 14px; border-radius: 100px; background: var(--g700); color: #fff; font-size: 0.92rem; font-weight: 700; border: none; cursor: pointer; font-family: 'Inter', sans-serif; box-shadow: 0 4px 14px rgba(4,120,87,0.22); transition: background 0.18s, transform 0.15s, box-shadow 0.18s; margin-top: 8px; }
+    .form-submit:hover { background: var(--g900); transform: translateY(-1px); box-shadow: 0 6px 18px rgba(4,120,87,0.3); }
+    .form-note { font-size: 0.74rem; color: var(--ink-3); text-align: center; margin-top: 10px; }
+    .form-input--error { border-color: #dc2626 !important; box-shadow: 0 0 0 3px rgba(220,38,38,0.08) !important; }
+    .form-field-error { font-size: 11.5px; color: #dc2626; margin-top: 3px; display: none; }
+    .form-field-error.visible { display: block; }
+    .form-success { display: none; text-align: center; padding: 32px 16px; }
+    .form-success .suc-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(16,185,129,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 18px; }
+    .form-success h3 { font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .form-success p { font-size: 0.87rem; color: var(--ink-2); line-height: 1.6; }
+
+    /* ══════════════════════════════════════
+       §8  TRUST
+    ══════════════════════════════════════ */
+    .pr-trust { padding: 56px 0 72px; }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .trust-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 26px; display: flex; align-items: flex-start; gap: 18px; transition: box-shadow 0.18s; }
+    .trust-card:hover { box-shadow: var(--shadow); }
+    .trust-card-icon { width: 44px; height: 44px; border-radius: 11px; background: rgba(16,185,129,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .trust-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+    .trust-card p { font-size: 0.82rem; color: var(--ink-2); line-height: 1.55; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════ */
+    @media (max-width: 1000px) {
+      .interchange-card-inner { grid-template-columns: 1fr; }
+      .form-layout { grid-template-columns: 1fr; gap: 48px; }
+    }
+    @media (max-width: 860px) {
+      .philosophy-grid { grid-template-columns: 1fr 1fr; }
+      .modules-grid { grid-template-columns: 1fr; }
+.revenue-support-grid { grid-template-columns: 1fr 1fr; }
+      .trust-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .revenue-support-grid { grid-template-columns: 1fr; }
+.form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 18px; }
+      .interchange-card { padding: 36px 24px; }
+      .pr-hero { padding: 64px 20px 0; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav-float-wrap" id="navFloat"></header>
+
+<div class="pr-wrap">
+
+  <!-- ════════════════════════════════
+       §1  HERO
+  ════════════════════════════════ -->
+  <section class="pr-hero">
+    <div class="pr-hero-glow"></div>
+    <div class="pr-hero-content">
+      <div class="eyebrow" data-anim><span class="eyebrow-dot"></span>Pricing</div>
+      <h1 data-anim data-d="1">Pricing Built Around<br><em>Your Institution</em></h1>
+      <p class="pr-hero-sub" data-anim data-d="2">DigiRoad provides tailored pricing based on your university's size, infrastructure, and payment ecosystem.</p>
+      <p class="pr-hero-tag" data-anim data-d="3">More than a cost ,  a new revenue opportunity.</p>
+      <a href="#request-pricing" class="pr-hero-cta" data-anim data-d="4">
+        Request Pricing
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <!-- Layered infrastructure visual -->
+    <div class="pr-hero-visual" data-anim data-d="5">
+      <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- Base layer -->
+        <rect x="60" y="162" width="500" height="22" rx="5" fill="rgba(16,185,129,0.07)" stroke="rgba(16,185,129,0.18)" stroke-width="1"/>
+        <text x="310" y="177" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="#94a3b8" text-anchor="middle" letter-spacing="2">DIGIROAD INFRASTRUCTURE</text>
+        <!-- Module bars -->
+        <rect x="80" y="134" width="140" height="30" rx="5" fill="rgba(16,185,129,0.09)" stroke="rgba(16,185,129,0.25)" stroke-width="1"/>
+        <text x="150" y="153" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#047857" text-anchor="middle">eCampus</text>
+        <rect x="240" y="120" width="140" height="44" rx="5" fill="rgba(16,185,129,0.13)" stroke="rgba(16,185,129,0.3)" stroke-width="1"/>
+        <text x="310" y="146" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#047857" text-anchor="middle">UniPay</text>
+        <rect x="400" y="110" width="140" height="54" rx="5" fill="rgba(16,185,129,0.16)" stroke="rgba(16,185,129,0.35)" stroke-width="1"/>
+        <text x="470" y="141" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#047857" text-anchor="middle">Connect</text>
+        <!-- Connector lines -->
+        <line x1="150" y1="134" x2="150" y2="110" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="310" y1="120" x2="310" y2="88" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="470" y1="110" x2="470" y2="72" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+        <!-- Top nodes -->
+        <circle cx="150" cy="103" r="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.35)" stroke-width="1.2"/>
+        <circle cx="310" cy="81" r="8" fill="rgba(16,185,129,0.13)" stroke="rgba(16,185,129,0.42)" stroke-width="1.2"/>
+        <circle cx="470" cy="65" r="8" fill="rgba(16,185,129,0.17)" stroke="rgba(16,185,129,0.48)" stroke-width="1.2"/>
+        <!-- Bridge paths -->
+        <path d="M158 103 Q234 72 302 81" stroke="rgba(16,185,129,0.14)" stroke-width="1" fill="none"/>
+        <path d="M318 81 Q394 60 462 65" stroke="rgba(16,185,129,0.14)" stroke-width="1" fill="none"/>
+        <!-- Labels -->
+        <text x="150" y="88" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Identity</text>
+        <text x="310" y="66" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Payments</text>
+        <text x="470" y="50" font-family="Inter,sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">Data API</text>
+        <!-- Scale marker -->
+        <text x="310" y="24" font-family="Inter,sans-serif" font-size="10" font-weight="600" fill="#94a3b8" text-anchor="middle" letter-spacing="0.5">Scales with your institution</text>
+        <line x1="140" y1="24" x2="228" y2="24" stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
+        <line x1="392" y1="24" x2="480" y2="24" stroke="rgba(148,163,184,0.25)" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       §2  PHILOSOPHY
+  ════════════════════════════════ -->
+  <section class="pr-philosophy">
+    <div class="section-inner">
+      <div class="section-head center" data-anim>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Our approach</div>
+        <h2>Not a Fixed Pricing Model</h2>
+        <p>Every university is built differently. DigiRoad designs solutions around your institution's reality, not a generic tier.</p>
+      </div>
+      <div class="philosophy-grid">
+        <div class="philosophy-card" data-anim data-d="1">
+          <div class="ph-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#10b981" stroke-width="1.3"/><circle cx="10" cy="10" r="3" stroke="#10b981" stroke-width="1.2"/><path d="M10 3v2M10 15v2M3 10h2M15 10h2" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <h3>Custom implementation</h3>
+          <p>We scope each deployment around your existing systems, student population, and institutional workflows ,  not a template.</p>
+        </div>
+        <div class="philosophy-card" data-anim data-d="2">
+          <div class="ph-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2Z" stroke="#10b981" stroke-width="1.3" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h3>Scalable architecture</h3>
+          <p>Pricing reflects the infrastructure needed today and the capacity to grow ,  without re-contracting as your institution expands.</p>
+        </div>
+        <div class="philosophy-card" data-anim data-d="3">
+          <div class="ph-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M4 6h8M4 14h10" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="6" r="2" fill="#10b981" fill-opacity="0.5"/></svg></div>
+          <h3>Flexible deployment</h3>
+          <p>Deploy one module, two, or the full platform. Pricing is structured around what you actually need ,  not bundled to inflate cost.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       §4  REVENUE MODEL
+  ════════════════════════════════ -->
+  <section class="pr-revenue">
+    <div class="section-inner">
+      <div class="section-head" data-anim>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Revenue model</div>
+        <h2>A Platform That Generates Revenue</h2>
+        <p>DigiRoad enables universities to participate in financial flows, not just pay for software.</p>
+      </div>
+
+      <!-- Main interchange card -->
+      <div class="interchange-card" data-anim data-d="1">
+        <div class="interchange-card-inner">
+          <!-- Left: messaging -->
+          <div>
+            <div class="interchange-eyebrow"><span class="interchange-dot"></span>Interchange revenue sharing</div>
+            <h3>Turn everyday student<br>transactions into a<br><span>new revenue stream</span></h3>
+            <p>Every transaction processed through UniPay generates interchange fees. DigiRoad shares a portion of these fees directly with partner universities ,  creating a continuous, passive revenue stream tied to student activity.</p>
+            <div class="interchange-key">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5l1.5 3 3.5.5-2.5 2.5.6 3.5L7 9.5l-3.1 1.5.6-3.5L2 5l3.5-.5L7 1.5Z" stroke="#10b981" stroke-width="1.2" stroke-linejoin="round"/></svg>
+              Revenue that scales with your student population
+            </div>
+          </div>
+          <!-- Right: benefit pills -->
+          <div class="interchange-benefits">
+            <div class="int-benefit">
+              <div class="int-benefit-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5v12M4 5.5l3.5-4 3.5 4" stroke="#10b981" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="int-benefit-text">
+                <h5>On-campus payment revenue</h5>
+                <p>Every in-person or digital campus transaction generates interchange fees shared with your institution.</p>
+              </div>
+            </div>
+            <div class="int-benefit">
+              <div class="int-benefit-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="5.5" stroke="#10b981" stroke-width="1.3"/><path d="M7.5 4v3.5l2 2" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+              <div class="int-benefit-text">
+                <h5>Student spending</h5>
+                <p>Wallets, food, transport, accommodation ,  each spend category adds to your institution's revenue share.</p>
+              </div>
+            </div>
+            <div class="int-benefit">
+              <div class="int-benefit-icon"><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 7.5l3 3 6-6" stroke="#10b981" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="int-benefit-text">
+                <h5>Partner merchant transactions</h5>
+                <p>DigiRoad's partner merchant network extends revenue generation beyond your campus perimeter.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Flow diagram -->
+      <div class="flow-diagram" data-anim data-d="2">
+        <div class="flow-diagram-title">How interchange revenue flows</div>
+        <div class="flow-nodes">
+
+          <div class="flow-node active">
+            <div class="flow-node-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7" r="3" stroke="#10b981" stroke-width="1.3"/><path d="M4 17c0-3.31 2.69-6 6-6s6 2.69 6 6" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="flow-node-label">Student</div>
+            <div class="flow-node-sub">initiates payment</div>
+          </div>
+
+          <div class="flow-arrow">
+            <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M2 7h22M18 2l6 5-6 5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="flow-node active">
+            <div class="flow-node-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="10" rx="2.5" stroke="#10b981" stroke-width="1.3"/><path d="M2 10h16" stroke="#10b981" stroke-width="1.2"/></svg>
+            </div>
+            <div class="flow-node-label">Payment</div>
+            <div class="flow-node-sub">processed via card / wallet</div>
+          </div>
+
+          <div class="flow-arrow">
+            <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M2 7h22M18 2l6 5-6 5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="flow-node active">
+            <div class="flow-node-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="7" width="14" height="10" rx="2.5" stroke="#10b981" stroke-width="1.3"/><path d="M7 7V6a3 3 0 016 0v1" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><circle cx="10" cy="12" r="2" fill="#10b981" fill-opacity="0.4"/></svg>
+            </div>
+            <div class="flow-node-label">UniPay</div>
+            <div class="flow-node-sub">routes the transaction</div>
+          </div>
+
+          <div class="flow-arrow">
+            <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M2 7h22M18 2l6 5-6 5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="flow-node active">
+            <div class="flow-node-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.5 5 5.5.8-4 3.9.95 5.5L10 14.75l-4.95 2.45L6 11.7 2 7.8l5.5-.8L10 2Z" stroke="#10b981" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="flow-node-label">Interchange</div>
+            <div class="flow-node-sub">fee generated</div>
+          </div>
+
+          <div class="flow-arrow">
+            <svg width="28" height="14" viewBox="0 0 28 14" fill="none"><path d="M2 7h22M18 2l6 5-6 5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <div class="flow-node highlight">
+            <div class="flow-node-circle">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 1.5L3 5V9C3 13.5 6 17 10 18C14 17 17 13.5 17 9V5L10 1.5Z" stroke="#047857" stroke-width="1.4" stroke-linejoin="round"/><path d="M7 10l2 2 4-4" stroke="#047857" stroke-width="1.3" stroke-linecap="round"/></svg>
+            </div>
+            <div class="flow-node-label" style="color:var(--g700)">University</div>
+            <div class="flow-node-sub">receives revenue share</div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Supporting cards -->
+      <div class="revenue-support-grid" style="margin-top: 20px;">
+        <div class="rev-sup-card" data-anim data-d="1">
+          <div class="rev-sup-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v4M9 12v4M2 9h4M12 9h4" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/><circle cx="9" cy="9" r="3" stroke="#10b981" stroke-width="1.2"/></svg></div>
+          <div>
+            <h4>Continuous revenue generation</h4>
+            <p>Revenue flows automatically with every qualifying transaction ,  no manual effort required from your institution.</p>
+          </div>
+        </div>
+        <div class="rev-sup-card" data-anim data-d="2">
+          <div class="rev-sup-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 13L7 9l3 3 5-6" stroke="#10b981" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4>Scales with student activity</h4>
+            <p>As your student population grows and engages more, interchange revenue scales proportionally ,  without renegotiation.</p>
+          </div>
+        </div>
+        <div class="rev-sup-card" data-anim data-d="3">
+          <div class="rev-sup-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9l4 4 8-8" stroke="#10b981" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 1.5L2.5 5v6c0 3.6 2.9 6.8 6.5 7.5C12.6 17.8 15.5 14.6 15.5 11V5L9 1.5Z" stroke="#10b981" stroke-width="1.1" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4>Aligned incentives</h4>
+            <p>DigiRoad succeeds when your students transact more. Our revenue model creates genuine alignment between DigiRoad and your institution.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       §5  MODULES
+  ════════════════════════════════ -->
+  <section class="pr-modules">
+    <div class="section-inner">
+      <div class="section-head center" data-anim>
+        <div class="eyebrow"><span class="eyebrow-dot"></span>Platform</div>
+        <h2>What You're Investing In</h2>
+        <p>Three core modules ,  deployable individually or as a unified platform ,  each built for institutional-grade scale.</p>
+      </div>
+      <div class="modules-grid">
+
+        <div class="module-card" data-anim data-d="1">
+          <div class="module-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#10b981" stroke-width="1.5"/><path d="M6 12h12M6 8h9M6 16h10" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="module-badge">Solution</div>
+          <h3>eCampus</h3>
+          <p>The digital student experience layer ,  giving universities a unified platform for identity, communication, campus services, and daily engagement.</p>
+          <div class="module-features">
+            <div class="module-feature"><span class="module-dot"></span>Digital student identity &amp; campus card</div>
+            <div class="module-feature"><span class="module-dot"></span>Campus services &amp; event management</div>
+            <div class="module-feature"><span class="module-dot"></span>Multi-channel communications</div>
+            <div class="module-feature"><span class="module-dot"></span>Admin dashboard &amp; analytics</div>
+          </div>
+          <a href="ecampus.html" class="module-link">Learn about eCampus <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+
+        <div class="module-card" data-anim data-d="2">
+          <div class="module-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="13" rx="3" stroke="#10b981" stroke-width="1.5"/><path d="M8 8V7a4 4 0 018 0v1" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="14.5" r="2.5" fill="#10b981" fill-opacity="0.45"/></svg></div>
+          <div class="module-badge">Solution</div>
+          <h3>UniPay</h3>
+          <p>The financial infrastructure engine ,  enabling cross-border tuition collection, student wallets, and compliant payment rails across 60+ currencies. The source of interchange revenue.</p>
+          <div class="module-features">
+            <div class="module-feature"><span class="module-dot"></span>Cross-border tuition collection</div>
+            <div class="module-feature"><span class="module-dot"></span>Student wallets &amp; campus spend</div>
+            <div class="module-feature"><span class="module-dot"></span>Automated settlement &amp; reconciliation</div>
+            <div class="module-feature"><span class="module-dot"></span>Interchange revenue sharing</div>
+          </div>
+          <a href="unipay.html" class="module-link">Learn about UniPay <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+
+        <div class="module-card" data-anim data-d="3">
+          <div class="module-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8" stroke="#10b981" stroke-width="1.5"/><path d="M8 12h8M12 8v8" stroke="#10b981" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="2" fill="#10b981" fill-opacity="0.3"/></svg></div>
+          <div class="module-badge">Solution</div>
+          <h3>DigiRoad Connect</h3>
+          <p>The API infrastructure and data exchange layer ,  enabling institutional interoperability, SIS integrations, and real-time data flows across your systems.</p>
+          <div class="module-features">
+            <div class="module-feature"><span class="module-dot"></span>REST API with full documentation</div>
+            <div class="module-feature"><span class="module-dot"></span>SIS / ERP connectors (Banner, PeopleSoft)</div>
+            <div class="module-feature"><span class="module-dot"></span>Webhook event streaming</div>
+            <div class="module-feature"><span class="module-dot"></span>Sandbox &amp; developer environment</div>
+          </div>
+          <a href="connect.html" class="module-link">Learn about Connect <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       §7  FORM
+  ════════════════════════════════ -->
+  <section class="pr-form-section" id="request-pricing">
+    <div class="section-inner">
+      <div class="form-layout">
+
+        <!-- Left: copy -->
+        <div class="form-left" data-anim>
+          <div class="eyebrow" style="margin-bottom:14px"><span class="eyebrow-dot"></span>Get in touch</div>
+          <h2>Request a Custom Proposal</h2>
+          <p>Tell us about your institution and our solutions team will design a tailored proposal ,  including pricing and interchange revenue projections.</p>
+          <div class="trust-list">
+            <div class="trust-item">
+              <div class="trust-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p><strong>No obligation.</strong> A proposal is the start of a conversation, not a commitment.</p>
+            </div>
+            <div class="trust-item">
+              <div class="trust-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p><strong>Revenue projections included.</strong> We model expected interchange revenue as part of every proposal.</p>
+            </div>
+            <div class="trust-item">
+              <div class="trust-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p><strong>3-day turnaround.</strong> Our solutions team responds to every qualified enquiry promptly.</p>
+            </div>
+            <div class="trust-item">
+              <div class="trust-check"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1.5 5l2.5 2.5 4.5-4.5" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <p><strong>Confidential.</strong> Your details are shared only with DigiRoad's solutions team.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div data-anim data-d="2">
+          <div class="form-card">
+            <h3>Pricing Request</h3>
+            <p>Complete the form and we'll be in touch within 3 business days.</p>
+
+            <form id="pricingForm" novalidate>
+              <fieldset class="form-fieldset">
+                <legend class="form-legend">Basic information</legend>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label">Full name</label><input class="form-input" id="pfName" type="text" placeholder="Your full name" required /><span class="form-field-error" id="errPfName"></span></div>
+                  <div class="form-group"><label class="form-label">Work email</label><input class="form-input" id="pfEmail" type="email" placeholder="you@university.edu" required /><span class="form-field-error" id="errPfEmail"></span></div>
+                  <div class="form-group"><label class="form-label">University name</label><input class="form-input" id="pfUni" type="text" placeholder="Name of institution" required /><span class="form-field-error" id="errPfUni"></span></div>
+                  <div class="form-group"><label class="form-label">Website</label><input class="form-input" id="pfWebsite" type="url" placeholder="https://university.edu" required /><span class="form-field-error" id="errPfWebsite"></span></div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-fieldset">
+                <legend class="form-legend">Institution details</legend>
+                <div class="form-row">
+                  <div class="form-group"><label class="form-label">Country / Region</label><input class="form-input" id="pfCountry" type="text" placeholder="e.g. United Kingdom" /></div>
+                  <div class="form-group"><label class="form-label">Student population</label>
+                    <select class="form-select" id="pfPopulation">
+                      <option value="" disabled selected>Select range</option>
+                      <option>Under 5,000 students</option>
+                      <option>5,000 – 15,000 students</option>
+                      <option>15,000 – 50,000 students</option>
+                      <option>50,000+ students</option>
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-fieldset">
+                <legend class="form-legend">Solutions of interest</legend>
+                <div class="chip-row">
+                  <div class="chip" data-val="ecampus">eCampus</div>
+                  <div class="chip" data-val="unipay">UniPay</div>
+                  <div class="chip" data-val="connect">Connect</div>
+                  <div class="chip" data-val="full">Full Platform</div>
+                </div>
+              </fieldset>
+
+              <fieldset class="form-fieldset" style="margin-bottom:18px">
+                <legend class="form-legend">Tell us about your goals <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--ink-3)">(optional)</span></legend>
+                <textarea class="form-textarea" id="pfGoals" placeholder="Describe your current infrastructure, key challenges, or what you're hoping to achieve with DigiRoad…"></textarea>
+              </fieldset>
+
+              <button type="submit" class="form-submit">Request Pricing</button>
+              <p class="form-note">By submitting you agree to our Privacy Policy. We will not share your details externally.</p>
+            </form>
+
+            <div class="form-success" id="pricingSuccess">
+              <div class="suc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 12l5 5L19 7" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <h3>Request received</h3>
+              <p>Thank you. Our solutions team will review your enquiry and send a tailored proposal ,  including interchange revenue projections ,  within 3 business days.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       §8  TRUST
+  ════════════════════════════════ -->
+  <section class="pr-trust">
+    <div class="section-inner">
+      <div class="trust-grid">
+        <div class="trust-card" data-anim data-d="1">
+          <div class="trust-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L3 6v7c0 4.42 3.58 8 8 8s8-3.58 8-8V6L11 2Z" stroke="#10b981" stroke-width="1.4" stroke-linejoin="round"/><path d="M7.5 11l2.5 2.5 5-5" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div>
+            <h4>Built for long-term institutional partnerships</h4>
+            <p>DigiRoad is designed as infrastructure ,  not a subscription to cancel. Our pricing, support, and revenue model are structured around multi-year institutional relationships.</p>
+          </div>
+        </div>
+        <div class="trust-card" data-anim data-d="2">
+          <div class="trust-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 14l4-5 3 3 4-5 4 4" stroke="#10b981" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="3" width="18" height="16" rx="3" stroke="#10b981" stroke-width="1.4"/></svg></div>
+          <div>
+            <h4>Aligned with your growth</h4>
+            <p>As your student population grows and financial flows increase, your interchange revenue grows proportionally. DigiRoad's success is tied directly to yours.</p>
+          </div>
+        </div>
+        <div class="trust-card" data-anim data-d="3">
+          <div class="trust-card-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2L4 6v8l7 4 7-4V6L11 2Z" stroke="#10b981" stroke-width="1.4" stroke-linejoin="round"/><path d="M11 2v12M4 6l7 4 7-4" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <div>
+            <h4>Designed for scalability and sustainability</h4>
+            <p>Our infrastructure handles millions of students across 44+ countries. Pricing, architecture, and revenue models scale without degradation as you grow.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /pr-wrap -->
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo"><img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" /></a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col"><h5 class="footer-col-title">Solutions</h5><ul><li><a href="ecampus.html">eCampus</a></li><li><a href="connect.html">DigiRoad Connect</a></li><li><a href="unipay.html">UniPay</a></li></ul></div>
+      <div class="footer-nav-col"><h5 class="footer-col-title">Company</h5><ul><li><a href="about.html">About</a></li><li><a href="newsroom.html">Newsroom</a></li><li><a href="jobs.html">Jobs</a></li><li><a href="contact.html">Contact</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+      <div class="footer-nav-col"><h5 class="footer-col-title">Resources</h5><ul><li><a href="docs.html">Documentation</a></li><li><a href="security.html">Security</a></li><li><a href="support.html">Get Support</a></li><li><a href="partner.html">Become a Partner</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 DigiRoad Infrastructure. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script src="js/form-submit.js"></script>
+<script src="js/nav.js"></script>
+<script>
+(function () {
+
+  /* Scroll reveal */
+  var io = new IntersectionObserver(function (e) {
+    e.forEach(function (entry) {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+    });
+  }, { threshold: 0.06 });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+
+  /* Chips */
+  document.querySelectorAll('.chip').forEach(function (c) {
+    c.addEventListener('click', function () { c.classList.toggle('on'); });
+  });
+
+  /* Hero CTA smooth scroll */
+  document.querySelector('.pr-hero-cta').addEventListener('click', function (e) {
+    e.preventDefault();
+    var t = document.getElementById('request-pricing');
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* Form submit */
+  var form = document.getElementById('pricingForm');
+  var succ = document.getElementById('pricingSuccess');
+
+  function setFieldError(inputId, errId, msg) {
+    var input = document.getElementById(inputId);
+    var err   = document.getElementById(errId);
+    if (msg) {
+      input.classList.add('form-input--error');
+      err.textContent = msg;
+      err.classList.add('visible');
+    } else {
+      input.classList.remove('form-input--error');
+      err.textContent = '';
+      err.classList.remove('visible');
+    }
+  }
+
+  if (form) {
+    document.getElementById('pfName').addEventListener('input',    function () { setFieldError('pfName',    'errPfName',    ''); });
+    document.getElementById('pfEmail').addEventListener('input',   function () { setFieldError('pfEmail',   'errPfEmail',   ''); });
+    document.getElementById('pfUni').addEventListener('input',     function () { setFieldError('pfUni',     'errPfUni',     ''); });
+    document.getElementById('pfWebsite').addEventListener('input', function () { setFieldError('pfWebsite', 'errPfWebsite', ''); });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var valid = true;
+
+      var name  = document.getElementById('pfName').value.trim();
+      var email = document.getElementById('pfEmail').value.trim();
+      var uni   = document.getElementById('pfUni').value.trim();
+
+      if (!name) {
+        setFieldError('pfName', 'errPfName', 'Please enter your full name.');
+        valid = false;
+      } else {
+        setFieldError('pfName', 'errPfName', '');
+      }
+
+      if (!email) {
+        setFieldError('pfEmail', 'errPfEmail', 'Please enter your work email.');
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setFieldError('pfEmail', 'errPfEmail', 'Please enter a valid email address.');
+        valid = false;
+      } else {
+        setFieldError('pfEmail', 'errPfEmail', '');
+      }
+
+      if (!uni) {
+        setFieldError('pfUni', 'errPfUni', 'Please enter your university name.');
+        valid = false;
+      } else {
+        setFieldError('pfUni', 'errPfUni', '');
+      }
+
+      var website = document.getElementById('pfWebsite').value.trim();
+      if (!website) {
+        setFieldError('pfWebsite', 'errPfWebsite', 'Please enter your university website.');
+        valid = false;
+      } else if (!/^https?:\/\/.+\..+/.test(website)) {
+        setFieldError('pfWebsite', 'errPfWebsite', 'Please enter a valid URL (e.g. https://university.edu).');
+        valid = false;
+      } else {
+        setFieldError('pfWebsite', 'errPfWebsite', '');
+      }
+
+      if (!valid) {
+        var firstErr = form.querySelector('.form-input--error');
+        if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      var btn = form.querySelector('button[type="submit"]');
+      var origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Submitting…';
+
+      var solutions = Array.from(document.querySelectorAll('.chip.on')).map(function (c) { return c.dataset.val; });
+
+      submitForm('pricing', {
+        full_name:          name,
+        email:              email,
+        university_name:    uni,
+        website:            website,
+        country:            document.getElementById('pfCountry').value.trim(),
+        student_population: document.getElementById('pfPopulation').value,
+        solutions:          solutions,
+        goals:              document.getElementById('pfGoals').value.trim()
+      },
+      function () {
+        form.style.display = 'none';
+        succ.style.display = 'block';
+      },
+      function (errMsg) {
+        btn.disabled = false;
+        btn.textContent = origText;
+        var existing = form.querySelector('.db-err-banner');
+        if (existing) existing.remove();
+        var banner = document.createElement('p');
+        banner.className = 'db-err-banner';
+        banner.style.cssText = 'color:#dc2626;font-size:13px;margin-top:12px;text-align:center;';
+        banner.textContent = errMsg;
+        form.appendChild(banner);
+      });
+    });
+  }
+
+})();
+</script>
+</body>
+</html>

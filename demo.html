@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Demo ,  DigiRoad for Universities</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+
+    /* ── Page base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:   #f4f6f8;
+      --g700:    #0B2E26;
+      --g600:    #065f46;
+      --g500:    #10B981;
+      --g400:    #059669;
+      --g300:    #d1fae5;
+      --ink:     #0f172a;
+      --ink-2:   #475569;
+      --ink-3:   #94a3b8;
+      --border:  #e2e8f0;
+      --border-hover: rgba(16,185,129,0.4);
+      --glass:   #ffffff;
+      --glass-2: rgba(16,185,129,0.07);
+      --radius:  14px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* Keep navbar dark (uses styles.css) but isolate page bg */
+    .demo-page-wrap {
+      background: var(--paper);
+    }
+
+    /* ── Hero ──────────────────────────────────────────────────── */
+    .demo-hero {
+      padding: 148px 24px 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-hero-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 0.22;
+      pointer-events: none;
+      mix-blend-mode: multiply;
+    }
+
+    .demo-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(244,246,248,0.05) 0%, rgba(244,246,248,0.70) 65%, rgba(244,246,248,1) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .demo-hero > *:not(.demo-hero-bg) {
+      position: relative;
+      z-index: 2;
+    }
+
+    .demo-hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--glass-2);
+      border: 1px solid rgba(16,185,129,0.25);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--g500);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .demo-hero-eyebrow span {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--g500);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    .demo-hero h1 {
+      font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      max-width: 700px;
+      margin: 0 auto 20px;
+    }
+
+    .demo-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, #10b981, #059669);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .demo-hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      max-width: 540px;
+      margin: 0 auto 14px;
+      line-height: 1.65;
+    }
+
+    .demo-hero-note {
+      font-size: 0.85rem;
+      color: var(--ink-3);
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── Main layout ───────────────────────────────────────────── */
+    .demo-main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── Form card ─────────────────────────────────────────────── */
+    .demo-form-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 48px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .demo-form-card.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── Form sections ─────────────────────────────────────────── */
+    .form-section {
+      margin-bottom: 40px;
+    }
+
+    .form-section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .form-section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .form-section-num {
+      width: 24px; height: 24px;
+      border-radius: 50%;
+      background: var(--glass-2);
+      border: 1px solid rgba(16,185,129,0.3);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--g500);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .form-section-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    /* ── Field grid ────────────────────────────────────────────── */
+    .field-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field-grid-2 { grid-template-columns: 1fr 1fr; }
+    .field-grid-1 { grid-template-columns: 1fr; }
+
+    /* ── Field ─────────────────────────────────────────────────── */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      position: relative;
+    }
+
+    .field label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      letter-spacing: 0.01em;
+    }
+
+    .field label .opt {
+      color: var(--ink-3);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;   /* ≥16px prevents iOS auto-zoom on focus */
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      width: 100%;
+      -webkit-appearance: none;
+    }
+
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 7L11 1' stroke='%236b7280' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    .field select option {
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+      line-height: 1.6;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #10b981;
+      background: #ffffff;
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.10);
+    }
+
+    .field input.valid {
+      border-color: #10b981;
+      background: #ffffff;
+    }
+
+    .field input.invalid,
+    .field select.invalid {
+      border-color: #f87171;
+    }
+
+    .field-error {
+      font-size: 0.72rem;
+      color: #dc2626;
+      display: none;
+      margin-top: 2px;
+    }
+
+    .field-error.show { display: block; }
+
+    /* Valid checkmark */
+    .field-check {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .field input.valid ~ .field-check { opacity: 1; top: calc(50% + 11px); }
+
+    /* ── Multi-select checkboxes ───────────────────────────────── */
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 2px;
+    }
+
+    .check-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s;
+      user-select: none;
+    }
+
+    .check-item:hover {
+      background: rgba(16,185,129,0.05);
+      border-color: rgba(16,185,129,0.2);
+    }
+
+    .check-item input[type="checkbox"] { display: none; }
+
+    .check-item.checked {
+      background: rgba(16,185,129,0.08);
+      border-color: rgba(16,185,129,0.4);
+    }
+
+    .check-box {
+      width: 18px; height: 18px;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background 0.18s, border-color 0.18s;
+    }
+
+    .check-item.checked .check-box {
+      background: var(--g500);
+      border-color: var(--g500);
+    }
+
+    .check-box svg { display: none; }
+    .check-item.checked .check-box svg { display: block; }
+
+    .check-label {
+      font-size: 0.83rem;
+      color: var(--ink-2);
+      line-height: 1.3;
+    }
+
+    .check-item.checked .check-label { color: var(--ink); }
+
+    /* ── Radio buttons (institution type) ─────────────────────── */
+    .radio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-size: 0.82rem;
+      color: var(--ink-2);
+      background: #f8fafc;
+      transition: background 0.18s, border-color 0.18s, color 0.18s;
+      user-select: none;
+      text-align: center;
+    }
+
+    .radio-item:hover {
+      background: rgba(16,185,129,0.05);
+      border-color: rgba(16,185,129,0.2);
+    }
+
+    .radio-item input[type="radio"] { display: none; }
+
+    .radio-item.selected {
+      background: rgba(16,185,129,0.08);
+      border-color: rgba(16,185,129,0.5);
+      color: #065f46;
+      font-weight: 500;
+    }
+
+    /* ── Submit ────────────────────────────────────────────────── */
+    .demo-submit-row {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .demo-submit {
+      width: 100%;
+      padding: 15px 24px;
+      background: var(--g500);
+      color: #fff;
+      border: none;
+      border-radius: 100px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+      letter-spacing: -0.01em;
+    }
+
+    .demo-submit:hover {
+      background: var(--g400);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(16,185,129,0.3);
+    }
+
+    .demo-submit:active { transform: none; }
+
+    .demo-submit svg { flex-shrink: 0; }
+
+    .demo-submit-note {
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--ink-3);
+    }
+
+    /* ── Success state ─────────────────────────────────────────── */
+    .demo-success {
+      display: none;
+      text-align: center;
+      padding: 64px 32px;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .demo-success.show { display: flex; }
+
+    .success-icon {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .demo-success h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .demo-success p {
+      font-size: 0.9rem;
+      color: var(--ink-2);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    /* ── Trust panel ───────────────────────────────────────────── */
+    .demo-trust {
+      position: sticky;
+      top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease 0.15s, transform 0.55s ease 0.15s;
+    }
+
+    .demo-trust.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .trust-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .trust-card-title {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--g500);
+      margin-bottom: 18px;
+    }
+
+    .trust-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .trust-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.85rem;
+      color: var(--ink-2);
+      line-height: 1.5;
+    }
+
+    .trust-list li .ti {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .trust-list li strong {
+      color: var(--ink);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* Privacy note */
+    .trust-privacy {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .trust-privacy svg { flex-shrink: 0; margin-top: 1px; }
+
+    .trust-privacy p {
+      font-size: 0.76rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    /* Divider */
+    .form-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 36px 0;
+    }
+
+    /* Field label group */
+    .field-group-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      margin-bottom: 10px;
+    }
+
+    /* ── Responsive ────────────────────────────────────────────── */
+
+    /* Tablet landscape / small desktop (≤ 1024px) */
+    @media (max-width: 1024px) {
+      .demo-main {
+        grid-template-columns: 1fr 320px;
+        gap: 28px;
+      }
+    }
+
+    /* Tablet portrait (≤ 900px) ,  stack trust panel below form */
+    @media (max-width: 900px) {
+      .demo-main {
+        grid-template-columns: 1fr;
+        padding: 0 20px 80px;
+      }
+      .demo-trust {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .trust-privacy { grid-column: 1 / -1; }
+      .field-grid-2 { grid-template-columns: 1fr 1fr; }
+      .radio-grid { grid-template-columns: repeat(2, 1fr); }
+      .demo-hero { padding: 136px 24px 64px; }
+    }
+
+    /* Large phone (≤ 680px) */
+    @media (max-width: 680px) {
+      .demo-trust {
+        grid-template-columns: 1fr;
+      }
+      .trust-privacy { grid-column: auto; }
+      .field-grid-2 { grid-template-columns: 1fr; }
+      .demo-form-card { padding: 32px 24px; }
+      .demo-main { padding: 0 16px 72px; }
+    }
+
+    /* Phone (≤ 480px) */
+    @media (max-width: 480px) {
+      .demo-hero { padding: 118px 16px 52px; }
+      .demo-hero h1 { font-size: 1.9rem; }
+      .demo-hero-sub { font-size: 0.95rem; }
+      .demo-form-card { padding: 24px 16px; border-radius: 14px; }
+      .check-grid { grid-template-columns: 1fr; }
+      .radio-grid { grid-template-columns: repeat(2, 1fr); }
+      .demo-submit { font-size: 0.9rem; padding: 14px 20px; }
+      .demo-main { padding: 0 12px 60px; gap: 16px; }
+      .form-section-header { margin-bottom: 18px; padding-bottom: 10px; }
+      .form-section { margin-bottom: 32px; }
+      .form-divider { margin: 28px 0; }
+    }
+
+    /* Very small phone (≤ 360px) */
+    @media (max-width: 360px) {
+      .demo-hero h1 { font-size: 1.65rem; }
+      .radio-grid { grid-template-columns: 1fr 1fr; }
+      .field input,
+      .field select,
+      .field textarea { font-size: 16px; } /* prevent iOS zoom */
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<header class="nav-float-wrap" id="navFloat"></header>
+
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="demo-hero">
+  <img src="images/hero-animation.webp" class="demo-hero-bg" aria-hidden="true" alt="" />
+  <div class="demo-hero-eyebrow">
+    <span></span>
+    University Programme
+  </div>
+  <h1>Book a Demo for<br/><em>Your University</em></h1>
+  <p class="demo-hero-sub">
+    See how DigiRoad transforms student identity, payments, and campus services into one unified infrastructure.
+  </p>
+  <p class="demo-hero-note">
+    Built for universities ready to modernise their digital and financial systems.
+  </p>
+</section>
+
+
+<!-- ═══════════════════════════ MAIN ════════════════════════════ -->
+<div class="demo-main">
+
+  <!-- ── Form card ────────────────────────────────────────────── -->
+  <div class="demo-form-card" id="demoFormCard">
+
+    <!-- Success state (hidden until submit) -->
+    <div class="demo-success" id="demoSuccess">
+      <div class="success-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <path d="M6 14.5L11.5 20L22 9" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Request Received</h3>
+      <p>We'll review your submission and reach out within one business day to schedule your tailored demo.</p>
+      <a href="index.html" style="margin-top:8px; font-size:0.83rem; color:var(--g400); text-decoration:none;">← Back to DigiRoad</a>
+    </div>
+
+    <!-- Actual form -->
+    <form id="demoForm" novalidate>
+
+      <!-- ── Section 1: Basic Information ─────────────────────── -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">1</div>
+          <span class="form-section-title">Basic Information</span>
+        </div>
+        <div class="field-grid field-grid-1">
+          <div class="field">
+            <label for="uniName">University Name</label>
+            <input type="text" id="uniName" name="uniName" placeholder="e.g. University of Edinburgh" autocomplete="organization" required />
+            <span class="field-error" id="uniNameErr">Please enter your university name.</span>
+            <svg class="field-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(16,185,129,0.15)"/><path d="M5 8.5L7.2 10.5L11 6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="field-grid field-grid-2" style="margin-top:18px;">
+          <div class="field">
+            <label for="uniWebsite">University Website</label>
+            <input type="url" id="uniWebsite" name="uniWebsite" placeholder="https://university.edu" autocomplete="url" required />
+            <span class="field-error" id="uniWebsiteErr">Please enter a valid URL.</span>
+          </div>
+          <div class="field">
+            <label for="uniCountry">Country / Region</label>
+            <select id="uniCountry" name="uniCountry" required>
+              <option value="" disabled selected>Select country</option>
+              <option>United Kingdom</option>
+              <option>United States</option>
+              <option>Canada</option>
+              <option>Australia</option>
+              <option>Germany</option>
+              <option>France</option>
+              <option>Netherlands</option>
+              <option>Spain</option>
+              <option>Italy</option>
+              <option>Sweden</option>
+              <option>Norway</option>
+              <option>Denmark</option>
+              <option>Switzerland</option>
+              <option>UAE</option>
+              <option>Saudi Arabia</option>
+              <option>Singapore</option>
+              <option>Japan</option>
+              <option>South Korea</option>
+              <option>India</option>
+              <option>Brazil</option>
+              <option>South Africa</option>
+              <option>Other</option>
+            </select>
+            <span class="field-error" id="uniCountryErr">Please select a country.</span>
+          </div>
+        </div>
+        <div class="field-grid field-grid-1" style="margin-top:18px;">
+          <div class="field">
+            <label for="uniCity">City <span class="opt">(optional)</span></label>
+            <input type="text" id="uniCity" name="uniCity" placeholder="e.g. London" autocomplete="address-level2" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 2: Institution Details ───────────────────── -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">2</div>
+          <span class="form-section-title">Institution Details</span>
+        </div>
+
+        <div class="field-grid field-grid-2">
+          <div class="field">
+            <label for="uniSize">Size of University</label>
+            <select id="uniSize" name="uniSize" required>
+              <option value="" disabled selected>Select student body size</option>
+              <option value="lt5k">Under 5,000 students</option>
+              <option value="5k-15k">5,000 – 15,000 students</option>
+              <option value="15k-50k">15,000 – 50,000 students</option>
+              <option value="50k+">50,000+ students</option>
+            </select>
+            <span class="field-error" id="uniSizeErr">Please select a size.</span>
+          </div>
+          <div class="field">
+            <label for="uniCampuses">Number of Campuses <span class="opt">(optional)</span></label>
+            <input type="number" id="uniCampuses" name="uniCampuses" placeholder="e.g. 3" min="1" max="999" />
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:18px;">
+          <div class="field-group-label">Type of Institution</div>
+          <div class="radio-grid" id="instTypeGrid">
+            <label class="radio-item">
+              <input type="radio" name="instType" value="Public" />
+              Public
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="instType" value="Private" />
+              Private
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="instType" value="International" />
+              International
+            </label>
+            <label class="radio-item">
+              <input type="radio" name="instType" value="Other" />
+              Other
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 3: Role & Contact ────────────────────────── -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">3</div>
+          <span class="form-section-title">Your Details</span>
+        </div>
+        <div class="field-grid field-grid-2">
+          <div class="field">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" placeholder="Dr. Jane Smith" autocomplete="name" required />
+            <span class="field-error" id="fullNameErr">Please enter your full name.</span>
+            <svg class="field-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(16,185,129,0.15)"/><path d="M5 8.5L7.2 10.5L11 6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="field">
+            <label for="workEmail">Work Email</label>
+            <input type="email" id="workEmail" name="workEmail" placeholder="j.smith@university.edu" autocomplete="email" required />
+            <span class="field-error" id="workEmailErr">Please enter a valid work email.</span>
+            <svg class="field-check" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(16,185,129,0.15)"/><path d="M5 8.5L7.2 10.5L11 6" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <div class="field-grid field-grid-1" style="margin-top:18px;">
+          <div class="field">
+            <label for="userRole">Your Role</label>
+            <select id="userRole" name="userRole" required>
+              <option value="" disabled selected>Select your role</option>
+              <option value="it">IT / Digital Transformation</option>
+              <option value="admin">Administration</option>
+              <option value="finance">Finance</option>
+              <option value="leadership">Leadership / Executive</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="field-error" id="userRoleErr">Please select your role.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <!-- ── Section 4: Interest & Needs ──────────────────────── -->
+      <div class="form-section">
+        <div class="form-section-header">
+          <div class="form-section-num">4</div>
+          <span class="form-section-title">Interest &amp; Needs</span>
+        </div>
+
+        <div class="field">
+          <div class="field-group-label">What are you interested in? <span style="color:var(--ink-3); font-weight:400;">(select all that apply)</span></div>
+          <div class="check-grid" id="interestGrid">
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="identity" />
+              <span class="check-box">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.8 7L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="check-label">Student Identity</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="unipay" />
+              <span class="check-box">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.8 7L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="check-label">Payments (UniPay)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="ecampus" />
+              <span class="check-box">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.8 7L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="check-label">Digital Campus (eCampus)</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" name="interest" value="connect" />
+              <span class="check-box">
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.8 7L9 1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="check-label">Data Integration (Connect)</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="field" style="margin-top:18px;">
+          <label for="challenges">What challenges are you currently facing? <span class="opt">(optional)</span></label>
+          <textarea id="challenges" name="challenges" placeholder="Describe any specific pain points, current systems, or goals you'd like to discuss in the demo…"></textarea>
+        </div>
+      </div>
+
+      <!-- ── Submit ─────────────────────────────────────────────── -->
+      <div class="demo-submit-row">
+        <button type="submit" class="demo-submit">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Request Demo
+        </button>
+        <p class="demo-submit-note">We'll be in touch within one business day. No spam, ever.</p>
+      </div>
+
+    </form>
+  </div><!-- /demo-form-card -->
+
+
+  <!-- ── Trust panel ──────────────────────────────────────────── -->
+  <aside class="demo-trust" id="demoTrust">
+
+    <!-- What to expect -->
+    <div class="trust-card">
+      <div class="trust-card-title">What to expect</div>
+      <ul class="trust-list">
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>20–30 minute walkthrough</strong>
+            A focused session with no filler ,  straight to the infrastructure that matters.
+          </div>
+        </li>
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Tailored to your institution</strong>
+            We review your submission before the call so the demo reflects your context.
+          </div>
+        </li>
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 5.5L4 7.5L8 3" stroke="#10b981" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <div>
+            <strong>Infrastructure, not just features</strong>
+            We show you how DigiRoad integrates with existing systems ,  not just a product tour.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Why DigiRoad -->
+    <div class="trust-card">
+      <div class="trust-card-title">Why DigiRoad</div>
+      <ul class="trust-list">
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="1.5" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.2"/></svg>
+          </span>
+          <div>
+            <strong>Unified, not fragmented</strong>
+            Identity, payments, and campus services through a single API layer.
+          </div>
+        </li>
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="1.5" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.2"/></svg>
+          </span>
+          <div>
+            <strong>New institutional revenue</strong>
+            Monetise student financial flows your university currently doesn't capture.
+          </div>
+        </li>
+        <li>
+          <span class="ti">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><rect x="1.5" y="1.5" width="7" height="7" rx="1.5" stroke="#10b981" stroke-width="1.2"/></svg>
+          </span>
+          <div>
+            <strong>Better student experience</strong>
+            Reduce friction across enrolment, payments, and day-to-day campus life.
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Privacy note -->
+    <div class="trust-privacy">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 1.5L2 4V8C2 11.5 4.7 14.7 8 15.5C11.3 14.7 14 11.5 14 8V4L8 1.5Z" stroke="#6b7280" stroke-width="1.1" stroke-linejoin="round"/>
+        <path d="M5.5 8L7 9.5L10.5 6.5" stroke="#6b7280" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <p>Your information is only used to prepare and schedule your demo. We do not share or sell contact data. See our <a href="#" style="color:var(--g400);text-decoration:none;">Privacy Policy</a>.</p>
+    </div>
+
+  </aside>
+
+</div><!-- /demo-main -->
+
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" />
+        </a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Solutions</h5>
+        <ul>
+          <li><a href="ecampus.html">eCampus</a></li>
+          <li><a href="connect.html">DigiRoad Connect</a></li>
+          <li><a href="unipay.html">UniPay</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="support.html">Get Support</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiRoad Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<script src="js/form-submit.js"></script>
+<script src="js/nav.js"></script>
+<script>
+(function () {
+
+  // ── Fade-in on load ──────────────────────────────────────────
+  var card  = document.getElementById('demoFormCard');
+  var trust = document.getElementById('demoTrust');
+  requestAnimationFrame(function () {
+    setTimeout(function () {
+      card.classList.add('visible');
+      trust.classList.add('visible');
+    }, 80);
+  });
+
+  // ── Radio button selection ───────────────────────────────────
+  document.querySelectorAll('.radio-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var name = item.querySelector('input').name;
+      document.querySelectorAll('.radio-item input[name="' + name + '"]').forEach(function (inp) {
+        inp.closest('.radio-item').classList.remove('selected');
+      });
+      item.classList.add('selected');
+      item.querySelector('input').checked = true;
+    });
+  });
+
+  // ── Checkbox toggle ──────────────────────────────────────────
+  document.querySelectorAll('.check-item').forEach(function (item) {
+    item.addEventListener('click', function () {
+      var inp = item.querySelector('input[type="checkbox"]');
+      inp.checked = !inp.checked;
+      item.classList.toggle('checked', inp.checked);
+    });
+  });
+
+  // ── Inline validation helpers ────────────────────────────────
+  function setValid(input) {
+    input.classList.remove('invalid');
+    input.classList.add('valid');
+  }
+
+  function setInvalid(input, errId, msg) {
+    input.classList.remove('valid');
+    input.classList.add('invalid');
+    var err = document.getElementById(errId);
+    if (err) { err.textContent = msg || err.textContent; err.classList.add('show'); }
+  }
+
+  function clearError(input, errId) {
+    input.classList.remove('invalid');
+    var err = document.getElementById(errId);
+    if (err) err.classList.remove('show');
+  }
+
+  function validateEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+  }
+
+  function validateUrl(v) {
+    try { new URL(v); return true; } catch (_) { return false; }
+  }
+
+  // Live validation on blur
+  var rules = [
+    { id: 'uniName',    errId: 'uniNameErr',    validate: function(v){ return v.trim().length > 1; }, msg: 'Please enter your university name.' },
+    { id: 'uniWebsite', errId: 'uniWebsiteErr', validate: validateUrl,  msg: 'Please enter a valid URL (include https://).' },
+    { id: 'uniCountry', errId: 'uniCountryErr', validate: function(v){ return v !== ''; }, msg: 'Please select a country.' },
+    { id: 'uniSize',    errId: 'uniSizeErr',    validate: function(v){ return v !== ''; }, msg: 'Please select a size.' },
+    { id: 'fullName',   errId: 'fullNameErr',   validate: function(v){ return v.trim().length > 1; }, msg: 'Please enter your full name.' },
+    { id: 'workEmail',  errId: 'workEmailErr',  validate: validateEmail, msg: 'Please enter a valid work email.' },
+    { id: 'userRole',   errId: 'userRoleErr',   validate: function(v){ return v !== ''; }, msg: 'Please select your role.' },
+  ];
+
+  rules.forEach(function (rule) {
+    var el = document.getElementById(rule.id);
+    if (!el) return;
+    el.addEventListener('blur', function () {
+      if (rule.validate(el.value)) {
+        setValid(el);
+        clearError(el, rule.errId);
+      } else if (el.value !== '') {
+        setInvalid(el, rule.errId, rule.msg);
+      }
+    });
+    el.addEventListener('input', function () {
+      if (el.classList.contains('invalid') && rule.validate(el.value)) {
+        setValid(el);
+        clearError(el, rule.errId);
+      }
+    });
+  });
+
+  // ── Form submission ──────────────────────────────────────────
+  document.getElementById('demoForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var valid = true;
+    rules.forEach(function (rule) {
+      var el = document.getElementById(rule.id);
+      if (!el) return;
+      if (!rule.validate(el.value)) {
+        setInvalid(el, rule.errId, rule.msg);
+        valid = false;
+      }
+    });
+
+    if (!valid) {
+      // Scroll to first invalid field
+      var first = document.querySelector('.invalid');
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var demoBtn = document.querySelector('#demoForm button[type="submit"]');
+    var origHtml = demoBtn.innerHTML;
+    demoBtn.disabled = true;
+    demoBtn.textContent = 'Submitting…';
+
+    var interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(function (c) { return c.value; });
+    var instType  = (document.querySelector('input[name="instType"]:checked') || {}).value || '';
+
+    submitForm('demo', {
+      uni_name:     document.getElementById('uniName').value.trim(),
+      uni_website:  document.getElementById('uniWebsite').value.trim(),
+      uni_country:  document.getElementById('uniCountry').value,
+      uni_city:     document.getElementById('uniCity').value.trim(),
+      uni_size:     document.getElementById('uniSize').value,
+      uni_campuses: parseInt(document.getElementById('uniCampuses').value) || null,
+      inst_type:    instType,
+      full_name:    document.getElementById('fullName').value.trim(),
+      email:        document.getElementById('workEmail').value.trim(),
+      role:         document.getElementById('userRole').value,
+      interests:    interests,
+      challenges:   document.getElementById('challenges').value.trim()
+    },
+    function () {
+      document.getElementById('demoForm').style.display = 'none';
+      document.getElementById('demoSuccess').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    },
+    function (errMsg) {
+      demoBtn.disabled = false;
+      demoBtn.innerHTML = origHtml;
+      var existing = document.querySelector('.db-err-banner');
+      if (existing) existing.remove();
+      var banner = document.createElement('p');
+      banner.className = 'db-err-banner';
+      banner.style.cssText = 'color:#dc2626;font-size:13px;margin-top:12px;text-align:center;';
+      banner.textContent = errMsg;
+      document.getElementById('demoForm').appendChild(banner);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DigiRoad Connect ,  The Infrastructure Connecting Universities Worldwide</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/connect.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body class="cn-page">
+
+<!-- ═══════════════════════════════════════════════════════
+     SHARED NAVBAR (default)
+═══════════════════════════════════════════════════════ -->
+<header class="nav-float-wrap" id="navFloat"></header>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     1. HERO
+═══════════════════════════════════════════════════════ -->
+<section class="cn-hero">
+  <div class="cn-hero-blob cn-hero-blob--1"></div>
+  <div class="cn-hero-blob cn-hero-blob--2"></div>
+  <div class="cn-container" style="width:100%">
+    <div class="cn-hero-inner">
+
+      <!-- Left: text -->
+      <div class="cn-hero-text">
+        <div class="cn-hero-badge cn-reveal cn-d1">
+          <span class="cn-badge-dot"></span>
+          Redefining Interoperability
+        </div>
+        <h1 class="cn-h1 cn-reveal cn-d2">
+          The Infrastructure<br>
+          <span class="cn-h1-accent">Connecting</span><br>
+          Universities Worldwide
+        </h1>
+        <p class="cn-hero-sub cn-reveal cn-d3">
+          A secure, decentralised fabric designed to unify higher education data, enabling frictionless global mobility and instant verification.
+        </p>
+        <div class="cn-hero-btns cn-reveal cn-d4">
+          <a href="#" class="cn-btn-primary">
+            Get Started
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#" class="cn-btn-secondary">
+            View Whitepaper
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: University Architecture Diagram -->
+      <div class="cn-hero-visual cn-reveal-right cn-d3">
+        <svg viewBox="-4 0 588 488" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="DigiRoad Connect university architecture diagram" style="width:100%;height:auto;display:block;">
+          <defs>
+            <filter id="arc-glow">
+              <feGaussianBlur stdDeviation="2.5" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="bld-shadow">
+              <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="rgba(0,0,0,0.12)"/>
+            </filter>
+            <linearGradient id="hub-front" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#13c98a"/>
+              <stop offset="100%" stop-color="#006C49"/>
+            </linearGradient>
+            <linearGradient id="hub-side" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#006C49"/>
+              <stop offset="100%" stop-color="#024d34"/>
+            </linearGradient>
+            <pattern id="iso-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M40 0L0 0 0 40" fill="none" stroke="rgba(0,108,73,0.05)" stroke-width="0.5"/>
+            </pattern>
+          </defs>
+
+          <!-- Background -->
+          <rect width="580" height="480" fill="url(#iso-grid)"/>
+
+          <!-- ── Connection paths (behind buildings) ── -->
+          <path id="path-student-uni" d="M 82 400 L 168 370" stroke="rgba(16,185,129,0.3)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+          <path id="path-uni-gw2" d="M 230 342 L 272 314" stroke="rgba(16,185,129,0.35)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+          <path id="path-gw2-hub" d="M 268 296 L 238 192" stroke="rgba(16,185,129,0.35)" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
+          <path id="path-hub-gw1" d="M 278 188 L 368 264" stroke="rgba(16,185,129,0.35)" stroke-width="1.8" stroke-dasharray="5 4" fill="none"/>
+          <path id="path-gw1-prov" d="M 392 252 L 448 192" stroke="rgba(16,185,129,0.3)" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+          <path id="path-trust" d="M 396 298 L 478 368" stroke="rgba(16,185,129,0.2)" stroke-width="1" stroke-dasharray="4 6" fill="none"/>
+
+          <!-- ── DigiRoad Connect Hub (center-top, green neoclassical building) ── -->
+          <!-- Roof/top face -->
+          <polygon points="172,124 268,102 304,120 208,142" fill="#00a065"/>
+          <!-- Roof ridge -->
+          <polygon points="172,126 268,104 268,111 172,133" fill="#008855"/>
+          <!-- Front face -->
+          <polygon points="172,126 268,104 268,208 172,208" fill="url(#hub-front)"/>
+          <!-- Window grid on front -->
+          <line x1="202" y1="105" x2="202" y2="208" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <line x1="236" y1="105" x2="236" y2="208" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+          <line x1="172" y1="138" x2="268" y2="116" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <line x1="172" y1="160" x2="268" y2="138" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <line x1="172" y1="182" x2="268" y2="160" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <!-- Columns -->
+          <rect x="183" y="170" width="6" height="38" rx="1.5" fill="rgba(0,0,0,0.15)"/>
+          <rect x="198" y="168" width="6" height="40" rx="1.5" fill="rgba(0,0,0,0.15)"/>
+          <rect x="242" y="162" width="6" height="46" rx="1.5" fill="rgba(0,0,0,0.15)"/>
+          <rect x="256" y="160" width="6" height="48" rx="1.5" fill="rgba(0,0,0,0.15)"/>
+          <!-- Entrance arch -->
+          <rect x="212" y="170" width="28" height="38" rx="2" fill="rgba(0,0,0,0.22)"/>
+          <path d="M212 185 Q226 170 240 185" fill="rgba(255,255,255,0.06)"/>
+          <!-- Right side face -->
+          <polygon points="268,104 304,120 304,224 268,208" fill="url(#hub-side)"/>
+          <line x1="268" y1="138" x2="304" y2="154" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+          <line x1="268" y1="160" x2="304" y2="176" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+          <line x1="268" y1="182" x2="304" y2="198" stroke="rgba(0,0,0,0.12)" stroke-width="1"/>
+          <!-- Trees left of hub -->
+          <ellipse cx="152" cy="198" rx="11" ry="8" fill="#10B981" opacity="0.65"/>
+          <line x1="152" y1="206" x2="152" y2="216" stroke="#006C49" stroke-width="1.5"/>
+          <ellipse cx="140" cy="204" rx="9" ry="6" fill="#10B981" opacity="0.45"/>
+          <line x1="140" y1="210" x2="140" y2="218" stroke="#006C49" stroke-width="1.5"/>
+          <!-- Hub label pill -->
+          <rect x="162" y="68" width="158" height="28" rx="14" fill="#006C49" filter="url(#bld-shadow)"/>
+          <circle cx="178" cy="82" r="9" fill="#10B981"/>
+          <path d="M174 78L174 86L177 86C180.5 86 182.5 84.2 182.5 82C182.5 79.8 180.5 78 177 78Z" fill="white" fill-opacity="0.9"/>
+          <text x="192" y="87" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="white">DigiRoad Connect</text>
+
+          <!-- ── University Provider (top-right, tall building) ── -->
+          <polygon points="418,116 524,92 556,110 450,134" fill="#C8C6C2"/>
+          <polygon points="418,118 524,94 524,238 418,238" fill="#E4E2DE"/>
+          <!-- Window rows -->
+          <rect x="428" y="108" width="14" height="16" rx="1" fill="rgba(0,108,73,0.13)"/>
+          <rect x="450" y="104" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="472" y="100" width="14" height="16" rx="1" fill="rgba(0,108,73,0.13)"/>
+          <rect x="494" y="96" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="428" y="134" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="450" y="130" width="14" height="16" rx="1" fill="rgba(0,108,73,0.08)"/>
+          <rect x="472" y="126" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="494" y="122" width="14" height="16" rx="1" fill="rgba(0,108,73,0.08)"/>
+          <rect x="428" y="160" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="450" y="156" width="14" height="16" rx="1" fill="rgba(0,108,73,0.08)"/>
+          <rect x="472" y="152" width="14" height="16" rx="1" fill="rgba(0,108,73,0.1)"/>
+          <rect x="494" y="148" width="14" height="16" rx="1" fill="rgba(0,108,73,0.08)"/>
+          <rect x="428" y="186" width="14" height="46" rx="1" fill="rgba(0,108,73,0.07)"/>
+          <rect x="450" y="182" width="14" height="46" rx="1" fill="rgba(0,108,73,0.05)"/>
+          <polygon points="524,92 556,110 556,256 524,238" fill="#C0BEBC"/>
+          <rect x="530" y="104" width="18" height="14" rx="1" fill="rgba(0,108,73,0.09)" transform="skewY(-3.5)"/>
+          <rect x="530" y="130" width="18" height="14" rx="1" fill="rgba(0,108,73,0.07)" transform="skewY(-3.5)"/>
+          <rect x="530" y="156" width="18" height="14" rx="1" fill="rgba(0,108,73,0.09)" transform="skewY(-3.5)"/>
+          <!-- Label -->
+          <rect x="422" y="52" width="148" height="28" rx="14" fill="#006C49" filter="url(#bld-shadow)"/>
+          <text x="426" y="63" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.65)">PROVIDER</text>
+          <text x="426" y="75" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="white">Oxford · UK 🇬🇧</text>
+
+          <!-- ── University Consumer (center-left, medium building) ── -->
+          <polygon points="106,322 212,300 244,316 138,338" fill="#C8C6C2"/>
+          <polygon points="106,324 212,302 212,410 106,410" fill="#DEDAD6"/>
+          <rect x="116" y="314" width="14" height="14" rx="1" fill="rgba(0,108,73,0.11)"/>
+          <rect x="138" y="310" width="14" height="14" rx="1" fill="rgba(0,108,73,0.09)"/>
+          <rect x="160" y="306" width="14" height="14" rx="1" fill="rgba(0,108,73,0.11)"/>
+          <rect x="182" y="302" width="14" height="14" rx="1" fill="rgba(0,108,73,0.09)"/>
+          <rect x="116" y="338" width="14" height="14" rx="1" fill="rgba(0,108,73,0.09)"/>
+          <rect x="138" y="334" width="14" height="14" rx="1" fill="rgba(0,108,73,0.07)"/>
+          <rect x="160" y="330" width="14" height="14" rx="1" fill="rgba(0,108,73,0.09)"/>
+          <rect x="182" y="326" width="14" height="14" rx="1" fill="rgba(0,108,73,0.07)"/>
+          <rect x="116" y="362" width="14" height="44" rx="1" fill="rgba(0,108,73,0.06)"/>
+          <polygon points="212,302 244,316 244,426 212,410" fill="#C4C2BE"/>
+          <!-- Attached smaller wing -->
+          <polygon points="106,356 144,346 158,354 120,364" fill="#C4C2BE"/>
+          <polygon points="106,358 144,348 144,410 106,410" fill="#D4D2CE"/>
+          <polygon points="144,348 158,356 158,410 144,410" fill="#BCBAB6"/>
+          <!-- Label -->
+          <rect x="82" y="268" width="148" height="28" rx="14" fill="#006C49" filter="url(#bld-shadow)"/>
+          <text x="86" y="279" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.65)">CONSUMER</text>
+          <text x="86" y="291" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="white">MIT · USA 🇺🇸</text>
+
+          <!-- ── Student Portal (bottom-left, desk scene) ── -->
+          <rect x="38" y="388" width="64" height="46" rx="3" fill="#EEEBE8" stroke="rgba(0,108,73,0.14)" stroke-width="1"/>
+          <rect x="46" y="414" width="44" height="3" rx="1" fill="#C4C2BE"/>
+          <rect x="48" y="417" width="3" height="13" rx="1" fill="#C4C2BE"/>
+          <rect x="85" y="417" width="3" height="13" rx="1" fill="#C4C2BE"/>
+          <rect x="58" y="400" width="22" height="15" rx="1.5" fill="rgba(0,108,73,0.14)"/>
+          <rect x="61" y="402" width="16" height="11" rx="1" fill="rgba(0,108,73,0.32)"/>
+          <rect x="67" y="415" width="4" height="2" fill="#C4C2BE"/>
+          <circle cx="52" cy="403" r="4" fill="#B4B2AE"/>
+          <path d="M48 411 Q52 407 56 411" stroke="#B4B2AE" stroke-width="1.5" fill="none"/>
+          <ellipse cx="92" cy="404" rx="5" ry="4" fill="#10B981" opacity="0.55"/>
+          <line x1="92" y1="408" x2="92" y2="416" stroke="#006C49" stroke-width="1"/>
+          <!-- Data Requester label -->
+          <rect x="14" y="356" width="148" height="28" rx="14" fill="#006C49" filter="url(#bld-shadow)"/>
+          <text x="18" y="367" font-family="Inter,sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.65)">REQUESTER</text>
+          <text x="18" y="379" font-family="Inter,sans-serif" font-size="11" font-weight="800" fill="white">UCT · S. Africa 🇿🇦</text>
+
+          <!-- ── Security Exchange Ring ── -->
+          <ellipse cx="332" cy="302" rx="72" ry="34" fill="none" stroke="rgba(78,222,163,0.45)" stroke-width="6"/>
+          <ellipse cx="332" cy="302" rx="72" ry="34" fill="none" stroke="rgba(16,185,129,0.18)" stroke-width="12"/>
+          <!-- Ring directional arrows -->
+          <path d="M288 274 L280 270 L284 279" fill="#10B981" opacity="0.75"/>
+          <path d="M376 330 L384 334 L380 325" fill="#10B981" opacity="0.75"/>
+          <!-- Wavy connection lines -->
+          <path d="M255 318 Q260 314 265 318 Q270 322 275 318" stroke="rgba(16,185,129,0.45)" stroke-width="1.5" fill="none"/>
+          <path d="M392 298 Q397 294 402 298 Q407 302 412 298" stroke="rgba(16,185,129,0.45)" stroke-width="1.5" fill="none"/>
+
+          <!-- ── Security Gateway 1 (right) ── -->
+          <ellipse cx="384" cy="296" rx="26" ry="12" fill="#E4E2DE" stroke="rgba(0,108,73,0.18)" stroke-width="1"/>
+          <rect x="373" y="267" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="381" y="267" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="389" y="267" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="397" y="267" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <ellipse cx="384" cy="267" rx="22" ry="10" fill="#DEDAD6"/>
+          <circle cx="384" cy="259" r="19" fill="#10B981" filter="url(#arc-glow)"/>
+          <circle cx="384" cy="259" r="12" fill="#006C49"/>
+          <path d="M379 254L389 264M389 254L379 264" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="384" cy="259" r="19" fill="none" stroke="rgba(16,185,129,0.4)" stroke-width="1.5">
+            <animate attributeName="r" values="19;30;19" dur="2.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <rect x="346" y="232" width="110" height="22" rx="11" fill="#1B1C1C" filter="url(#bld-shadow)"/>
+          <text x="401" y="247" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">Security Gateway</text>
+
+          <!-- ── Security Gateway 2 (left) ── -->
+          <ellipse cx="278" cy="328" rx="26" ry="12" fill="#E4E2DE" stroke="rgba(0,108,73,0.18)" stroke-width="1"/>
+          <rect x="267" y="299" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="275" y="299" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="283" y="299" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <rect x="291" y="299" width="6" height="31" rx="2" fill="#DEDAD6"/>
+          <ellipse cx="278" cy="299" rx="22" ry="10" fill="#DEDAD6"/>
+          <circle cx="278" cy="291" r="19" fill="#10B981" filter="url(#arc-glow)"/>
+          <circle cx="278" cy="291" r="12" fill="#006C49"/>
+          <path d="M273 286L283 296M283 286L273 296" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="278" cy="291" r="19" fill="none" stroke="rgba(16,185,129,0.4)" stroke-width="1.5">
+            <animate attributeName="r" values="19;30;19" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.6;0;0.6" dur="2.4s" begin="1.2s" repeatCount="indefinite"/>
+          </circle>
+          <rect x="238" y="264" width="110" height="22" rx="11" fill="#1B1C1C" filter="url(#bld-shadow)"/>
+          <text x="293" y="279" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="white" text-anchor="middle">Security Gateway</text>
+
+          <!-- ── Trust Services (bottom-right, shield badges) ── -->
+          <polygon points="466,406 564,406 568,411 550,420 462,420 458,414" fill="#E0DEDA" stroke="rgba(0,108,73,0.08)" stroke-width="0.5"/>
+          <!-- Shield 1 -->
+          <rect x="472" y="370" width="30" height="30" rx="3" fill="#ECEAE6"/>
+          <path d="M487 376 L494 378.5 L494 385 C494 390 487 393 487 393 C487 393 480 390 480 385 L480 378.5 Z" fill="#10B981" opacity="0.65"/>
+          <path d="M484 384 L486 386 L491 381" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="481" y="400" width="12" height="6" rx="1" fill="#D4D2CE"/>
+          <!-- Shield 2 -->
+          <rect x="510" y="378" width="30" height="30" rx="3" fill="#ECEAE6"/>
+          <path d="M525 384 L532 386.5 L532 393 C532 398 525 401 525 401 C525 401 518 398 518 393 L518 386.5 Z" fill="#10B981" opacity="0.55"/>
+          <path d="M522 392 L524 394 L529 389" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="519" y="408" width="12" height="6" rx="1" fill="#D4D2CE"/>
+          <!-- Shield 3 -->
+          <rect x="542" y="388" width="26" height="26" rx="3" fill="#ECEAE6"/>
+          <path d="M555 394 L561 396 L561 401 C561 406 555 408 555 408 C555 408 549 406 549 401 L549 396 Z" fill="#10B981" opacity="0.45"/>
+          <path d="M552 401 L554 403 L558 399" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="549" y="414" width="12" height="6" rx="1" fill="#D4D2CE"/>
+          <!-- Trust label -->
+          <rect x="462" y="428" width="122" height="24" rx="12" fill="#1B1C1C" filter="url(#bld-shadow)"/>
+          <text x="523" y="444" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="rgba(255,255,255,0.85)" text-anchor="middle">Trust Services</text>
+
+          <!-- ── Lightning bolt animations ── -->
+          <g>
+            <path d="M252 230 L246 244 L253 244 L247 260" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <animate attributeName="opacity" values="0.7;0.1;0.7" dur="2s" repeatCount="indefinite"/>
+            </path>
+            <path d="M316 216 L322 228 L316 228 L322 242" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <animate attributeName="opacity" values="0.2;0.75;0.2" dur="2s" begin="0.7s" repeatCount="indefinite"/>
+            </path>
+            <path d="M424 236 L418 248 L425 248 L419 262" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <animate attributeName="opacity" values="0.65;0.1;0.65" dur="1.8s" begin="0.4s" repeatCount="indefinite"/>
+            </path>
+          </g>
+
+          <!-- ── Animated data packets ── -->
+          <circle r="3.2" fill="#4EDEA3" opacity="0.9" filter="url(#arc-glow)">
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0s"><mpath href="#path-student-uni"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#4EDEA3" opacity="0.9" filter="url(#arc-glow)">
+            <animateMotion dur="2.0s" repeatCount="indefinite" begin="0.3s"><mpath href="#path-uni-gw2"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#10B981" opacity="0.7" filter="url(#arc-glow)">
+            <animateMotion dur="2.0s" repeatCount="indefinite" begin="1.3s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#path-uni-gw2"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#4EDEA3" opacity="0.9" filter="url(#arc-glow)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s"><mpath href="#path-gw2-hub"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#10B981" opacity="0.7" filter="url(#arc-glow)">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="1.8s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#path-gw2-hub"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#4EDEA3" opacity="0.9" filter="url(#arc-glow)">
+            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.9s"><mpath href="#path-hub-gw1"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#10B981" opacity="0.7" filter="url(#arc-glow)">
+            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.1s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#path-hub-gw1"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#4EDEA3" opacity="0.9" filter="url(#arc-glow)">
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.2s"><mpath href="#path-gw1-prov"/></animateMotion>
+          </circle>
+          <circle r="3.2" fill="#10B981" opacity="0.65" filter="url(#arc-glow)">
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.5s" keyPoints="1;0" keyTimes="0;1" calcMode="linear"><mpath href="#path-gw1-prov"/></animateMotion>
+          </circle>
+          <!-- Ring orbiting packets -->
+          <circle r="4" fill="#6FFBBE" filter="url(#arc-glow)">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="0s" path="M404 302 A72 34 0 1 1 403.99 302.01" calcMode="linear"/>
+          </circle>
+          <circle r="3" fill="#10B981" filter="url(#arc-glow)">
+            <animateMotion dur="4s" repeatCount="indefinite" begin="2s" path="M404 302 A72 34 0 1 1 403.99 302.01" calcMode="linear"/>
+          </circle>
+
+          <!-- Active status dot on hub -->
+          <circle cx="304" cy="120" r="5" fill="#10B981">
+            <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="304" cy="120" r="9" fill="rgba(16,185,129,0.2)">
+            <animate attributeName="r" values="5;14;5" dur="1.5s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0;0.5" dur="1.5s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     2. CONCEPT ,  X-Road Inspired
+═══════════════════════════════════════════════════════ -->
+<section class="cn-concept">
+  <div class="cn-container">
+    <div class="cn-concept-inner">
+
+      <!-- Left: text -->
+      <div class="cn-concept-text">
+        <p class="cn-label cn-reveal cn-d1">The Core Concept</p>
+        <h2 class="cn-h2 cn-reveal cn-d2">Inspired by Sovereign Interoperability</h2>
+        <p class="cn-concept-body cn-reveal cn-d3">
+          DigiRoad Connect leverages the principles of X-Road ,  the world's most advanced digital exchange protocol. We've evolved this for the global academic ecosystem, creating a distributed network where every institution maintains full sovereignty over its data.
+        </p>
+        <div class="cn-reveal cn-d4">
+          <div class="cn-feat-row">
+            <div class="cn-feat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="7" height="7" rx="1.5"/><rect x="15" y="3" width="7" height="7" rx="1.5"/>
+                <rect x="2" y="14" width="7" height="7" rx="1.5"/><rect x="15" y="14" width="7" height="7" rx="1.5"/>
+              </svg>
+            </div>
+            <div>
+              <p class="cn-feat-title">Distributed Architecture</p>
+              <p class="cn-feat-sub">No central database. Each university operates its own secure node.</p>
+            </div>
+          </div>
+          <div class="cn-feat-row">
+            <div class="cn-feat-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+                <circle cx="12" cy="16" r="1.5" fill="#fff"/>
+              </svg>
+            </div>
+            <div>
+              <p class="cn-feat-title">End-to-End Encryption</p>
+              <p class="cn-feat-sub">Data is signed and encrypted at rest and in transit between peers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: distributed architecture illustration -->
+      <div class="cn-concept-visual cn-reveal-right cn-d2">
+        <svg viewBox="0 0 480 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="cpt-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+              <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(0,108,73,0.06)" stroke-width="0.5"/>
+            </pattern>
+            <radialGradient id="cpt-blob" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="rgba(78,222,163,0.20)"/>
+              <stop offset="100%" stop-color="rgba(78,222,163,0)"/>
+            </radialGradient>
+            <marker id="cpt-arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="rgba(0,108,73,0.5)"/>
+            </marker>
+          </defs>
+
+          <rect width="480" height="420" fill="url(#cpt-grid)"/>
+          <ellipse cx="240" cy="210" rx="160" ry="120" fill="url(#cpt-blob)"/>
+
+          <!-- Encrypted tunnel lines -->
+          <line x1="100" y1="100" x2="240" y2="210" stroke="rgba(0,108,73,0.25)" stroke-width="1.5" stroke-dasharray="8 4" marker-end="url(#cpt-arrow)"/>
+          <line x1="380" y1="100" x2="240" y2="210" stroke="rgba(0,108,73,0.25)" stroke-width="1.5" stroke-dasharray="8 4" marker-end="url(#cpt-arrow)"/>
+          <line x1="100" y1="320" x2="240" y2="210" stroke="rgba(0,108,73,0.25)" stroke-width="1.5" stroke-dasharray="8 4" marker-end="url(#cpt-arrow)"/>
+          <line x1="380" y1="320" x2="240" y2="210" stroke="rgba(0,108,73,0.25)" stroke-width="1.5" stroke-dasharray="8 4" marker-end="url(#cpt-arrow)"/>
+          <!-- Cross peer connections -->
+          <line x1="100" y1="100" x2="380" y2="100" stroke="rgba(0,108,73,0.09)" stroke-width="1" stroke-dasharray="4 6"/>
+          <line x1="100" y1="320" x2="380" y2="320" stroke="rgba(0,108,73,0.09)" stroke-width="1" stroke-dasharray="4 6"/>
+
+          <!-- Animated tunnel packets -->
+          <circle r="4" fill="#4EDEA3" opacity="0.85">
+            <animateMotion dur="2.4s" repeatCount="indefinite" begin="0s">
+              <mpath href="#cpt-line1"/>
+            </animateMotion>
+          </circle>
+          <path id="cpt-line1" d="M 100 100 L 240 210" fill="none"/>
+
+          <circle r="4" fill="#10B981" opacity="0.75">
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.7s" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+              <mpath href="#cpt-line2"/>
+            </animateMotion>
+          </circle>
+          <path id="cpt-line2" d="M 380 100 L 240 210" fill="none"/>
+
+          <circle r="4" fill="#4EDEA3" opacity="0.85">
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="1.4s">
+              <mpath href="#cpt-line3"/>
+            </animateMotion>
+          </circle>
+          <path id="cpt-line3" d="M 100 320 L 240 210" fill="none"/>
+
+          <circle r="4" fill="#10B981" opacity="0.7">
+            <animateMotion dur="3.0s" repeatCount="indefinite" begin="0.3s" keyPoints="1;0" keyTimes="0;1" calcMode="linear">
+              <mpath href="#cpt-line4"/>
+            </animateMotion>
+          </circle>
+          <path id="cpt-line4" d="M 380 320 L 240 210" fill="none"/>
+
+          <!-- University server nodes (4 corners) -->
+          <!-- Top-left: Cambridge -->
+          <g transform="translate(100,100)">
+            <rect x="-36" y="-36" width="72" height="72" rx="12" fill="#F0EDED" stroke="rgba(0,108,73,0.18)" stroke-width="1.5"/>
+            <rect x="-20" y="-28" width="40" height="22" rx="4" fill="rgba(0,108,73,0.12)"/>
+            <rect x="-20" y="-28" width="40" height="5" rx="2" fill="rgba(0,108,73,0.35)"/>
+            <rect x="-14" y="-17" width="4" height="8" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="-6" y="-19" width="4" height="10" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="2" y="-15" width="4" height="6" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="10" y="-20" width="4" height="11" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <text y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="rgba(60,74,66,0.85)">Cambridge</text>
+            <!-- Lock icon -->
+            <g transform="translate(-6,-36) scale(0.65)">
+              <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#006C49" fill-opacity="0.9"/>
+              <path d="M-4-4V-7a4 4 0 018 0v3" stroke="#006C49" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+            </g>
+          </g>
+
+          <!-- Top-right: Stanford -->
+          <g transform="translate(380,100)">
+            <rect x="-36" y="-36" width="72" height="72" rx="12" fill="#F0EDED" stroke="rgba(0,108,73,0.18)" stroke-width="1.5"/>
+            <rect x="-20" y="-28" width="40" height="22" rx="4" fill="rgba(0,108,73,0.12)"/>
+            <rect x="-20" y="-28" width="40" height="5" rx="2" fill="rgba(0,108,73,0.35)"/>
+            <rect x="-14" y="-17" width="4" height="10" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="-6" y="-14" width="4" height="7" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="2" y="-20" width="4" height="13" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="10" y="-17" width="4" height="10" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <text y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="rgba(60,74,66,0.85)">Stanford</text>
+            <g transform="translate(-6,-36) scale(0.65)">
+              <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#006C49" fill-opacity="0.9"/>
+              <path d="M-4-4V-7a4 4 0 018 0v3" stroke="#006C49" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+            </g>
+          </g>
+
+          <!-- Bottom-left: ETH -->
+          <g transform="translate(100,320)">
+            <rect x="-36" y="-36" width="72" height="72" rx="12" fill="#F0EDED" stroke="rgba(0,108,73,0.18)" stroke-width="1.5"/>
+            <rect x="-20" y="-28" width="40" height="22" rx="4" fill="rgba(0,108,73,0.12)"/>
+            <rect x="-20" y="-28" width="40" height="5" rx="2" fill="rgba(0,108,73,0.35)"/>
+            <rect x="-14" y="-19" width="4" height="12" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="-6" y="-16" width="4" height="9" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="2" y="-21" width="4" height="14" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="10" y="-15" width="4" height="8" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <text y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="rgba(60,74,66,0.85)">ETH Zürich</text>
+            <g transform="translate(-6,-36) scale(0.65)">
+              <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#006C49" fill-opacity="0.9"/>
+              <path d="M-4-4V-7a4 4 0 018 0v3" stroke="#006C49" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+            </g>
+          </g>
+
+          <!-- Bottom-right: NUS -->
+          <g transform="translate(380,320)">
+            <rect x="-36" y="-36" width="72" height="72" rx="12" fill="#F0EDED" stroke="rgba(0,108,73,0.18)" stroke-width="1.5"/>
+            <rect x="-20" y="-28" width="40" height="22" rx="4" fill="rgba(0,108,73,0.12)"/>
+            <rect x="-20" y="-28" width="40" height="5" rx="2" fill="rgba(0,108,73,0.35)"/>
+            <rect x="-14" y="-17" width="4" height="10" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="-6" y="-21" width="4" height="14" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="2" y="-15" width="4" height="8" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <rect x="10" y="-19" width="4" height="12" rx="1" fill="rgba(0,108,73,0.5)"/>
+            <text y="22" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="700" fill="rgba(60,74,66,0.85)">NUS</text>
+            <g transform="translate(-6,-36) scale(0.65)">
+              <rect x="-8" y="-4" width="16" height="12" rx="2" fill="#006C49" fill-opacity="0.9"/>
+              <path d="M-4-4V-7a4 4 0 018 0v3" stroke="#006C49" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.9"/>
+            </g>
+          </g>
+
+          <!-- Central protocol node -->
+          <g transform="translate(240,210)">
+            <circle r="36" fill="rgba(0,108,73,0.08)" stroke="rgba(0,108,73,0.2)" stroke-width="1.5"/>
+            <circle r="22" fill="#006C49"/>
+            <!-- Shield icon -->
+            <path d="M 0 -12 L -8 -8 L -8 2 C -8 8 0 12 0 12 C 0 12 8 8 8 2 L 8 -8 Z" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.7)" stroke-width="1"/>
+            <path d="M -4 1 L -1 4 L 5 -3" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <text y="48" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="rgba(0,108,73,0.9)">Protocol Layer</text>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     3. CAPABILITIES ,  Bento Grid
+═══════════════════════════════════════════════════════ -->
+<section class="cn-capabilities">
+  <div class="cn-container">
+    <div class="cn-section-header cn-reveal">
+      <p class="cn-label">Capabilities</p>
+      <h2 class="cn-h2">The Ecosystem Fabric</h2>
+    </div>
+
+    <div class="cn-bento">
+
+      <!-- Card 1: Secure Data Exchange (wide) -->
+      <div class="cn-bcard cn-bcard--1 cn-reveal cn-d1">
+        <div class="cn-bcard-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M8 11l3 3 5-5"/>
+          </svg>
+        </div>
+        <h3 class="cn-bcard-h">Secure Data Exchange</h3>
+        <p class="cn-bcard-p">The gold standard for academic data sharing. Mutual authentication ensures only verified peers communicate, preventing spoofing and unauthorised access.</p>
+        <div class="cn-tags">
+          <span class="cn-tag">TLS 1.3</span>
+          <span class="cn-tag">Digital Signatures</span>
+          <span class="cn-tag">mTLS Auth</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Cross-University Verification (accent, dark green) -->
+      <div class="cn-bcard cn-bcard--2 cn-reveal cn-d2">
+        <div class="cn-bcard-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M8 12l3 3 5-5"/>
+          </svg>
+        </div>
+        <h3 class="cn-bcard-h">Cross-University Verification</h3>
+        <p class="cn-bcard-p">Instantly verify credentials across borders without manual administrative overhead.</p>
+        <div class="cn-bcard-2-visual">
+          <svg viewBox="0 0 320 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="80" rx="8" fill="rgba(255,255,255,0.04)"/>
+            <!-- Flow diagram: Uni A → Verify → Uni B -->
+            <circle cx="40" cy="40" r="18" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+            <text x="40" y="44" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="rgba(255,255,255,0.7)">UNI A</text>
+            <path d="M 60 40 L 120 40" stroke="rgba(111,251,190,0.5)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <circle cx="160" cy="40" r="22" fill="rgba(111,251,190,0.12)" stroke="rgba(111,251,190,0.4)" stroke-width="1.5"/>
+            <path d="M152 40l5 5 9-9" stroke="#6FFBBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <path d="M 202 40 L 260 40" stroke="rgba(111,251,190,0.5)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <circle cx="280" cy="40" r="18" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.25)" stroke-width="1.2"/>
+            <text x="280" y="44" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="rgba(255,255,255,0.7)">UNI B</text>
+            <!-- animated dot -->
+            <circle r="4" fill="#6FFBBE" opacity="0.9">
+              <animateMotion dur="2s" repeatCount="indefinite">
+                <mpath href="#bcard2-path"/>
+              </animateMotion>
+            </circle>
+            <path id="bcard2-path" d="M 60 40 L 260 40" fill="none"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Card 3: Student Mobility -->
+      <div class="cn-bcard cn-bcard--3 cn-reveal cn-d3">
+        <div class="cn-bcard-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="7" r="4"/>
+            <path d="M5.5 20a8.38 8.38 0 0113 0"/>
+            <path d="M17 11l2 2 4-4"/>
+          </svg>
+        </div>
+        <h3 class="cn-bcard-h">Student Mobility</h3>
+        <p class="cn-bcard-p">Empower students to move between institutions with their data following them seamlessly, securely, and instantly.</p>
+      </div>
+
+      <!-- Card 4: API Architecture -->
+      <div class="cn-bcard cn-bcard--4 cn-reveal cn-d4">
+        <div class="cn-bcard-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/>
+            <polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3 class="cn-bcard-h">API Architecture</h3>
+        <p class="cn-bcard-p">RESTful interfaces that plug directly into existing SIS platforms like Banner, Oracle, or Ellucian with zero disruption.</p>
+      </div>
+
+      <!-- Card 5: Privacy & Compliance -->
+      <div class="cn-bcard cn-bcard--5 cn-reveal cn-d5">
+        <div class="cn-bcard-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 class="cn-bcard-h">Privacy & Compliance</h3>
+        <p class="cn-bcard-p">Privacy-by-design architecture ensuring full GDPR and FERPA compliance through zero-knowledge proofs and selective disclosure.</p>
+      </div>
+
+      <!-- Card 6: Real-Time Interoperability (full width) -->
+      <div class="cn-bcard cn-bcard--6 cn-reveal cn-d2">
+        <div>
+          <div class="cn-bcard-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4.5 12.5l3 3 9-9"/>
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3 class="cn-bcard-h">Real-Time Interoperability</h3>
+          <p class="cn-bcard-p">Synchronise academic records in milliseconds across the entire global network. Real-time updates for transcripts, enrolment status, and degree audits.</p>
+        </div>
+        <div class="cn-stats-grid">
+          <div class="cn-stat-card">
+            <div class="cn-stat-val">0.4s</div>
+            <div class="cn-stat-label">Latency Target</div>
+          </div>
+          <div class="cn-stat-card">
+            <div class="cn-stat-val">99.9%</div>
+            <div class="cn-stat-label">Uptime SLA</div>
+          </div>
+          <div class="cn-stat-card">
+            <div class="cn-stat-val">2,400+</div>
+            <div class="cn-stat-label">Institutions Ready</div>
+          </div>
+          <div class="cn-stat-card">
+            <div class="cn-stat-val">190+</div>
+            <div class="cn-stat-label">Countries</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     4. PROCESS STEPS
+═══════════════════════════════════════════════════════ -->
+<section class="cn-process">
+  <div class="cn-container">
+    <div class="cn-section-header cn-reveal">
+      <p class="cn-label">The Process</p>
+      <h2 class="cn-h2">The Lifecycle of a Connection</h2>
+    </div>
+    <div class="cn-steps-grid">
+      <div class="cn-step cn-reveal cn-d1">
+        <span class="cn-step-num">01</span>
+        <div class="cn-step-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <h3 class="cn-step-h">Connect</h3>
+        <p class="cn-step-p">Install the DigiRoad Security Server node within your local infrastructure. A guided setup process takes under four hours.</p>
+      </div>
+      <div class="cn-step cn-reveal cn-d2">
+        <span class="cn-step-num">02</span>
+        <div class="cn-step-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3 class="cn-step-h">Standardise</h3>
+        <p class="cn-step-p">Map local data schemas to the DigiRoad Universal Academic Format (UAF). Automated mapping tools reduce manual effort by 94%.</p>
+      </div>
+      <div class="cn-step cn-reveal cn-d3">
+        <span class="cn-step-num">03</span>
+        <div class="cn-step-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+        </div>
+        <h3 class="cn-step-h">Encrypted Exchange</h3>
+        <p class="cn-step-p">Request and receive data through secure peer-to-peer tunnels. Every packet signed, verified, and logged for full auditability.</p>
+      </div>
+      <div class="cn-step cn-reveal cn-d4">
+        <span class="cn-step-num">04</span>
+        <div class="cn-step-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M8 11l3 3 5-5"/>
+          </svg>
+        </div>
+        <h3 class="cn-step-h">Verify</h3>
+        <p class="cn-step-p">Automatic cryptographic validation of the origin and integrity of every data packet. Zero trust, zero doubt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     5. LIVE NETWORK ,  Cinematic Canvas Section
+     (Video equivalent ,  animated global network visualisation)
+═══════════════════════════════════════════════════════ -->
+<section class="cn-network" id="cnNetworkSection">
+  <div class="cn-scan-line"></div>
+  <canvas class="cn-network-canvas" id="cnNetworkCanvas"></canvas>
+  <div class="cn-network-side-fade-l"></div>
+  <div class="cn-network-side-fade-r"></div>
+  <div class="cn-network-overlay cn-reveal">
+    <div class="cn-network-badge">
+      <span class="cn-network-live-dot"></span>
+      Live Network
+    </div>
+    <h2 class="cn-network-title">Every Connection. Every Verification.<br>In Real Time.</h2>
+    <p class="cn-network-sub">Watch institutional data flow securely across the DigiRoad global fabric.</p>
+    <div class="cn-network-stats">
+      <div class="cn-network-stat">
+        <span class="cn-network-stat-val" data-count="847">847</span>
+        <span class="cn-network-stat-label">Institutions</span>
+      </div>
+      <div class="cn-network-stat">
+        <span class="cn-network-stat-val" data-count="12400">12.4k</span>
+        <span class="cn-network-stat-label">Requests / sec</span>
+      </div>
+      <div class="cn-network-stat">
+        <span class="cn-network-stat-val">190+</span>
+        <span class="cn-network-stat-label">Countries</span>
+      </div>
+      <div class="cn-network-stat">
+        <span class="cn-network-stat-val">0.4s</span>
+        <span class="cn-network-stat-label">Avg. Latency</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     6. USE CASES
+═══════════════════════════════════════════════════════ -->
+<section class="cn-usecases">
+  <div class="cn-container">
+    <div class="cn-usecases-top">
+      <div class="cn-reveal">
+        <p class="cn-label">Real-World Impact</p>
+        <h2 class="cn-h2" style="max-width:520px">Purpose-Built for the Academic Ecosystem</h2>
+      </div>
+      <a href="#" class="cn-usecases-link cn-reveal cn-d2">
+        Explore all cases
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+    <div class="cn-cases-grid">
+
+      <!-- Card 1: Erasmus+ 2.0 -->
+      <div class="cn-case-card cn-reveal cn-d1">
+        <div class="cn-case-visual">
+          <svg viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="296" height="296" fill="#EBF7F2"/>
+            <!-- EU map abstract -->
+            <ellipse cx="148" cy="148" rx="100" ry="80" fill="rgba(0,108,73,0.06)" stroke="rgba(0,108,73,0.12)" stroke-width="1"/>
+            <!-- Country nodes -->
+            <circle cx="90" cy="120" r="22" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.5"/>
+            <text x="90" y="124" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="rgba(0,108,73,0.8)">DE</text>
+            <circle cx="180" cy="105" r="22" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.5"/>
+            <text x="180" y="109" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="rgba(0,108,73,0.8)">FR</text>
+            <circle cx="148" cy="185" r="22" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.5"/>
+            <text x="148" y="189" text-anchor="middle" font-family="Inter,sans-serif" font-size="9" font-weight="700" fill="rgba(0,108,73,0.8)">ES</text>
+            <!-- ECTS flow arcs -->
+            <path d="M 106 110 Q 135 70 162 110" stroke="rgba(0,108,73,0.45)" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+            <path d="M 168 122 Q 195 160 165 177" stroke="rgba(0,108,73,0.45)" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+            <path d="M 130 178 Q 95 160 92 138" stroke="rgba(0,108,73,0.45)" stroke-width="1.5" stroke-dasharray="5 3" fill="none"/>
+            <!-- Student icon at centre -->
+            <circle cx="148" cy="148" r="14" fill="#006C49"/>
+            <circle cx="148" cy="143" r="4" fill="rgba(255,255,255,0.9)"/>
+            <path d="M139 158c0-5 4-8 9-8s9 3 9 8" fill="rgba(255,255,255,0.9)"/>
+            <!-- Animated orbit dot -->
+            <circle r="5" fill="#10B981" opacity="0.9">
+              <animateMotion dur="4s" repeatCount="indefinite">
+                <mpath href="#eu-orbit"/>
+              </animateMotion>
+            </circle>
+            <path id="eu-orbit" d="M 126 108 Q 165 62 190 112 Q 215 162 165 190 Q 115 218 88 170 Q 61 122 126 108 Z" fill="none"/>
+          </svg>
+        </div>
+        <div class="cn-case-body">
+          <h3 class="cn-case-h">Erasmus+ 2.0</h3>
+          <p class="cn-case-p">Automated ECTS credit recognition for exchange students across Europe ,  eliminating administrative delays entirely.</p>
+        </div>
+      </div>
+
+      <!-- Card 2: KYC Systems -->
+      <div class="cn-case-card cn-reveal cn-d2">
+        <div class="cn-case-visual">
+          <svg viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="296" height="296" fill="#EBF7F2"/>
+            <!-- Bank building -->
+            <rect x="70" y="90" width="64" height="80" rx="4" fill="rgba(0,108,73,0.08)" stroke="rgba(0,108,73,0.2)" stroke-width="1.5"/>
+            <rect x="65" y="85" width="74" height="10" rx="2" fill="rgba(0,108,73,0.2)"/>
+            <rect x="79" y="105" width="10" height="55" rx="2" fill="rgba(0,108,73,0.3)"/>
+            <rect x="97" y="105" width="10" height="55" rx="2" fill="rgba(0,108,73,0.3)"/>
+            <rect x="115" y="105" width="10" height="55" rx="2" fill="rgba(0,108,73,0.3)"/>
+            <!-- API call arrow -->
+            <path d="M 136 148 L 162 148" stroke="#006C49" stroke-width="2" stroke-dasharray="5 3"/>
+            <path d="M 158 143 L 164 148 L 158 153" stroke="#006C49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Verification badge -->
+            <rect x="164" y="128" width="62" height="40" rx="8" fill="#006C49" fill-opacity="0.12" stroke="rgba(0,108,73,0.3)" stroke-width="1.5"/>
+            <path d="M179 148l5 5 9-9" stroke="#006C49" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <text x="200" y="153" text-anchor="middle" font-family="Inter,sans-serif" font-size="8" font-weight="700" fill="rgba(0,108,73,0.9)">VERIFIED</text>
+            <!-- Student credential below -->
+            <rect x="70" y="190" width="156" height="50" rx="8" fill="rgba(0,108,73,0.07)" stroke="rgba(0,108,73,0.15)" stroke-width="1"/>
+            <circle cx="95" cy="215" r="12" fill="rgba(0,108,73,0.15)" stroke="rgba(0,108,73,0.25)" stroke-width="1"/>
+            <circle cx="95" cy="212" r="4" fill="rgba(0,108,73,0.5)"/>
+            <path d="M86 222c0-4 4-6 9-6s9 2 9 6" fill="rgba(0,108,73,0.5)"/>
+            <rect x="114" y="208" width="60" height="5" rx="2" fill="rgba(0,108,73,0.25)"/>
+            <rect x="114" y="218" width="40" height="4" rx="2" fill="rgba(0,108,73,0.15)"/>
+            <!-- Animated data packet -->
+            <circle r="4" fill="#10B981" opacity="0.9">
+              <animateMotion dur="1.8s" repeatCount="indefinite">
+                <mpath href="#kyc-path"/>
+              </animateMotion>
+            </circle>
+            <path id="kyc-path" d="M 136 148 L 162 148" fill="none"/>
+          </svg>
+        </div>
+        <div class="cn-case-body">
+          <h3 class="cn-case-h">KYC Systems</h3>
+          <p class="cn-case-p">Banks and employers verifying student status instantly via secure API calls ,  no manual processing, no waiting.</p>
+        </div>
+      </div>
+
+      <!-- Card 3: Verification -->
+      <div class="cn-case-card cn-reveal cn-d3">
+        <div class="cn-case-visual">
+          <svg viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="296" height="296" fill="#EBF7F2"/>
+            <!-- Document -->
+            <rect x="84" y="68" width="128" height="160" rx="8" fill="#fff" stroke="rgba(0,108,73,0.2)" stroke-width="1.5"/>
+            <rect x="100" y="88" width="80" height="6" rx="3" fill="rgba(0,108,73,0.2)"/>
+            <rect x="100" y="102" width="96" height="4" rx="2" fill="rgba(0,108,73,0.1)"/>
+            <rect x="100" y="112" width="88" height="4" rx="2" fill="rgba(0,108,73,0.1)"/>
+            <rect x="100" y="122" width="92" height="4" rx="2" fill="rgba(0,108,73,0.1)"/>
+            <rect x="100" y="138" width="96" height="4" rx="2" fill="rgba(0,108,73,0.1)"/>
+            <rect x="100" y="148" width="72" height="4" rx="2" fill="rgba(0,108,73,0.1)"/>
+            <!-- Credential seal / stamp -->
+            <circle cx="148" cy="196" r="28" fill="#006C49" fill-opacity="0.1" stroke="#006C49" stroke-width="2" stroke-dasharray="4 2"/>
+            <circle cx="148" cy="196" r="20" fill="#006C49"/>
+            <path d="M138 196l6 6 12-12" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Hash lines (tamper-proof) -->
+            <rect x="84" y="165" width="128" height="1" fill="rgba(0,108,73,0.12)"/>
+            <text x="148" y="174" text-anchor="middle" font-family="monospace" font-size="7" fill="rgba(0,108,73,0.4)">SHA-256 · 0x4f8a...</text>
+            <!-- Glow pulse on seal -->
+            <circle cx="148" cy="196" r="20" fill="none" stroke="rgba(16,185,129,0.5)" stroke-width="1.5">
+              <animate attributeName="r" values="20;36;20" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+        <div class="cn-case-body">
+          <h3 class="cn-case-h">Verification</h3>
+          <p class="cn-case-p">Eliminating academic fraud with tamper-proof digital degree records secured by cryptographic hashing and distributed attestation.</p>
+        </div>
+      </div>
+
+      <!-- Card 4: Govt Integration -->
+      <div class="cn-case-card cn-reveal cn-d4">
+        <div class="cn-case-visual">
+          <svg viewBox="0 0 296 296" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="296" height="296" fill="#EBF7F2"/>
+            <!-- Ministry building (large, center-top) -->
+            <rect x="100" y="68" width="96" height="90" rx="4" fill="rgba(0,108,73,0.08)" stroke="rgba(0,108,73,0.2)" stroke-width="1.5"/>
+            <rect x="96" y="63" width="104" height="10" rx="2" fill="rgba(0,108,73,0.18)"/>
+            <!-- Columns -->
+            <rect x="110" y="80" width="8" height="72" rx="2" fill="rgba(0,108,73,0.2)"/>
+            <rect x="128" y="80" width="8" height="72" rx="2" fill="rgba(0,108,73,0.2)"/>
+            <rect x="150" y="80" width="8" height="72" rx="2" fill="rgba(0,108,73,0.2)"/>
+            <rect x="168" y="80" width="8" height="72" rx="2" fill="rgba(0,108,73,0.2)"/>
+            <!-- Door -->
+            <rect x="136" y="132" width="24" height="26" rx="2" fill="rgba(0,108,73,0.3)"/>
+            <!-- Connection lines to 3 uni nodes below -->
+            <line x1="148" y1="160" x2="80" y2="215" stroke="rgba(0,108,73,0.35)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <line x1="148" y1="160" x2="148" y2="215" stroke="rgba(0,108,73,0.35)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <line x1="148" y1="160" x2="216" y2="215" stroke="rgba(0,108,73,0.35)" stroke-width="1.5" stroke-dasharray="5 3"/>
+            <!-- University icons -->
+            <circle cx="80" cy="227" r="16" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.2"/>
+            <text x="80" y="231" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="rgba(0,108,73,0.8)">UNI</text>
+            <circle cx="148" cy="227" r="16" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.2"/>
+            <text x="148" y="231" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="rgba(0,108,73,0.8)">UNI</text>
+            <circle cx="216" cy="227" r="16" fill="rgba(0,108,73,0.10)" stroke="rgba(0,108,73,0.25)" stroke-width="1.2"/>
+            <text x="216" y="231" text-anchor="middle" font-family="Inter,sans-serif" font-size="7" font-weight="700" fill="rgba(0,108,73,0.8)">UNI</text>
+            <!-- Animated packets -->
+            <circle r="4" fill="#10B981" opacity="0.9">
+              <animateMotion dur="2s" repeatCount="indefinite">
+                <mpath href="#gov-p1"/>
+              </animateMotion>
+            </circle>
+            <path id="gov-p1" d="M 148 160 L 80 215" fill="none"/>
+            <circle r="4" fill="#4EDEA3" opacity="0.8">
+              <animateMotion dur="2.4s" repeatCount="indefinite" begin="0.6s">
+                <mpath href="#gov-p2"/>
+              </animateMotion>
+            </circle>
+            <path id="gov-p2" d="M 148 160 L 216 215" fill="none"/>
+          </svg>
+        </div>
+        <div class="cn-case-body">
+          <h3 class="cn-case-h">Govt Integration</h3>
+          <p class="cn-case-p">Connecting Ministry of Education portals directly to university data nodes for real-time enrolment and compliance reporting.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     7. SECURITY ,  Dark Card
+═══════════════════════════════════════════════════════ -->
+<section class="cn-security">
+  <div class="cn-container">
+    <div class="cn-security-card cn-reveal-scale">
+      <div class="cn-security-glow"></div>
+      <div class="cn-security-inner">
+
+        <!-- Left: text -->
+        <div>
+          <div class="cn-sec-tag cn-reveal cn-d1">
+            <span class="cn-sec-tag-dot"></span>
+            Security First
+          </div>
+          <h2 class="cn-sec-h cn-reveal cn-d2">Trust by Design,<br>Privacy by Default</h2>
+          <p class="cn-sec-p cn-reveal cn-d3">
+            We believe data ownership belongs to the source. Our infrastructure acts as a conduit, never a storage facility. Your data remains on your servers, protected by your security policies, but accessible to those you trust.
+          </p>
+          <div class="cn-sec-list cn-reveal cn-d4">
+            <div class="cn-sec-item">
+              <div class="cn-sec-check">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              GDPR &amp; CCPA Compliant Framework
+            </div>
+            <div class="cn-sec-item">
+              <div class="cn-sec-check">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              Distributed Identity (DID) Integration
+            </div>
+            <div class="cn-sec-item">
+              <div class="cn-sec-check">
+                <svg width="11" height="11" viewBox="0 0 11 11" fill="none"><path d="M2 5.5l2.5 2.5L9 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+              Military-Grade AES-256 Encryption
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: compliance glass card -->
+        <div class="cn-compliance-card cn-reveal-right cn-d2">
+          <h3 class="cn-compliance-title">Compliance Standards</h3>
+          <div class="cn-compliance-grid">
+            <div class="cn-compliance-badge">
+              <div class="cn-compliance-key">Data Residency</div>
+              <div class="cn-compliance-val">Local Sovereign</div>
+            </div>
+            <div class="cn-compliance-badge">
+              <div class="cn-compliance-key">Encryption</div>
+              <div class="cn-compliance-val">E2EE Mandatory</div>
+            </div>
+            <div class="cn-compliance-badge">
+              <div class="cn-compliance-key">ISO Cert</div>
+              <div class="cn-compliance-val">27001 Ready</div>
+            </div>
+            <div class="cn-compliance-badge">
+              <div class="cn-compliance-key">Auditing</div>
+              <div class="cn-compliance-val">Full Traceability</div>
+            </div>
+          </div>
+          <p class="cn-compliance-quote">
+            "DigiRoad does not see, store, or touch the raw data in transit. We provide the rails ,  institutions own the cargo."
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     8. FINAL CTA
+═══════════════════════════════════════════════════════ -->
+<section class="cn-cta">
+  <div class="cn-container">
+    <div class="cn-cta-inner">
+      <h2 class="cn-cta-h cn-reveal">From isolated institutions<br>to a connected global network.</h2>
+      <p class="cn-cta-sub cn-reveal cn-d2">Join the infrastructure layer that's redefining how universities share, verify, and trust data across borders.</p>
+      <a href="#" class="cn-btn-cta cn-reveal cn-d3">
+        Build the Future with Us
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 9h12M11 5l4 4-4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SHARED FOOTER (default)
+═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" />
+        </a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Solutions</h5>
+        <ul>
+          <li><a href="ecampus.html">eCampus</a></li>
+          <li><a href="connect.html">DigiRoad Connect</a></li>
+          <li><a href="unipay.html">UniPay</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="support.html">Get Support</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiRoad Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SCRIPTS
+═══════════════════════════════════════════════════════ -->
+<script src="js/nav.js"></script>
+<script>
+
+/* ── Scroll Reveal ───────────────────────── */
+(function () {
+  var els = document.querySelectorAll('.cn-reveal, .cn-reveal-scale, .cn-reveal-left, .cn-reveal-right');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function (el) { io.observe(el); });
+})();
+
+/* ── Global Network Canvas ───────────────── */
+(function () {
+  var canvas = document.getElementById('cnNetworkCanvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var raf;
+
+  function resize() {
+    canvas.width  = canvas.offsetWidth  * (window.devicePixelRatio || 1);
+    canvas.height = canvas.offsetHeight * (window.devicePixelRatio || 1);
+    ctx.scale(window.devicePixelRatio || 1, window.devicePixelRatio || 1);
+  }
+  resize();
+  window.addEventListener('resize', function () { resize(); }, { passive: true });
+
+  /* University node positions (proportional 0–1) */
+  var nodeData = [
+    { px: 0.08, py: 0.38, name: 'MIT' },
+    { px: 0.14, py: 0.62, name: 'Harvard' },
+    { px: 0.20, py: 0.22, name: 'McGill' },
+    { px: 0.30, py: 0.72, name: 'USP' },
+    { px: 0.44, py: 0.20, name: 'Oxford' },
+    { px: 0.52, py: 0.38, name: 'ETH' },
+    { px: 0.48, py: 0.65, name: 'Sorbonne' },
+    { px: 0.38, py: 0.52, name: 'UCL' },
+    { px: 0.62, py: 0.75, name: 'Cairo' },
+    { px: 0.70, py: 0.28, name: 'NUS' },
+    { px: 0.78, py: 0.55, name: 'Tokyo' },
+    { px: 0.86, py: 0.38, name: 'KAIST' },
+    { px: 0.72, py: 0.72, name: 'Melbourne' },
+    { px: 0.90, py: 0.62, name: 'Sydney' },
+    { px: 0.50, py: 0.50, name: 'DigiRoad', main: true },
+  ];
+
+  /* Build connections ,  all to main, plus proximity connections */
+  var connections = [];
+  var mainIdx = nodeData.findIndex(function (n) { return n.main; });
+  for (var i = 0; i < nodeData.length; i++) {
+    if (i === mainIdx) continue;
+    connections.push({ from: i, to: mainIdx });
+    for (var j = i + 1; j < nodeData.length; j++) {
+      if (j === mainIdx) continue;
+      var dx = nodeData[i].px - nodeData[j].px;
+      var dy = nodeData[i].py - nodeData[j].py;
+      if (Math.sqrt(dx * dx + dy * dy) < 0.20) {
+        connections.push({ from: i, to: j });
+      }
+    }
+  }
+
+  /* Create animated packets */
+  var packets = [];
+  connections.forEach(function (conn, idx) {
+    if (Math.random() > 0.45) {
+      packets.push({
+        conn: idx,
+        t: Math.random(),
+        speed: 0.0015 + Math.random() * 0.003,
+        dir: Math.random() > 0.5 ? 1 : -1,
+        size: 2.2 + Math.random() * 1.4,
+        hue: Math.random() > 0.5 ? '#4EDEA3' : '#10B981',
+      });
+    }
+  });
+
+  function getNodeXY(node) {
+    var W = canvas.offsetWidth;
+    var H = canvas.offsetHeight;
+    return { x: node.px * W, y: node.py * H };
+  }
+
+  function draw() {
+    var W = canvas.offsetWidth;
+    var H = canvas.offsetHeight;
+    ctx.clearRect(0, 0, W, H);
+
+    var nodes = nodeData.map(function (n) {
+      return { x: n.px * W, y: n.py * H, name: n.name, main: n.main };
+    });
+
+    /* Draw connections */
+    connections.forEach(function (c) {
+      var n1 = nodes[c.from], n2 = nodes[c.to];
+      var isMain = c.from === mainIdx || c.to === mainIdx;
+      var grad = ctx.createLinearGradient(n1.x, n1.y, n2.x, n2.y);
+      grad.addColorStop(0, isMain ? 'rgba(0,108,73,0.22)' : 'rgba(0,108,73,0.10)');
+      grad.addColorStop(0.5, isMain ? 'rgba(16,185,129,0.32)' : 'rgba(16,185,129,0.15)');
+      grad.addColorStop(1, isMain ? 'rgba(0,108,73,0.22)' : 'rgba(0,108,73,0.10)');
+      ctx.beginPath();
+      ctx.moveTo(n1.x, n1.y);
+      ctx.lineTo(n2.x, n2.y);
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = isMain ? 1.2 : 0.7;
+      ctx.stroke();
+    });
+
+    /* Draw packets */
+    packets.forEach(function (p) {
+      var c = connections[p.conn];
+      var n1 = nodes[c.from], n2 = nodes[c.to];
+      var t = p.dir === 1 ? p.t : 1 - p.t;
+      var x = n1.x + (n2.x - n1.x) * t;
+      var y = n1.y + (n2.y - n1.y) * t;
+
+      /* Glow */
+      var g = ctx.createRadialGradient(x, y, 0, x, y, p.size * 3.5);
+      g.addColorStop(0, 'rgba(78,222,163,0.55)');
+      g.addColorStop(1, 'rgba(78,222,163,0)');
+      ctx.beginPath(); ctx.arc(x, y, p.size * 3.5, 0, Math.PI * 2);
+      ctx.fillStyle = g; ctx.fill();
+
+      /* Core dot */
+      ctx.beginPath(); ctx.arc(x, y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = p.hue; ctx.fill();
+
+      p.t += p.speed;
+      if (p.t > 1) p.t = 0;
+    });
+
+    /* Draw nodes */
+    nodes.forEach(function (node) {
+      var r = node.main ? 12 : 5.5;
+
+      /* Outer glow */
+      var grd = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, r * 4);
+      grd.addColorStop(0, node.main ? 'rgba(0,108,73,0.35)' : 'rgba(0,108,73,0.18)');
+      grd.addColorStop(1, 'rgba(0,108,73,0)');
+      ctx.beginPath(); ctx.arc(node.x, node.y, r * 4, 0, Math.PI * 2);
+      ctx.fillStyle = grd; ctx.fill();
+
+      /* Node */
+      ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+      ctx.fillStyle = node.main ? '#006C49' : 'rgba(0,108,73,0.55)';
+      ctx.fill();
+
+      if (node.main) {
+        ctx.beginPath(); ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+        ctx.strokeStyle = '#10B981'; ctx.lineWidth = 1.8; ctx.stroke();
+      }
+
+      /* Label */
+      ctx.font = node.main ? '700 11px Inter,sans-serif' : '400 9px Inter,sans-serif';
+      ctx.fillStyle = node.main ? 'rgba(111,251,190,0.95)' : 'rgba(163,193,178,0.65)';
+      ctx.textAlign = 'center';
+      ctx.fillText(node.name, node.x, node.y + r + 13);
+    });
+
+    raf = requestAnimationFrame(draw);
+  }
+
+  /* Only run when section is visible */
+  var section = document.getElementById('cnNetworkSection');
+  var networkStarted = false;
+  var sectionObserver = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting && !networkStarted) {
+      networkStarted = true;
+      draw();
+    } else if (!entries[0].isIntersecting && networkStarted) {
+      cancelAnimationFrame(raf);
+      networkStarted = false;
+    }
+  }, { threshold: 0 });
+  sectionObserver.observe(section);
+})();
+</script>
+
+</body>
+</html>

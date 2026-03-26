@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jobs | DigiRoad</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --paper: #f5f6f5;
+      --white: #ffffff;
+      --ink:   #0b1220;
+      --ink-2: #475569;
+      --ink-3: #94a3b8;
+      --g500:  #10b981;
+      --g600:  #059669;
+      --g700:  #047857;
+      --g900:  #0b2e26;
+      --border: rgba(0,0,0,0.07);
+      --radius: 16px;
+      --shadow: 0 1px 4px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+      --shadow-hover: 0 4px 12px rgba(0,0,0,0.09), 0 12px 32px rgba(0,0,0,0.07);
+    }
+    body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    .jobs-wrap { padding-top: 96px; }
+
+    /* ── Section shell ── */
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--g600);
+      margin-bottom: 18px;
+    }
+    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--g500); }
+
+    /* ── Animations ── */
+    [data-anim] { opacity: 0; transform: translateY(24px); transition: opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1); }
+    [data-anim].visible { opacity: 1; transform: none; }
+    [data-anim][data-d="1"] { transition-delay: 0.07s; }
+    [data-anim][data-d="2"] { transition-delay: 0.14s; }
+    [data-anim][data-d="3"] { transition-delay: 0.21s; }
+    [data-anim][data-d="4"] { transition-delay: 0.28s; }
+    [data-anim][data-d="5"] { transition-delay: 0.35s; }
+    [data-anim][data-d="6"] { transition-delay: 0.42s; }
+
+    /* ══════════════════ §1 HERO ══════════════════ */
+    .jobs-hero {
+      padding: 88px 24px 80px;
+      max-width: 1160px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 64px;
+      align-items: center;
+    }
+    .jobs-hero h1 {
+      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.035em;
+      line-height: 1.06;
+      color: var(--ink);
+      margin-bottom: 22px;
+    }
+    .jobs-hero h1 em { font-style: normal; color: var(--g700); }
+    .jobs-hero-sub {
+      font-size: 1.05rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+    .jobs-hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 26px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #1a2540; transform: scale(1.025); }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 13px 24px;
+      border-radius: 999px;
+      background: none;
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 500;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .btn-ghost:hover { border-color: rgba(0,0,0,0.18); color: var(--ink); background: rgba(0,0,0,0.03); }
+    .jobs-hero-illus {
+      background: linear-gradient(135deg, var(--g900) 0%, #064e3b 55%, #065f46 100%);
+      border-radius: 20px;
+      height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .jobs-hero-illus::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 35% 45%, rgba(16,185,129,0.22) 0%, transparent 60%);
+    }
+    .jobs-hero-illus svg { position: relative; z-index: 1; }
+
+    /* ══════════════════ §2 OPPORTUNITY ══════════════════ */
+    .jobs-opportunity { padding: 96px 0; }
+    .opportunity-layout {
+      max-width: 680px;
+    }
+    .opportunity-text h2 {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.18;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .opportunity-text p {
+      font-size: 0.97rem;
+      color: var(--ink-2);
+      line-height: 1.75;
+      margin-bottom: 16px;
+    }
+    .opportunity-points { margin-top: 32px; display: flex; flex-direction: column; gap: 16px; }
+    .opp-point {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .opp-point-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--g500);
+      margin-top: 7px;
+      flex-shrink: 0;
+    }
+    .opp-point p { margin: 0; font-size: 0.92rem; color: var(--ink-2); line-height: 1.6; }
+    .opp-point strong { color: var(--ink); font-weight: 600; }
+    .opportunity-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .opp-stat {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+    .opp-stat-val {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .opp-stat-val span { color: var(--g600); }
+    .opp-stat-label { font-size: 13px; color: var(--ink-3); line-height: 1.45; }
+
+    /* ══════════════════ §3 CHALLENGES ══════════════════ */
+    .jobs-challenges {
+      padding: 96px 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .challenges-header { text-align: center; max-width: 600px; margin: 0 auto 56px; }
+    .challenges-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .challenges-header p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .challenges-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .challenge-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .challenge-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); border-color: rgba(16,185,129,0.2); }
+    .challenge-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(16,185,129,0.09);
+      border: 1px solid rgba(16,185,129,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .challenge-card h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 10px; }
+    .challenge-card p { font-size: 0.875rem; color: var(--ink-2); line-height: 1.65; }
+
+    /* ══════════════════ §4 LIFE ══════════════════ */
+    .jobs-life { padding: 96px 0; }
+    .life-layout {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .life-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .life-header p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.75; margin-bottom: 16px; }
+    /* ── Life illustration ── */
+    .life-illus {
+      position: relative;
+      background: linear-gradient(145deg, #f0fdf8 0%, #f9fafb 60%, #f0fdf8 100%);
+      border: 1px solid #d1fae5;
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 380px;
+    }
+    .life-illus-glow {
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(16,185,129,0.13) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+    /* Floating cards */
+    .li-card {
+      position: absolute;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      white-space: nowrap;
+    }
+    .li-card-icon {
+      width: 32px; height: 32px;
+      border-radius: 9px;
+      background: rgba(16,185,129,0.1);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .li-card-label { font-size: 12px; font-weight: 700; color: #111827; }
+    .li-card-sub   { font-size: 11px; color: #6b7280; margin-top: 1px; }
+
+    /* Individual positions & animations */
+    .li-card--identity { top: 12%; left: 6%; animation: li-float-a 5s ease-in-out infinite; }
+    .li-card--payment  { bottom: 18%; left: 4%; animation: li-float-b 6s ease-in-out infinite; }
+    .li-card--campus   { top: 10%; right: 4%; animation: li-float-c 5.5s ease-in-out infinite; }
+    .li-card--team     { bottom: 12%; right: 6%; animation: li-float-a 6.5s ease-in-out infinite reverse; }
+
+    @keyframes li-float-a {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-10px); }
+    }
+    @keyframes li-float-b {
+      0%, 100% { transform: translateY(0px); }
+      50%      { transform: translateY(-7px); }
+    }
+    @keyframes li-float-c {
+      0%, 100% { transform: translateY(-5px); }
+      50%      { transform: translateY(5px); }
+    }
+
+    /* Centre hub */
+    .li-hub {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .li-hub-ring {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10b981, #059669);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 12px rgba(16,185,129,0.1), 0 0 0 24px rgba(16,185,129,0.05);
+      animation: li-pulse 3s ease-in-out infinite;
+    }
+    @keyframes li-pulse {
+      0%, 100% { box-shadow: 0 0 0 12px rgba(16,185,129,0.1), 0 0 0 24px rgba(16,185,129,0.05); }
+      50%       { box-shadow: 0 0 0 16px rgba(16,185,129,0.12), 0 0 0 32px rgba(16,185,129,0.04); }
+    }
+    .li-hub-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #10b981;
+    }
+
+    /* Connector lines (SVG) */
+    .li-connectors {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .li-connector-line {
+      stroke: #10b981;
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+      opacity: 0.25;
+      animation: li-dash 3s linear infinite;
+    }
+    @keyframes li-dash {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: -24; }
+    }
+
+    /* Dot grid background */
+    .life-illus::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(16,185,129,0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    /* ══════════════════ §5 VALUES ══════════════════ */
+    .jobs-values {
+      padding: 96px 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .values-header { max-width: 540px; margin-bottom: 56px; }
+    .values-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .values-header p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .value-card {
+      padding: 32px 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--paper);
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .value-card:hover { border-color: rgba(16,185,129,0.25); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .value-num {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--g500);
+      margin-bottom: 14px;
+    }
+    .value-card h3 { font-size: 1.05rem; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); margin-bottom: 10px; }
+    .value-card p { font-size: 0.875rem; color: var(--ink-2); line-height: 1.65; }
+
+    /* ══════════════════ §6 BENEFITS ══════════════════ */
+    .jobs-benefits { padding: 96px 0; }
+    .benefits-header { max-width: 540px; margin-bottom: 56px; }
+    .benefits-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .benefits-header p { font-size: 0.97rem; color: var(--ink-2); line-height: 1.7; }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .benefit-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow);
+    }
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(16,185,129,0.09);
+      border: 1px solid rgba(16,185,129,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .benefit-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+    .benefit-card p { font-size: 0.82rem; color: var(--ink-2); line-height: 1.6; }
+
+    /* ══════════════════ §7 TEAMS ══════════════════ */
+    .jobs-teams {
+      padding: 96px 0;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .teams-header { text-align: center; max-width: 560px; margin: 0 auto 52px; }
+    .teams-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .teams-header p { font-size: 0.97rem; color: var(--ink-2); }
+    .teams-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .team-card {
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .team-card:hover { border-color: rgba(16,185,129,0.28); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+    .team-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(16,185,129,0.09);
+      border: 1px solid rgba(16,185,129,0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .team-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--ink); margin-bottom: 7px; }
+    .team-card p { font-size: 0.8rem; color: var(--ink-2); line-height: 1.55; }
+
+    /* ══════════════════ §8 OPEN ROLES ══════════════════ */
+    .jobs-roles { padding: 96px 0; }
+    .roles-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 36px; gap: 24px; flex-wrap: wrap; }
+    .roles-header h2 {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.028em;
+      line-height: 1.2;
+    }
+    .roles-filters {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .roles-select {
+      appearance: none;
+      padding: 9px 36px 9px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--white) url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%2394a3b8' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center;
+      font-size: 13px;
+      color: var(--ink-2);
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: border-color 0.15s;
+      min-width: 140px;
+    }
+    .roles-select:focus { outline: none; border-color: var(--g500); }
+    .roles-list { display: flex; flex-direction: column; gap: 12px; }
+    .role-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+      cursor: pointer;
+    }
+    .role-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-1px); border-color: rgba(16,185,129,0.2); }
+    .role-card[style*="display: none"] { display: none !important; }
+    .role-info { flex: 1; }
+    .role-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.012em; }
+    .role-meta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .role-dept {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--g700);
+      background: rgba(16,185,129,0.09);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .role-loc, .role-type { font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 5px; }
+    .role-desc { font-size: 13px; color: var(--ink-2); margin-top: 8px; line-height: 1.55; max-width: 640px; }
+    .role-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.15s;
+      flex-shrink: 0;
+    }
+    .role-cta:hover { background: #1a2540; transform: scale(1.02); }
+    .roles-empty {
+      display: none;
+      text-align: center;
+      padding: 72px 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--white);
+    }
+    .roles-empty h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .roles-empty p { font-size: 0.9rem; color: var(--ink-2); margin-bottom: 24px; }
+
+    /* ══════════════════ §9 TALENT NETWORK ══════════════════ */
+    .jobs-talent { padding: 80px 0 96px; }
+    .talent-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 56px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      box-shadow: var(--shadow);
+    }
+    .talent-text h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 10px;
+    }
+    .talent-text p { font-size: 0.9rem; color: var(--ink-2); line-height: 1.65; max-width: 420px; }
+    .talent-form {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .talent-input {
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--paper);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      outline: none;
+      width: 240px;
+      transition: border-color 0.15s;
+    }
+    .talent-input:focus { border-color: var(--g500); box-shadow: 0 0 0 3px rgba(16,185,129,0.10); }
+    .talent-btn {
+      padding: 11px 24px;
+      border-radius: 10px;
+      background: var(--g500);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .talent-btn:hover { background: var(--g600); transform: scale(1.02); }
+    .talent-success { display: none; align-items: center; gap: 10px; font-size: 14px; color: var(--g700); font-weight: 500; flex-shrink: 0; }
+
+    /* ══════════════════ §10 FINAL CTA ══════════════════ */
+    .jobs-final-cta {
+      background: linear-gradient(135deg, var(--g900) 0%, #064e3b 55%, #047857 100%);
+      padding: 96px 24px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .jobs-final-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(16,185,129,0.22) 0%, transparent 60%);
+    }
+    .jobs-final-cta-inner { position: relative; z-index: 1; max-width: 620px; margin: 0 auto; }
+    .jobs-final-cta h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .jobs-final-cta p { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.65; margin-bottom: 36px; }
+    .final-cta-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-cta-white {
+      padding: 13px 28px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--g900);
+      font-size: 14px;
+      font-weight: 700;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .btn-cta-white:hover { background: rgba(255,255,255,0.92); transform: scale(1.025); }
+    .btn-cta-outline {
+      padding: 13px 28px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: rgba(255,255,255,0.9);
+      font-size: 14px;
+      font-weight: 600;
+      transition: background 0.15s;
+    }
+    .btn-cta-outline:hover { background: rgba(255,255,255,0.17); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .jobs-hero { grid-template-columns: 1fr; gap: 40px; }
+      .jobs-hero-illus { height: 260px; }
+      .opportunity-layout { grid-template-columns: 1fr; gap: 48px; }
+      .life-layout { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+      .teams-grid { grid-template-columns: repeat(2, 1fr); }
+      .talent-card { flex-direction: column; align-items: flex-start; padding: 40px; }
+      .talent-form { flex-wrap: wrap; }
+      .talent-input { width: 100%; }
+    }
+    @media (max-width: 768px) {
+      .challenges-grid { grid-template-columns: 1fr 1fr; }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+      .role-card { flex-direction: column; align-items: flex-start; }
+      .role-cta { width: 100%; justify-content: center; }
+      .roles-header { flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 540px) {
+      .challenges-grid, .values-grid, .benefits-grid, .teams-grid { grid-template-columns: 1fr; }
+      .opportunity-stats { grid-template-columns: 1fr 1fr; }
+      .talent-card { padding: 28px 24px; }
+      .talent-form { width: 100%; flex-direction: column; }
+      .talent-btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="nav-float-wrap" id="navFloat"></header>
+
+<div class="jobs-wrap">
+
+  <!-- ══════════════════ §1 HERO ══════════════════ -->
+  <div class="jobs-hero">
+    <div>
+      <div class="section-eyebrow" data-anim>
+        <span class="eyebrow-dot"></span>
+        Careers at DigiRoad
+      </div>
+      <h1 data-anim data-d="1">Build the infrastructure powering <em>future universities</em></h1>
+      <p class="jobs-hero-sub" data-anim data-d="2">
+        Join DigiRoad to help shape the future of identity, payments, and digital services for universities worldwide.
+      </p>
+      <div class="jobs-hero-actions" data-anim data-d="3">
+        <a href="#talent" class="btn-primary">
+          Join talent network
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="contact.html" class="btn-ghost">Get in touch</a>
+      </div>
+    </div>
+    <div class="jobs-hero-illus" data-anim data-d="2">
+      <svg width="340" height="280" viewBox="0 0 340 280" fill="none">
+        <!-- Grid -->
+        <line x1="0" y1="70" x2="340" y2="70" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <line x1="0" y1="140" x2="340" y2="140" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <line x1="0" y1="210" x2="340" y2="210" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <line x1="85" y1="0" x2="85" y2="280" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <line x1="170" y1="0" x2="170" y2="280" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <line x1="255" y1="0" x2="255" y2="280" stroke="rgba(16,185,129,0.08)" stroke-width="1"/>
+        <!-- Hub -->
+        <circle cx="170" cy="140" r="32" fill="rgba(16,185,129,0.15)" stroke="#10b981" stroke-width="1.5"/>
+        <circle cx="170" cy="140" r="20" fill="rgba(16,185,129,0.22)" stroke="#10b981" stroke-width="1.2"/>
+        <!-- Nodes -->
+        <circle cx="58" cy="52" r="18" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.6"/>
+        <circle cx="282" cy="52" r="18" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.6"/>
+        <circle cx="36" cy="168" r="15" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+        <circle cx="304" cy="168" r="15" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+        <circle cx="100" cy="242" r="15" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+        <circle cx="240" cy="242" r="15" fill="rgba(16,185,129,0.10)" stroke="#10b981" stroke-width="1.2" stroke-opacity="0.5"/>
+        <!-- Spokes -->
+        <line x1="170" y1="140" x2="58" y2="52" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="140" x2="282" y2="52" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="140" x2="36" y2="168" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="140" x2="304" y2="168" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="140" x2="100" y2="242" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <line x1="170" y1="140" x2="240" y2="242" stroke="rgba(16,185,129,0.3)" stroke-width="0.8"/>
+        <!-- Pulses -->
+        <circle r="4" fill="#10b981" fill-opacity="0.85"><animateMotion dur="2.6s" repeatCount="indefinite" path="M170 140 L58 52"/></circle>
+        <circle r="3" fill="#34d399" fill-opacity="0.75"><animateMotion dur="3s" repeatCount="indefinite" begin="0.8s" path="M170 140 L304 168"/></circle>
+        <circle r="3.5" fill="#10b981" fill-opacity="0.7"><animateMotion dur="2.8s" repeatCount="indefinite" begin="1.5s" path="M170 140 L240 242"/></circle>
+        <!-- DR label -->
+        <text x="170" y="145" text-anchor="middle" font-size="13" font-weight="800" fill="#10b981" font-family="Inter,sans-serif" letter-spacing="-0.02em">DR</text>
+        <!-- Pulse ring -->
+        <circle cx="170" cy="140" r="36" stroke="#10b981" stroke-width="1" fill="none" stroke-opacity="0">
+          <animate attributeName="r" values="32;52;32" dur="3s" repeatCount="indefinite"/>
+          <animate attributeName="stroke-opacity" values="0.5;0;0.5" dur="3s" repeatCount="indefinite"/>
+        </circle>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ══════════════════ §2 OPPORTUNITY ══════════════════ -->
+  <section class="jobs-opportunity">
+    <div class="section-inner">
+      <div class="opportunity-layout">
+        <div class="opportunity-text" data-anim>
+          <div class="section-eyebrow"><span class="eyebrow-dot"></span>The opportunity</div>
+          <h2>A rare chance to build infrastructure that matters</h2>
+          <p>Universities manage the identity, payments, and digital lives of over 200 million students globally. Yet most of this infrastructure is fragmented, outdated, and disconnected.</p>
+          <p>DigiRoad is building the operating system for this ecosystem ,  a unified layer for identity, cross-border payments, and institutional digital services.</p>
+          <p>We are early, growing fast, and solving problems that have not been solved at scale before. The people who join now will shape the foundation.</p>
+          <div class="opportunity-points">
+            <div class="opp-point"><div class="opp-point-dot"></div><p><strong>Global scale from day one.</strong> Our infrastructure already spans 44 countries and 500+ institutions.</p></div>
+            <div class="opp-point"><div class="opp-point-dot"></div><p><strong>Real complexity, real impact.</strong> Payments, identity, compliance, and institutional operations ,  all in one platform.</p></div>
+            <div class="opp-point"><div class="opp-point-dot"></div><p><strong>An early but credible stage.</strong> Enough traction to validate the model, enough runway to move fast.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §3 CHALLENGES ══════════════════ -->
+  <section class="jobs-challenges">
+    <div class="section-inner">
+      <div class="challenges-header" data-anim>
+        <div class="section-eyebrow" style="justify-content:center;"><span class="eyebrow-dot"></span>The work</div>
+        <h2>Hard problems worth solving</h2>
+        <p>Building infrastructure for institutions is genuinely difficult. Here is what makes the work at DigiRoad both challenging and meaningful.</p>
+      </div>
+      <div class="challenges-grid">
+        <div class="challenge-card" data-anim data-d="1">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="3" width="16" height="16" rx="3.5" stroke="#10b981" stroke-width="1.4"/><path d="M7 11h8M11 7v8" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>Reliability at institutional scale</h3>
+          <p>Universities depend on our infrastructure for enrolment, payments, and identity every single day. Downtime is not an option ,  we build for 99.99% uptime from the start.</p>
+        </div>
+        <div class="challenge-card" data-anim data-d="2">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="8" stroke="#10b981" stroke-width="1.4"/><path d="M11 3.5c0 0 3.5 3 3.5 7.5S11 18.5 11 18.5M11 3.5c0 0-3.5 3-3.5 7.5S11 18.5 11 18.5M3.5 11h15" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h3>Cross-border payments complexity</h3>
+          <p>Moving money for students across 44 countries means navigating local schemes, regulatory frameworks, FX volatility, and compliance requirements simultaneously.</p>
+        </div>
+        <div class="challenge-card" data-anim data-d="3">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3L4 7v8l7 4 7-4V7L11 3Z" stroke="#10b981" stroke-width="1.4" stroke-linejoin="round"/><path d="M11 3v12M4 7l7 4 7-4" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h3>Identity for millions of students</h3>
+          <p>Verifying and managing identities for students across institutions, countries, and credential types ,  while keeping systems simple for the people who use them every day.</p>
+        </div>
+        <div class="challenge-card" data-anim data-d="4">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="6" width="16" height="12" rx="2.5" stroke="#10b981" stroke-width="1.4"/><path d="M7 6V5a4 4 0 018 0v1" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/><circle cx="11" cy="12.5" r="2" fill="#10b981" fill-opacity="0.35" stroke="#10b981" stroke-width="1"/></svg></div>
+          <h3>Compliance without friction</h3>
+          <p>PCI DSS, GDPR, local financial regulations ,  compliance must be deeply embedded in our architecture, not bolted on. We build this in from the beginning.</p>
+        </div>
+        <div class="challenge-card" data-anim data-d="5">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="5" width="18" height="14" rx="3" stroke="#10b981" stroke-width="1.4"/><path d="M2 9h18" stroke="#10b981" stroke-width="1.4"/><path d="M6 13h4M14 13h2" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/></svg></div>
+          <h3>Products for two audiences</h3>
+          <p>We build for institutions making strategic decisions and for students navigating daily life. Both must feel effortless. Serving both well requires deep product thinking.</p>
+        </div>
+        <div class="challenge-card" data-anim data-d="6">
+          <div class="challenge-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11h14M4 7h10M4 15h7" stroke="#10b981" stroke-width="1.4" stroke-linecap="round"/><circle cx="17" cy="7" r="2.5" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-width="1"/></svg></div>
+          <h3>API design for institutions</h3>
+          <p>Building APIs that developers love and institutions trust ,  expressive, stable, versioned, and resilient. Our API is the product for many of our partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §4 LIFE ══════════════════ -->
+  <section class="jobs-life">
+    <div class="section-inner">
+      <div class="life-layout">
+        <div class="life-header" data-anim>
+          <div class="section-eyebrow"><span class="eyebrow-dot"></span>Life at DigiRoad</div>
+          <h2>Small teams. Real ownership. Meaningful work.</h2>
+          <p>We are a company of people who care deeply about what they build. We move with intention, not just speed. We value quality of thought over volume of output.</p>
+          <p>Every person at DigiRoad owns a meaningful part of what we ship. There is no hiding behind process. There is no waiting for permission.</p>
+          <p>We are building something that will matter for a long time. We hire people who want to be part of that.</p>
+        </div>
+        <div class="life-illus" data-anim data-d="1">
+          <div class="life-illus-glow"></div>
+
+          <!-- Animated connector lines -->
+          <svg class="li-connectors" viewBox="0 0 500 380" preserveAspectRatio="xMidYMid meet">
+            <line class="li-connector-line" x1="130" y1="80"  x2="250" y2="190"/>
+            <line class="li-connector-line" x1="100" y1="300" x2="250" y2="190" style="animation-delay:0.8s"/>
+            <line class="li-connector-line" x1="380" y1="70"  x2="250" y2="190" style="animation-delay:0.4s"/>
+            <line class="li-connector-line" x1="390" y1="310" x2="250" y2="190" style="animation-delay:1.2s"/>
+          </svg>
+
+          <!-- Floating feature cards -->
+          <div class="li-card li-card--identity">
+            <div class="li-card-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="4" width="12" height="9" rx="2" stroke="#10b981" stroke-width="1.3"/><path d="M5 4V3a3 3 0 016 0v1" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/><circle cx="8" cy="8.5" r="1.3" fill="#10b981" fill-opacity="0.5"/></svg>
+            </div>
+            <div>
+              <div class="li-card-label">Digital Identity</div>
+              <div class="li-card-sub">Real ownership</div>
+            </div>
+          </div>
+
+          <div class="li-card li-card--payment">
+            <div class="li-card-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1.5" y="4.5" width="13" height="8" rx="2" stroke="#10b981" stroke-width="1.3"/><path d="M1.5 7.5h13" stroke="#10b981" stroke-width="1.3"/><rect x="3.5" y="9.5" width="4" height="1.5" rx="0.5" fill="#10b981" fill-opacity="0.4"/></svg>
+            </div>
+            <div>
+              <div class="li-card-label">Payments</div>
+              <div class="li-card-sub">Hard problems</div>
+            </div>
+          </div>
+
+          <div class="li-card li-card--campus">
+            <div class="li-card-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5L1.5 5.5V14.5H14.5V5.5L8 1.5Z" stroke="#10b981" stroke-width="1.3" stroke-linejoin="round"/><rect x="5.5" y="9" width="5" height="5.5" rx="1" stroke="#10b981" stroke-width="1.2"/></svg>
+            </div>
+            <div>
+              <div class="li-card-label">Campus OS</div>
+              <div class="li-card-sub">Meaningful work</div>
+            </div>
+          </div>
+
+          <div class="li-card li-card--team">
+            <div class="li-card-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="5.5" cy="5.5" r="2.2" stroke="#10b981" stroke-width="1.3"/><circle cx="10.5" cy="5.5" r="2.2" stroke="#10b981" stroke-width="1.3"/><path d="M1 13.5c0-2.5 2-4.5 4.5-4.5M15 13.5c0-2.5-2-4.5-4.5-4.5M8 13.5c0-2.2 1.8-4 4-4" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div class="li-card-label">Small teams</div>
+              <div class="li-card-sub">No hiding behind process</div>
+            </div>
+          </div>
+
+          <!-- Centre hub -->
+          <div class="li-hub">
+            <div class="li-hub-ring">
+              <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                <path d="M17 5L5 11.5V22.5L17 29L29 22.5V11.5L17 5Z" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M17 5v24M5 11.5l12 6 12-6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span class="li-hub-label">DigiRoad</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §5 VALUES ══════════════════ -->
+  <section class="jobs-values">
+    <div class="section-inner">
+      <div class="values-header" data-anim>
+        <div class="section-eyebrow"><span class="eyebrow-dot"></span>What we value</div>
+        <h2>How we think, decide, and build</h2>
+        <p>These are not posters on a wall. They are the patterns we try to act on every day.</p>
+      </div>
+      <div class="values-grid">
+        <div class="value-card" data-anim data-d="1"><div class="value-num">01</div><h3>Think in systems</h3><p>Understand second-order effects before you act. Build things that compose well and age gracefully.</p></div>
+        <div class="value-card" data-anim data-d="2"><div class="value-num">02</div><h3>Build with trust</h3><p>Institutions and students depend on our infrastructure. Reliability, security, and honesty are non-negotiable.</p></div>
+        <div class="value-card" data-anim data-d="3"><div class="value-num">03</div><h3>Move with intention</h3><p>We are fast but not reckless. We ship with care, document our thinking, and own our decisions.</p></div>
+        <div class="value-card" data-anim data-d="4"><div class="value-num">04</div><h3>Focus on what matters</h3><p>Say no to things that don't move the needle. Protect time and attention for the work that actually matters.</p></div>
+        <div class="value-card" data-anim data-d="5"><div class="value-num">05</div><h3>Serve institutions and students well</h3><p>Our users are not abstract. They are universities running operations and students navigating real lives.</p></div>
+        <div class="value-card" data-anim data-d="6"><div class="value-num">06</div><h3>Raise the standard</h3><p>Leave things better than you found them. Write the document. Fix the edge case. Hold the bar high.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §6 BENEFITS ══════════════════ -->
+  <section class="jobs-benefits">
+    <div class="section-inner">
+      <div class="benefits-header" data-anim>
+        <div class="section-eyebrow"><span class="eyebrow-dot"></span>What we offer</div>
+        <h2>Support for the work and the person</h2>
+        <p>We want people to do their best work here ,  and to build something they're proud of over the long term.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card" data-anim data-d="1">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="11" rx="2" stroke="#10b981" stroke-width="1.3"/><path d="M2 10l8 4 8-4" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4>Competitive compensation</h4>
+          <p>Salary, equity, and performance review structured to reflect the value you create.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="2">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#10b981" stroke-width="1.3"/><path d="M10 6v4l2.5 2.5" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4>Flexible &amp; remote-friendly</h4>
+          <p>Hybrid working across our London, Dubai, and Singapore offices. Remote considered for senior roles.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="3">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2Z" stroke="#10b981" stroke-width="1.3" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h4>High ownership, early</h4>
+          <p>You will own real systems and real decisions ,  not work on tickets filtered through layers of management.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="4">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#10b981" stroke-width="1.3"/><path d="M7 10h6M7 7h4M7 13h5" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4>Learning &amp; development</h4>
+          <p>Annual learning budget, conference attendance, and a culture of deliberate skill-building.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="1">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="7.5" r="3.5" stroke="#10b981" stroke-width="1.3"/><path d="M3 17c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h4>Mentorship &amp; access</h4>
+          <p>Direct access to founders, advisors, and a network of investors building at infrastructure scale.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="2">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M4 6h8M4 14h10" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><circle cx="16" cy="6" r="2" fill="#10b981"/></svg></div>
+          <h4>Health &amp; wellbeing</h4>
+          <p>Comprehensive private health cover, mental health support, and reasonable expectations on hours.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="3">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="5" width="16" height="12" rx="2" stroke="#10b981" stroke-width="1.3"/><path d="M6 5V4a4 4 0 018 0v1" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><path d="M7 11l2 2 4-4" stroke="#10b981" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h4>Equity from day one</h4>
+          <p>All full-time employees receive equity. We want the people building DigiRoad to share in its success.</p>
+        </div>
+        <div class="benefit-card" data-anim data-d="4">
+          <div class="benefit-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.5 5 5.5.8-4 3.9.95 5.5L10 14.75 5.05 17.2 6 11.7 2 7.8l5.5-.8L10 2Z" stroke="#10b981" stroke-width="1.2" stroke-linejoin="round"/></svg></div>
+          <h4>Mission that compounds</h4>
+          <p>Work that shapes infrastructure used by millions of students. The impact grows with the company.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §7 TEAMS ══════════════════ -->
+  <section class="jobs-teams">
+    <div class="section-inner">
+      <div class="teams-header" data-anim>
+        <div class="section-eyebrow" style="justify-content:center;"><span class="eyebrow-dot"></span>Where you'll work</div>
+        <h2>Our teams</h2>
+        <p>We hire across functions. Every team has real impact on what DigiRoad ships and how it grows.</p>
+      </div>
+      <div class="teams-grid">
+        <div class="team-card" data-anim data-d="1">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#10b981" stroke-width="1.3"/><path d="M7 10h6M7 7h3M7 13h5" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h3>Engineering</h3>
+          <p>Platform, payments, identity, APIs, and infrastructure. We hire across the stack.</p>
+        </div>
+        <div class="team-card" data-anim data-d="2">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#10b981" stroke-width="1.3"/><path d="M10 6v4l2.5 2.5" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h3>Product</h3>
+          <p>Define what we build and why. Own the roadmap across eCampus, UniPay, and Connect.</p>
+        </div>
+        <div class="team-card" data-anim data-d="3">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="3" y="3" width="14" height="14" rx="3" stroke="#10b981" stroke-width="1.3"/><circle cx="10" cy="10" r="3" stroke="#10b981" stroke-width="1.2"/><path d="M10 3v1.5M10 15.5V17M3 10h1.5M15.5 10H17" stroke="#10b981" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+          <h3>Design</h3>
+          <p>Shape how institutions and students experience DigiRoad ,  from first touch to core workflow.</p>
+        </div>
+        <div class="team-card" data-anim data-d="4">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 10c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><path d="M3 10c0 3.87 3.13 7 7 7M10 17c1.5 0 3-2.5 3-7s-1.5-7-3-7M3 10h14" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h3>Partnerships</h3>
+          <p>Build and grow institutional relationships with universities, banks, and governments globally.</p>
+        </div>
+        <div class="team-card" data-anim data-d="1">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L3 6v8l7 4 7-4V6L10 2Z" stroke="#10b981" stroke-width="1.3" stroke-linejoin="round"/><path d="M10 2v12M3 6l7 4 7-4" stroke="#10b981" stroke-width="1.1" stroke-linecap="round"/></svg></div>
+          <h3>Operations</h3>
+          <p>The systems and processes that allow DigiRoad to scale reliably across 44 countries.</p>
+        </div>
+        <div class="team-card" data-anim data-d="2">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="6" width="16" height="11" rx="2" stroke="#10b981" stroke-width="1.3"/><path d="M6 6V5a4 4 0 018 0v1" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/><path d="M7 12h6" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h3>Finance &amp; Compliance</h3>
+          <p>Regulatory frameworks, financial controls, and the compliance infrastructure for a global platform.</p>
+        </div>
+        <div class="team-card" data-anim data-d="3">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 14l4-4 3 3 5-6" stroke="#10b981" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="17" cy="5" r="2" fill="#10b981" fill-opacity="0.5"/></svg></div>
+          <h3>Growth</h3>
+          <p>Revenue, market expansion, and the commercial motion that brings DigiRoad to new institutions.</p>
+        </div>
+        <div class="team-card" data-anim data-d="4">
+          <div class="team-card-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="4" width="16" height="13" rx="2.5" stroke="#10b981" stroke-width="1.3"/><path d="M2 8h16" stroke="#10b981" stroke-width="1.3"/><path d="M6 12h4M14 12h2" stroke="#10b981" stroke-width="1.3" stroke-linecap="round"/></svg></div>
+          <h3>Customer Success</h3>
+          <p>Own the institutional relationship post-deployment ,  onboarding, expansion, and long-term success.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §8 OPEN ROLES ══════════════════ -->
+  <section class="jobs-roles" id="open-roles">
+    <div class="section-inner">
+      <div class="roles-header" data-anim>
+        <h2>Open roles</h2>
+        <div class="roles-filters" style="display:none;">
+          <select class="roles-select" id="deptFilter">
+            <option value="all">All departments</option>
+            <option value="engineering">Engineering</option>
+            <option value="product">Product</option>
+            <option value="design">Design</option>
+            <option value="partnerships">Partnerships</option>
+            <option value="operations">Operations</option>
+            <option value="growth">Growth</option>
+          </select>
+          <select class="roles-select" id="locFilter">
+            <option value="all">All locations</option>
+            <option value="london">London</option>
+            <option value="dubai">Dubai</option>
+            <option value="singapore">Singapore</option>
+            <option value="remote">Remote</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="roles-list" id="rolesList">
+        <div class="roles-empty" id="rolesEmpty" style="display:block;">
+          <h3>No open positions right now</h3>
+          <p>We don't have any open roles at the moment, but we're always interested in hearing from great people. Join our talent network to be notified when something opens up.</p>
+          <a href="#talent" class="btn-primary" style="display:inline-flex;">Join talent network</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §9 TALENT NETWORK ══════════════════ -->
+  <section class="jobs-talent" id="talent">
+    <div class="section-inner">
+      <div class="talent-card" data-anim>
+        <div class="talent-text">
+          <h2>Don't see the right role?</h2>
+          <p>Join our talent network and we'll reach out when a role opens that matches your background. We review every submission personally.</p>
+        </div>
+        <div>
+          <form id="talentForm" style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+            <input class="talent-input" id="talentEmail" type="email" placeholder="Your work email" required autocomplete="email" />
+            <button class="talent-btn" type="submit">Join network</button>
+          </form>
+          <div class="talent-success" id="talentSuccess">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="rgba(16,185,129,0.7)" stroke-width="1.2"/><path d="M5 8l2 2 4-4" stroke="var(--g600)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            You're in ,  we'll be in touch.
+          </div>
+          <p style="font-size:11.5px;color:var(--ink-3);margin-top:10px;">No spam. We only reach out for relevant opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ §10 FINAL CTA ══════════════════ -->
+  <section class="jobs-final-cta">
+    <div class="jobs-final-cta-inner" data-anim>
+      <div class="section-eyebrow" style="justify-content:center;color:rgba(255,255,255,0.55);margin-bottom:18px;">
+        <span style="width:6px;height:6px;border-radius:50%;background:rgba(52,211,153,0.7);display:inline-block;"></span>
+        Now hiring
+      </div>
+      <h2>Help build the future of digital infrastructure for education</h2>
+      <p>We're looking for people who want to solve hard problems and ship things that matter. If that's you, we'd like to talk.</p>
+      <div class="final-cta-actions">
+        <a href="#talent" class="btn-cta-white">Join talent network</a>
+        <a href="contact.html" class="btn-cta-outline">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /jobs-wrap -->
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" />
+        </a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Solutions</h5>
+        <ul>
+          <li><a href="ecampus.html">eCampus</a></li>
+          <li><a href="connect.html">DigiRoad Connect</a></li>
+          <li><a href="unipay.html">UniPay</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Careers</a></li>
+          <li><a href="newsroom.html">Newsroom</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="support.html">Get Support</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiRoad Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+(function () {
+  /* ── Scroll reveal ── */
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('[data-anim]').forEach(function (el) { io.observe(el); });
+
+  /* ── Role filters ── */
+  var deptSel = document.getElementById('deptFilter');
+  var locSel  = document.getElementById('locFilter');
+  var roles   = document.querySelectorAll('#rolesList .role-card');
+  var empty   = document.getElementById('rolesEmpty');
+
+  function filterRoles() {
+    var dept = deptSel.value;
+    var loc  = locSel.value;
+    var count = 0;
+    roles.forEach(function (r) {
+      var match = (dept === 'all' || r.dataset.dept === dept) &&
+                  (loc  === 'all' || r.dataset.loc  === loc);
+      r.style.display = match ? '' : 'none';
+      if (match) count++;
+    });
+    empty.style.display = count === 0 ? 'block' : 'none';
+  }
+  deptSel.addEventListener('change', filterRoles);
+  locSel.addEventListener('change', filterRoles);
+
+  /* ── Talent form ── */
+  var tForm   = document.getElementById('talentForm');
+  var tEmail  = document.getElementById('talentEmail');
+  var tSuccess = document.getElementById('talentSuccess');
+  tForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!tEmail.value || !tEmail.validity.valid) {
+      tEmail.style.borderColor = 'rgba(239,68,68,0.6)'; tEmail.focus(); return;
+    }
+    tForm.style.display = 'none';
+    tSuccess.style.display = 'flex';
+  });
+  tEmail.addEventListener('input', function () { tEmail.style.borderColor = ''; });
+})();
+</script>
+</body>
+</html>

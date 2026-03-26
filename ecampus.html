@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>eCampus ,  The Digital Operating System for University Life</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/ecampus.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     FLOATING NAVBAR (shared)
+═══════════════════════════════════════ -->
+<header class="nav-float-wrap" id="navFloat"></header>
+
+<!-- ═══════════════════════════════════════
+     HERO
+═══════════════════════════════════════ -->
+<section class="ec-hero">
+  <div class="ec-hero-glow"></div>
+  <div class="ec-container ec-hero-inner">
+    <div class="ec-hero-text">
+      <h1 class="ec-h1">The Digital Operating System for <span class="ec-h1-green">University Life.</span></h1>
+      <p class="ec-hero-desc">A unified infrastructure connecting identity, payments, and campus services into one seamless student experience.</p>
+      <a href="#" class="ec-btn-primary">Book a Demo</a>
+    </div>
+    <div class="ec-hero-phone">
+      <img src="images/hero-phone.png" alt="eCampus app" class="ec-hero-img" />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PROBLEM
+═══════════════════════════════════════ -->
+<section class="ec-problem">
+  <div class="ec-container">
+    <div class="ec-section-top">
+      <h2 class="ec-h2">Universities Are Fragmented</h2>
+      <div class="ec-h2-bar"></div>
+    </div>
+    <div class="ec-problem-grid">
+      <div class="ec-problem-card">
+        <div class="ec-problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="7" height="7" rx="1"/><rect x="15" y="3" width="7" height="7" rx="1"/>
+            <rect x="2" y="14" width="7" height="7" rx="1"/><rect x="15" y="14" width="7" height="7" rx="1"/>
+          </svg>
+        </div>
+        <h3 class="ec-problem-h3">Disconnected Systems</h3>
+        <p class="ec-problem-p">Academic records, housing, and finance exist in siloed databases with zero interoperability.</p>
+      </div>
+      <div class="ec-problem-card">
+        <div class="ec-problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <h3 class="ec-problem-h3">Poor Experience</h3>
+        <p class="ec-problem-p">Students manage dozens of logins and physical cards to access essential university services.</p>
+      </div>
+      <div class="ec-problem-card">
+        <div class="ec-problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+          </svg>
+        </div>
+        <h3 class="ec-problem-h3">No Real-Time Comms</h3>
+        <p class="ec-problem-p">Communication is trapped in slow email threads and outdated physical bulletin boards.</p>
+      </div>
+      <div class="ec-problem-card">
+        <div class="ec-problem-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 8v4l3 3"/>
+          </svg>
+        </div>
+        <h3 class="ec-problem-h3">Financial Friction</h3>
+        <p class="ec-problem-p">Lack of embedded payments leads to high transaction costs and delayed institutional revenue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SOLUTION
+═══════════════════════════════════════ -->
+<section class="ec-solution ec-solution-animate" id="ecSolution">
+  <div class="ec-container">
+    <div class="ec-solution-header">
+      <h2 class="ec-h2">eCampus Changes That</h2>
+      <p class="ec-solution-sub">One central intelligence layer that connects students to every institutional touchpoint.</p>
+    </div>
+    <div class="ec-diagram">
+      <div class="ec-diag-node">
+        <div class="ec-diag-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#316763" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+        </div>
+        <div class="ec-diag-label">Student</div>
+      </div>
+      <div class="ec-diag-line">
+        <div class="ec-diag-line-inner"></div>
+        <div class="ec-diag-arrow">›</div>
+      </div>
+      <div class="ec-diag-node ec-diag-node--center">
+        <div class="ec-diag-circle ec-diag-circle--main">
+          <img src="images/logo-white.png" alt="eCampus" style="width:36px;height:auto;display:block;object-fit:contain;" />
+        </div>
+        <div class="ec-diag-label ec-diag-label--main">eCampus</div>
+        <div class="ec-diag-sublabel">Unified Platform</div>
+      </div>
+      <div class="ec-diag-line ec-diag-line--right">
+        <div class="ec-diag-arrow">›</div>
+        <div class="ec-diag-line-inner"></div>
+      </div>
+      <div class="ec-diag-node">
+        <div class="ec-diag-circle">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#316763" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 21h18M3 10h18M3 7l9-4 9 4M5 10v11M19 10v11M9 21V16a3 3 0 016 0v5"/>
+          </svg>
+        </div>
+        <div class="ec-diag-label">University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     CORE FEATURES
+═══════════════════════════════════════ -->
+<section class="ec-features">
+  <div class="ec-container">
+
+    <!-- Digital Identity -->
+    <div class="ec-feat-row">
+      <div class="ec-feat-visual">
+        <img src="images/identity-phone.png" alt="Digital Identity" class="ec-feat-img" />
+      </div>
+      <div class="ec-feat-text">
+        <div class="ec-feat-label">Foundational Trust</div>
+        <h2 class="ec-feat-h2">Digital Identity</h2>
+        <p class="ec-feat-desc">A secure, verified student identity that replaces physical IDs. Used for entry, library access, and secure examinations.</p>
+        <ul class="ec-feat-list">
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Biometric authentication
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            QR-based access control
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ec-feat-divider"></div>
+
+    <!-- University Services Hub -->
+    <div class="ec-feat-row ec-feat-row--rev">
+      <div class="ec-feat-text">
+        <div class="ec-feat-label">Campus Services</div>
+        <h2 class="ec-feat-h2">University Services Hub</h2>
+        <p class="ec-feat-desc">A comprehensive catalogue of every campus digital service, unified in one place. Students find, request, and track services without leaving the app.</p>
+        <ul class="ec-feat-list">
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Searchable service catalogue
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Real-time inquiry tracking
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            50+ categorised campus services
+          </li>
+        </ul>
+      </div>
+      <div class="ec-feat-visual">
+        <div class="ec-services-mockup">
+
+          <!-- Nav bar -->
+          <div class="ec-svc-nav">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 14L6 9l5-5" stroke="#001812" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="ec-svc-nav-title">University Services Hub</span>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 3v5l3 3" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="9" r="6.5" stroke="#00a371" stroke-width="1.5"/></svg>
+          </div>
+
+          <!-- Search -->
+          <div class="ec-svc-search">
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><circle cx="6.5" cy="6.5" r="5" stroke="#aacec2" stroke-width="1.4"/><path d="M10.5 10.5l3 3" stroke="#aacec2" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <span>Search for services...</span>
+          </div>
+
+          <!-- Hero banner -->
+          <div class="ec-svc-banner">
+            <div class="ec-svc-banner-text">
+              <div class="ec-svc-banner-title">University Hub</div>
+              <div class="ec-svc-banner-desc">Comprehensive catalogue of all campus digital services.</div>
+            </div>
+            <svg class="ec-svc-banner-icon" width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.22"><path d="M8 56V28L32 8l24 20v28H8Z" stroke="#00a371" stroke-width="2.5" stroke-linejoin="round"/><rect x="24" y="38" width="16" height="18" rx="2" stroke="#00a371" stroke-width="2"/><rect x="20" y="26" width="8" height="8" rx="1" stroke="#00a371" stroke-width="1.8"/><rect x="36" y="26" width="8" height="8" rx="1" stroke="#00a371" stroke-width="1.8"/></svg>
+          </div>
+
+          <!-- Ongoing Inquiries -->
+          <div class="ec-svc-section-title">Ongoing Inquiries</div>
+          <div class="ec-svc-inquiry">
+            <div class="ec-svc-inquiry-bar"></div>
+            <div class="ec-svc-inquiry-body">
+              <div class="ec-svc-inquiry-name">Enrollment Verification</div>
+              <div class="ec-svc-inquiry-date">Submitted on Oct 24, 2023</div>
+            </div>
+            <div class="ec-svc-badge">Processing</div>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4 2l4 4-4 4" stroke="#aacec2" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+
+          <!-- Service Categories -->
+          <div class="ec-svc-section-row">
+            <span class="ec-svc-section-title" style="margin-bottom:0">Service Categories</span>
+            <span class="ec-svc-az">A-Z</span>
+          </div>
+          <div class="ec-svc-grid">
+            <div class="ec-svc-cat">
+              <div class="ec-svc-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="6" r="3" stroke="#00a371" stroke-width="1.3"/><path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#00a371" stroke-width="1.3" stroke-linecap="round"/><path d="M13.5 8l1.5 1.5" stroke="#00a371" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ec-svc-cat-name">Admissions &amp; Permanence</div>
+              <div class="ec-svc-cat-sub">Registration, records</div>
+            </div>
+            <div class="ec-svc-cat">
+              <div class="ec-svc-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="#00a371" stroke-width="1.3"/><path d="M9 3c0 0 2 2 2 6s-2 6-2 6M3 9h12" stroke="#00a371" stroke-width="1.1" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ec-svc-cat-name">Mobility</div>
+              <div class="ec-svc-cat-sub">Exchange, study abroad</div>
+            </div>
+            <div class="ec-svc-cat">
+              <div class="ec-svc-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 15v-1a5 5 0 0110 0v1" stroke="#00a371" stroke-width="1.3" stroke-linecap="round"/><circle cx="8" cy="7" r="3" stroke="#00a371" stroke-width="1.3"/><path d="M13 8a3 3 0 010 6" stroke="#00a371" stroke-width="1.2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ec-svc-cat-name">Student Affairs</div>
+              <div class="ec-svc-cat-sub">Housing, counseling</div>
+            </div>
+            <div class="ec-svc-cat">
+              <div class="ec-svc-cat-icon">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="6" cy="7" r="2.5" stroke="#00a371" stroke-width="1.3"/><circle cx="12" cy="7" r="2.5" stroke="#00a371" stroke-width="1.3"/><path d="M1 16c0-2.76 2.24-5 5-5h6c2.76 0 5 2.24 5 5" stroke="#00a371" stroke-width="1.3" stroke-linecap="round"/></svg>
+              </div>
+              <div class="ec-svc-cat-name">Clubs &amp; Societies</div>
+              <div class="ec-svc-cat-sub">Explore and join communities</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="ec-feat-divider"></div>
+
+    <!-- Student Wallet -->
+    <div class="ec-feat-row">
+      <div class="ec-feat-visual">
+        <img src="images/student-wallet.png" alt="Student Wallet" class="ec-feat-img ec-feat-img--wallet" />
+      </div>
+      <div class="ec-feat-text">
+        <div class="ec-feat-label">Student Finance</div>
+        <h2 class="ec-feat-h2">Student Wallet</h2>
+        <p class="ec-feat-desc">A built-in financial layer that keeps every student transaction, from tuition to daily campus spend, in one place.</p>
+        <ul class="ec-feat-list">
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(0,163,113,0.12)"/>
+              <path d="M5.5 8l2 2L11 5.5" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Real-time balance and payment status
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(0,163,113,0.12)"/>
+              <path d="M5.5 8l2 2L11 5.5" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Tuition, cafeteria, and marketplace payments
+          </li>
+          <li>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(0,163,113,0.12)"/>
+              <path d="M5.5 8l2 2L11 5.5" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            CliQ and eFawateercom instant transfers
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ec-feat-divider"></div>
+
+    <!-- Accommodation -->
+    <div class="ec-feat-row ec-feat-row--rev">
+      <div class="ec-feat-text">
+        <div class="ec-feat-label">Student Living</div>
+        <h2 class="ec-feat-h2">Accommodation</h2>
+        <p class="ec-feat-desc">End-to-end housing management built into the student experience. Browse rooms, submit applications, track requests, and manage everything from move-in to move-out without paperwork.</p>
+        <ul class="ec-feat-list">
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Browse and apply for on-campus housing
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Real-time application and room status
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Maintenance requests and incident reporting
+          </li>
+        </ul>
+      </div>
+      <div class="ec-feat-visual">
+        <img src="images/accommodation.png" alt="Accommodation" class="ec-feat-img ec-feat-img--wallet" />
+      </div>
+    </div>
+
+    <div class="ec-feat-divider"></div>
+
+    <!-- eSIM -->
+    <div class="ec-feat-row">
+      <div class="ec-feat-visual">
+        <img src="images/esim.png" alt="eSIM" class="ec-feat-img ec-feat-img--wallet" />
+      </div>
+      <div class="ec-feat-text">
+        <div class="ec-feat-label">Connected Campus</div>
+        <h2 class="ec-feat-h2">eSIM</h2>
+        <p class="ec-feat-desc">Instant, institution-grade connectivity the moment a student arrives. Activate a local data plan directly from the app, no physical SIM, no carrier store, no delay.</p>
+        <ul class="ec-feat-list">
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            One-tap eSIM activation on arrival
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Local and international data plans
+          </li>
+          <li>
+            <svg class="ec-check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="9" r="8" fill="#00a371" fill-opacity="0.1"/>
+              <path d="M5.5 9l2.5 2.5L12.5 6" stroke="#00a371" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Usage tracking and top-up from the wallet
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     PRODUCT EXPERIENCE (dark)
+═══════════════════════════════════════ -->
+<section class="ec-experience">
+  <div class="ec-container">
+    <div class="ec-exp-header">
+      <h2 class="ec-exp-h2">One Platform. Every Interaction.</h2>
+      <p class="ec-exp-sub">Connecting every node in the institutional ecosystem through high-velocity data and capital flows.</p>
+    </div>
+    <div class="ec-exp-grid">
+      <div class="ec-exp-card">
+        <div class="ec-exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+          </svg>
+        </div>
+        <h3 class="ec-exp-h3">Academic Excellence</h3>
+        <p class="ec-exp-p">Integrated grading, course management, and resource allocation in a single dashboard.</p>
+      </div>
+      <div class="ec-exp-card">
+        <div class="ec-exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+        </div>
+        <h3 class="ec-exp-h3">Community Hub</h3>
+        <p class="ec-exp-p">Social channels, event discovery, and organizational tools for campus life engagement.</p>
+      </div>
+      <div class="ec-exp-card">
+        <div class="ec-exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <h3 class="ec-exp-h3">Marketplace</h3>
+        <p class="ec-exp-p">Direct-to-student offers, housing listings, and book exchanges within a trusted network.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     VALUE PROP SPLIT
+═══════════════════════════════════════ -->
+<section class="ec-value">
+  <div class="ec-value-wrap">
+    <div class="ec-value-panel ec-value-panel--light">
+      <div class="ec-value-label ec-value-label--green">For Students</div>
+      <h3 class="ec-value-h3">Radical Simplicity</h3>
+      <div class="ec-value-items">
+        <div class="ec-value-item">
+          <div class="ec-value-dot"></div>
+          <div>
+            <div class="ec-value-item-h">Single Point of Access</div>
+            <div class="ec-value-item-p">One app for ID, payments, grades, and campus services.</div>
+          </div>
+        </div>
+        <div class="ec-value-item">
+          <div class="ec-value-dot"></div>
+          <div>
+            <div class="ec-value-item-h">Real-time Clarity</div>
+            <div class="ec-value-item-p">Instant notifications for class changes or payment deadlines.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ec-value-panel ec-value-panel--dark">
+      <div class="ec-value-label ec-value-label--bright">For Universities</div>
+      <h3 class="ec-value-h3 ec-value-h3--white">Institutional Mastery</h3>
+      <div class="ec-value-items">
+        <div class="ec-value-item">
+          <div class="ec-value-dot ec-value-dot--bright"></div>
+          <div>
+            <div class="ec-value-item-h ec-value-item-h--white">Data-Driven Governance</div>
+            <div class="ec-value-item-p ec-value-item-p--muted">Comprehensive insights into campus movement and service usage.</div>
+          </div>
+        </div>
+        <div class="ec-value-item">
+          <div class="ec-value-dot ec-value-dot--bright"></div>
+          <div>
+            <div class="ec-value-item-h ec-value-item-h--white">Optimized Revenue</div>
+            <div class="ec-value-item-p ec-value-item-p--muted">Reduce transaction fees and capture auxiliary spend easily.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FINAL CTA
+═══════════════════════════════════════ -->
+<section class="ec-cta-wrap">
+  <div class="ec-cta-card">
+    <div class="ec-cta-glow"></div>
+    <h2 class="ec-cta-h2">Join the next generation of university infrastructure</h2>
+    <p class="ec-cta-p">Empower your institution with a unified platform for identity, financial operations, and student engagement.</p>
+    <div class="ec-cta-btns">
+      <a href="#" class="ec-cta-btn-primary">Get Started</a>
+      <a href="demo.html" class="ec-cta-btn-secondary">REQUEST A DEMO</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER (shared)
+═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/logo-white.png" alt="DigiRoad" class="footer-logo-img" />
+        </a>
+        <div class="footer-region">
+          <div class="footer-region-select-wrap">
+            <svg class="footer-region-globe" width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 1c0 0 2.5 2.5 2.5 6S7 13 7 13M7 1C7 1 4.5 3.5 4.5 7S7 13 7 13M1 7h12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            <select class="footer-region-select" aria-label="Select region">
+              <option value="global">Global</option>
+            </select>
+            <svg class="footer-region-chevron" width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Solutions</h5>
+        <ul>
+          <li><a href="ecampus.html">eCampus</a></li>
+          <li><a href="connect.html">DigiRoad Connect</a></li>
+          <li><a href="unipay.html">UniPay</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="jobs.html">Careers</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h5 class="footer-col-title">Resources</h5>
+        <ul>
+          <li><a href="docs.html">Documentation</a></li>
+          <li><a href="security.html">Security</a></li>
+          <li><a href="support.html">Get Support</a></li>
+          <li><a href="partner.html">Become a Partner</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiRoad Inc. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/nav.js"></script>
+<script>
+
+  // ── Solution section scroll animation ──
+  (function () {
+    var section = document.getElementById('ecSolution');
+    if (!section) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          section.classList.add('ec-sol-visible');
+          observer.unobserve(section);
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(section);
+  })();
+</script>
+</body>
+</html>
