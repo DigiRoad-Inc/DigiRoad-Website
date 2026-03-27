@@ -418,6 +418,8 @@ img, svg { display: block; }
   gap: 2px;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   animation: dd-enter 0.22s ease both;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
 }
 .nav-mobile-menu.open { display: flex; }
 
@@ -1465,3 +1467,51 @@ img, svg { display: block; }
   .hero-h1 { font-size: 32px; }
 }
 
+
+/* ═══════════════════════════════════════
+   FOOTER — LEGAL BAR
+═══════════════════════════════════════ */
+.footer-legal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 24px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.footer-legal-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-legal-link {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-legal-link:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-legal-sep {
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 13px;
+}
+
+@media (max-width: 680px) {
+  .footer-legal {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
