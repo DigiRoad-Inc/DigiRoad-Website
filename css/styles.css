@@ -1445,7 +1445,7 @@ img, svg { display: block; }
 }
 
 @media (max-width: 680px) {
-  .hero-h1            { font-size: 36px; }
+  .hero-h1            { font-size: 32px; overflow-wrap: break-word; word-break: break-word; }
   .section-h2         { font-size: 28px; }
   .security-h2        { font-size: 28px; }
   .cta-h2             { font-size: 28px; }
@@ -1459,5 +1459,9 @@ img, svg { display: block; }
   .btn-secondary      { width: 100%; justify-content: center; }
   .btn-cta-primary,
   .btn-cta-secondary  { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 400px) {
+  .hero-h1 { font-size: 28px; }
 }
 
