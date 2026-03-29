@@ -26,20 +26,20 @@
       opacity: 0;
       z-index: 99998;
       width: calc(100vw - 48px);
-      max-width: 700px;
-      background: rgba(255, 255, 255, 0.92);
+      max-width: 780px;
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px) saturate(160%);
       -webkit-backdrop-filter: blur(20px) saturate(160%);
-      border: 1px solid rgba(0, 0, 0, 0.07);
+      border: 1px solid rgba(0, 0, 0, 0.08);
       border-radius: 16px;
       box-shadow:
         0 2px 4px rgba(0,0,0,0.04),
-        0 8px 24px rgba(0,0,0,0.09),
-        0 24px 48px rgba(0,0,0,0.06);
-      padding: 20px 24px 20px 24px;
+        0 8px 24px rgba(0,0,0,0.1),
+        0 24px 48px rgba(0,0,0,0.07);
+      padding: 22px 28px;
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 32px;
       transition: opacity 0.38s ease, transform 0.48s cubic-bezier(0.34, 1.2, 0.64, 1);
       will-change: transform, opacity;
     }
@@ -91,19 +91,20 @@
     /* Banner button group */
     .dr-btns {
       display: flex;
-      gap: 7px;
+      gap: 8px;
       align-items: center;
       flex-shrink: 0;
+      white-space: nowrap;
     }
 
     /* ── Button base ── */
     .dr-btn {
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
       border-radius: 7px;
-      padding: 9px 20px;
+      padding: 10px 22px;
       cursor: pointer;
-      border: none;
+      border: 1.5px solid transparent;
       line-height: 1;
       white-space: nowrap;
       display: inline-flex;
@@ -122,35 +123,38 @@
     .dr-btn-accept {
       background: #10b981;
       color: #fff;
-      box-shadow: 0 1px 2px rgba(16,185,129,0.15), 0 3px 10px rgba(16,185,129,0.3);
+      border-color: #10b981;
+      box-shadow: 0 1px 2px rgba(16,185,129,0.2), 0 3px 10px rgba(16,185,129,0.28);
     }
     .dr-btn-accept:hover {
       background: #059669;
-      box-shadow: 0 1px 2px rgba(16,185,129,0.15), 0 5px 16px rgba(16,185,129,0.4);
+      border-color: #059669;
+      box-shadow: 0 1px 2px rgba(16,185,129,0.2), 0 5px 18px rgba(16,185,129,0.38);
       transform: translateY(-1px);
     }
 
-    /* Reject All — light outline */
+    /* Reject All — visible outline */
     .dr-btn-reject {
-      background: transparent;
-      color: #64748b;
-      border: 1px solid #e2e8f0;
+      background: #fff;
+      color: #475569;
+      border-color: #cbd5e1;
     }
     .dr-btn-reject:hover {
       background: #f8fafc;
-      color: #334155;
-      border-color: #cbd5e1;
+      color: #1e293b;
+      border-color: #94a3b8;
     }
 
-    /* Manage — ghost */
+    /* Manage — subtle filled */
     .dr-btn-manage {
-      background: transparent;
-      color: #64748b;
-      border: 1px solid transparent;
+      background: #f1f5f9;
+      color: #475569;
+      border-color: #e2e8f0;
     }
     .dr-btn-manage:hover {
-      background: #f1f5f9;
-      color: #334155;
+      background: #e2e8f0;
+      color: #1e293b;
+      border-color: #cbd5e1;
     }
 
     /* ══════════════════════════════════════
