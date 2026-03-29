@@ -26,8 +26,8 @@
       opacity: 0;
       z-index: 99998;
       width: calc(100vw - 48px);
-      max-width: 780px;
-      background: rgba(255, 255, 255, 0.95);
+      max-width: 560px;
+      background: rgba(255, 255, 255, 0.97);
       backdrop-filter: blur(20px) saturate(160%);
       -webkit-backdrop-filter: blur(20px) saturate(160%);
       border: 1px solid rgba(0, 0, 0, 0.08);
@@ -36,10 +36,10 @@
         0 2px 4px rgba(0,0,0,0.04),
         0 8px 24px rgba(0,0,0,0.1),
         0 24px 48px rgba(0,0,0,0.07);
-      padding: 22px 28px;
+      padding: 22px 24px 20px;
       display: flex;
-      align-items: center;
-      gap: 32px;
+      flex-direction: column;
+      gap: 16px;
       transition: opacity 0.38s ease, transform 0.48s cubic-bezier(0.34, 1.2, 0.64, 1);
       will-change: transform, opacity;
     }
@@ -51,6 +51,13 @@
       opacity: 0;
       transform: translateX(-50%) translateY(14px);
       pointer-events: none;
+    }
+
+    /* Top row: icon + text */
+    .dr-banner-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     /* Cookie icon pill */
@@ -65,21 +72,22 @@
       justify-content: center;
       font-size: 17px;
       flex-shrink: 0;
+      margin-top: 1px;
     }
 
-    .dr-text { flex: 1; min-width: 0; }
+    .dr-text { flex: 1; }
     .dr-text strong {
       display: block;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 700;
       color: #0f172a;
       letter-spacing: -0.01em;
-      margin-bottom: 2px;
+      margin-bottom: 4px;
     }
     .dr-text span {
-      font-size: 12.5px;
+      font-size: 13px;
       color: #64748b;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .dr-text a {
       color: #10b981;
@@ -88,13 +96,12 @@
     }
     .dr-text a:hover { text-decoration: underline; }
 
-    /* Banner button group */
+    /* Bottom row: buttons */
     .dr-btns {
       display: flex;
       gap: 8px;
       align-items: center;
-      flex-shrink: 0;
-      white-space: nowrap;
+      width: 100%;
     }
 
     /* ── Button base ── */
@@ -388,23 +395,18 @@
     /* ══════════════════════════════════════
        MOBILE
     ══════════════════════════════════════ */
-    @media (max-width: 580px) {
+    @media (max-width: 480px) {
       #dr-banner {
         bottom: 12px;
         width: calc(100vw - 24px);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px;
-        gap: 14px;
+        padding: 18px 18px 16px;
       }
       .dr-btns {
-        width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 7px;
       }
-      .dr-btn-accept { grid-column: 1 / -1; }
-      .dr-icon-pill { display: none; }
+      .dr-btn-accept { grid-column: 1 / -1; margin-left: 0 !important; }
     }
     @media (max-width: 480px) {
       .dr-card { border-radius: 16px; }
@@ -431,15 +433,17 @@
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Cookie consent');
   banner.innerHTML = `
-    <div class="dr-icon-pill" aria-hidden="true">🍪</div>
-    <div class="dr-text">
-      <strong>We use cookies</strong>
-      <span>We use cookies to improve your experience and understand site usage. <a href="privacy.html">Privacy Policy</a>.</span>
+    <div class="dr-banner-top">
+      <div class="dr-icon-pill" aria-hidden="true">🍪</div>
+      <div class="dr-text">
+        <strong>We use cookies</strong>
+        <span>We use cookies to improve your experience and understand site usage. <a href="privacy.html">Privacy Policy</a>.</span>
+      </div>
     </div>
     <div class="dr-btns">
       <button class="dr-btn dr-btn-reject" id="dr-b-reject" aria-label="Reject all non-essential cookies">Reject All</button>
       <button class="dr-btn dr-btn-manage" id="dr-b-manage" aria-label="Open cookie preferences">Manage</button>
-      <button class="dr-btn dr-btn-accept" id="dr-b-accept" aria-label="Accept all cookies">Accept All</button>
+      <button class="dr-btn dr-btn-accept" id="dr-b-accept" aria-label="Accept all cookies" style="margin-left:auto;">Accept All</button>
     </div>
   `;
   root.appendChild(banner);
