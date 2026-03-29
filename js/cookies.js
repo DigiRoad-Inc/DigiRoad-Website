@@ -112,7 +112,7 @@
       font-family: inherit;
       font-weight: 600;
       letter-spacing: -0.015em;
-      border-radius: 11px;
+      border-radius: 8px;
       transition: all 0.18s ease;
       white-space: nowrap;
       line-height: 1;
@@ -123,7 +123,7 @@
       background: #166534;
       color: #fff;
       font-size: 14.5px;
-      padding: 16px 28px;
+      padding: 18px 28px;
       width: 100%;
       box-shadow:
         0 1px 2px rgba(0,0,0,0.12),
@@ -143,7 +143,7 @@
       background: rgba(255,255,255,0.5);
       color: #374151;
       font-size: 14.5px;
-      padding: 16px 28px;
+      padding: 18px 28px;
       width: 100%;
       border: 2px solid rgba(0, 0, 0, 0.11);
       backdrop-filter: blur(8px);
