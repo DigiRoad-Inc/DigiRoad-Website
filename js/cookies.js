@@ -8,409 +8,403 @@
      STYLES
   ───────────────────────────────────────────────────────────────────────── */
   const css = `
-    :root {
-      --dr-green:        #10b981;
-      --dr-green-hover:  #0ea570;
-      --dr-glass-bg:     rgba(5, 22, 16, 0.82);
-      --dr-glass-border: rgba(16, 185, 129, 0.18);
-      --dr-glass-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 0 0 1px rgba(16,185,129,0.08), inset 0 1px 0 rgba(209,250,229,0.06);
-      --dr-text:         #d1fae5;
-      --dr-text-muted:   rgba(209,250,229,0.55);
-      --dr-text-faint:   rgba(209,250,229,0.35);
-      --dr-surface:      rgba(209,250,229,0.04);
-      --dr-surface-hover:rgba(209,250,229,0.07);
-      --dr-divider:      rgba(209,250,229,0.07);
-      --dr-radius:       14px;
-      --dr-radius-sm:    7px;
-      --dr-font:         Inter, -apple-system, BlinkMacSystemFont, sans-serif;
-      --dr-ease:         cubic-bezier(0.34, 1.2, 0.64, 1);
-    }
-
-    #dr-root * {
+    #dr-root *, #dr-root *::before, #dr-root *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       -webkit-font-smoothing: antialiased;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    /* ── Banner ─────────────────────────────────────────────────────────── */
+    /* ══════════════════════════════════════
+       BANNER
+    ══════════════════════════════════════ */
     #dr-banner {
       position: fixed;
-      bottom: 24px;
+      bottom: 28px;
       left: 50%;
-      transform: translateX(-50%) translateY(20px);
+      transform: translateX(-50%) translateY(24px);
       opacity: 0;
+      z-index: 99998;
       width: calc(100vw - 48px);
-      max-width: 720px;
-      background: var(--dr-glass-bg);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      border: 1px solid var(--dr-glass-border);
-      border-radius: var(--dr-radius);
-      box-shadow: var(--dr-glass-shadow);
-      padding: 16px 20px;
+      max-width: 700px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      border-radius: 16px;
+      box-shadow:
+        0 2px 4px rgba(0,0,0,0.04),
+        0 8px 24px rgba(0,0,0,0.09),
+        0 24px 48px rgba(0,0,0,0.06);
+      padding: 18px 20px 18px 22px;
       display: flex;
       align-items: center;
-      gap: 20px;
-      z-index: 99998;
-      font-family: var(--dr-font);
-      transition: opacity 0.4s ease, transform 0.5s var(--dr-ease);
+      gap: 24px;
+      transition: opacity 0.38s ease, transform 0.48s cubic-bezier(0.34, 1.2, 0.64, 1);
       will-change: transform, opacity;
     }
-    #dr-banner.dr-in {
+    #dr-banner.dr-show {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
     }
-    #dr-banner.dr-out {
+    #dr-banner.dr-hide {
       opacity: 0;
-      transform: translateX(-50%) translateY(16px);
+      transform: translateX(-50%) translateY(14px);
       pointer-events: none;
     }
 
-    .dr-banner-left {
-      flex: 1;
+    /* Cookie icon pill */
+    .dr-icon-pill {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 10px;
       display: flex;
-      flex-direction: column;
-      gap: 3px;
-      min-width: 0;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
     }
-    .dr-banner-title {
+
+    .dr-text { flex: 1; min-width: 0; }
+    .dr-text strong {
+      display: block;
       font-size: 13.5px;
       font-weight: 700;
-      color: var(--dr-text);
+      color: #0f172a;
       letter-spacing: -0.01em;
+      margin-bottom: 2px;
     }
-    .dr-banner-desc {
+    .dr-text span {
       font-size: 12.5px;
-      color: var(--dr-text-muted);
+      color: #64748b;
       line-height: 1.5;
     }
-    .dr-banner-desc a {
-      color: var(--dr-green);
+    .dr-text a {
+      color: #10b981;
       text-decoration: none;
+      font-weight: 500;
     }
-    .dr-banner-desc a:hover { text-decoration: underline; }
+    .dr-text a:hover { text-decoration: underline; }
 
-    .dr-banner-actions {
+    /* Banner button group */
+    .dr-btns {
       display: flex;
       gap: 7px;
-      flex-shrink: 0;
       align-items: center;
+      flex-shrink: 0;
     }
 
-    /* ── Buttons ────────────────────────────────────────────────────────── */
+    /* ── Button base ── */
     .dr-btn {
-      font-family: var(--dr-font);
       font-size: 12.5px;
       font-weight: 600;
-      border-radius: var(--dr-radius-sm);
-      padding: 8px 15px;
+      border-radius: 8px;
+      padding: 8.5px 16px;
       cursor: pointer;
       border: none;
-      white-space: nowrap;
       line-height: 1;
+      white-space: nowrap;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      transition: background 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease, opacity 0.18s ease, border-color 0.18s ease;
+      transition: all 0.17s ease;
       outline: none;
-      position: relative;
+      letter-spacing: -0.01em;
     }
     .dr-btn:focus-visible {
-      box-shadow: 0 0 0 2px rgba(16,185,129,0.5);
+      box-shadow: 0 0 0 3px rgba(16,185,129,0.35);
     }
     .dr-btn:active { transform: scale(0.96); }
 
-    /* Accept — solid green */
+    /* Accept All — solid green */
     .dr-btn-accept {
-      background: var(--dr-green);
+      background: #10b981;
       color: #fff;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 2px 8px rgba(16,185,129,0.25);
+      box-shadow: 0 1px 2px rgba(16,185,129,0.15), 0 3px 10px rgba(16,185,129,0.3);
     }
     .dr-btn-accept:hover {
-      background: var(--dr-green-hover);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(16,185,129,0.4);
+      background: #059669;
+      box-shadow: 0 1px 2px rgba(16,185,129,0.15), 0 5px 16px rgba(16,185,129,0.4);
+      transform: translateY(-1px);
     }
 
-    /* Reject — ghost outline */
+    /* Reject All — light outline */
     .dr-btn-reject {
       background: transparent;
-      color: var(--dr-text-muted);
-      border: 1px solid rgba(209,250,229,0.15);
+      color: #64748b;
+      border: 1px solid #e2e8f0;
     }
     .dr-btn-reject:hover {
-      color: var(--dr-text);
-      border-color: rgba(209,250,229,0.3);
-      background: var(--dr-surface);
+      background: #f8fafc;
+      color: #334155;
+      border-color: #cbd5e1;
     }
 
-    /* Manage — text/ghost */
+    /* Manage — ghost */
     .dr-btn-manage {
-      background: var(--dr-surface);
-      color: var(--dr-text-muted);
+      background: transparent;
+      color: #64748b;
       border: 1px solid transparent;
     }
     .dr-btn-manage:hover {
-      background: var(--dr-surface-hover);
-      color: var(--dr-text);
+      background: #f1f5f9;
+      color: #334155;
     }
 
-    /* Save (inside modal) */
-    .dr-btn-save {
-      background: var(--dr-green);
-      color: #fff;
-      flex: 1;
-      padding: 10px 16px;
-      font-size: 13px;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 2px 8px rgba(16,185,129,0.25);
-    }
-    .dr-btn-save:hover {
-      background: var(--dr-green-hover);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 4px 16px rgba(16,185,129,0.4);
-    }
-
-    /* Modal reject */
-    .dr-btn-modal-reject {
-      background: transparent;
-      color: var(--dr-text-faint);
-      border: 1px solid rgba(209,250,229,0.1);
-      padding: 10px 16px;
-      font-size: 13px;
-    }
-    .dr-btn-modal-reject:hover {
-      color: var(--dr-text-muted);
-      border-color: rgba(209,250,229,0.22);
-      background: var(--dr-surface);
-    }
-
-    /* ── Overlay ────────────────────────────────────────────────────────── */
+    /* ══════════════════════════════════════
+       OVERLAY
+    ══════════════════════════════════════ */
     #dr-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(1, 12, 9, 0.6);
-      backdrop-filter: blur(8px) saturate(120%);
-      -webkit-backdrop-filter: blur(8px) saturate(120%);
+      background: rgba(15, 23, 42, 0.45);
+      backdrop-filter: blur(6px) saturate(120%);
+      -webkit-backdrop-filter: blur(6px) saturate(120%);
       z-index: 99999;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 24px;
-      font-family: var(--dr-font);
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.28s ease;
+      transition: opacity 0.26s ease;
     }
-    #dr-overlay.dr-in {
+    #dr-overlay.dr-show {
       opacity: 1;
       pointer-events: all;
     }
 
-    /* ── Modal card ─────────────────────────────────────────────────────── */
-    .dr-modal {
-      background: var(--dr-glass-bg);
-      backdrop-filter: blur(32px) saturate(200%);
-      -webkit-backdrop-filter: blur(32px) saturate(200%);
-      border: 1px solid var(--dr-glass-border);
-      border-radius: 18px;
-      box-shadow: var(--dr-glass-shadow);
+    /* ══════════════════════════════════════
+       MODAL CARD
+    ══════════════════════════════════════ */
+    .dr-card {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 20px;
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.04),
+        0 12px 32px rgba(0,0,0,0.1),
+        0 32px 64px rgba(0,0,0,0.07);
       width: 100%;
-      max-width: 480px;
-      max-height: 88vh;
+      max-width: 468px;
+      max-height: 86vh;
       overflow-y: auto;
-      overflow-x: hidden;
       display: flex;
       flex-direction: column;
-      transform: translateY(20px) scale(0.97);
-      transition: transform 0.35s var(--dr-ease);
+      transform: translateY(18px) scale(0.97);
+      transition: transform 0.38s cubic-bezier(0.34, 1.2, 0.64, 1);
       scrollbar-width: thin;
-      scrollbar-color: rgba(16,185,129,0.2) transparent;
+      scrollbar-color: #e2e8f0 transparent;
     }
-    #dr-overlay.dr-in .dr-modal {
+    .dr-card::-webkit-scrollbar { width: 4px; }
+    .dr-card::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 4px; }
+    #dr-overlay.dr-show .dr-card {
       transform: translateY(0) scale(1);
     }
-    .dr-modal::-webkit-scrollbar { width: 4px; }
-    .dr-modal::-webkit-scrollbar-track { background: transparent; }
-    .dr-modal::-webkit-scrollbar-thumb { background: rgba(16,185,129,0.2); border-radius: 4px; }
 
     /* Modal header */
-    .dr-modal-head {
-      padding: 22px 22px 0;
+    .dr-card-head {
+      padding: 24px 24px 0;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
+      gap: 16px;
+    }
+    .dr-card-head-left {
+      display: flex;
+      align-items: center;
       gap: 12px;
     }
-    .dr-modal-head-text h2 {
+    .dr-modal-icon {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 1px solid rgba(16,185,129,0.2);
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+    .dr-card-head-left h2 {
       font-size: 16px;
       font-weight: 700;
-      color: var(--dr-text);
+      color: #0f172a;
       letter-spacing: -0.02em;
-      margin-bottom: 4px;
     }
-    .dr-modal-head-text p {
+    .dr-card-head-left p {
       font-size: 12px;
-      color: var(--dr-text-muted);
-      line-height: 1.55;
+      color: #94a3b8;
+      margin-top: 2px;
+      line-height: 1.4;
     }
-    .dr-modal-x {
-      background: var(--dr-surface);
-      border: 1px solid rgba(209,250,229,0.08);
-      color: var(--dr-text-faint);
-      cursor: pointer;
+    .dr-close-btn {
       width: 28px;
       height: 28px;
       border-radius: 7px;
+      background: #f1f5f9;
+      border: none;
+      color: #94a3b8;
+      cursor: pointer;
       font-size: 13px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: background 0.15s, color 0.15s;
       flex-shrink: 0;
-      margin-top: 1px;
+      transition: background 0.15s, color 0.15s;
+      margin-top: 3px;
     }
-    .dr-modal-x:hover { background: var(--dr-surface-hover); color: var(--dr-text); }
-    .dr-modal-x:focus-visible { box-shadow: 0 0 0 2px rgba(16,185,129,0.5); outline: none; }
+    .dr-close-btn:hover { background: #e2e8f0; color: #475569; }
+    .dr-close-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(16,185,129,0.35); }
 
     /* Divider */
-    .dr-divider { height: 1px; background: var(--dr-divider); margin: 16px 22px; }
+    .dr-hr {
+      height: 1px;
+      background: #f1f5f9;
+      margin: 18px 24px 14px;
+    }
 
-    /* Categories */
-    .dr-cats { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 6px; }
-
+    /* ── Category rows ── */
+    .dr-cats {
+      padding: 0 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
     .dr-cat {
-      border-radius: 10px;
-      border: 1px solid rgba(209,250,229,0.06);
+      border-radius: 11px;
+      border: 1.5px solid #f1f5f9;
       padding: 13px 14px;
       display: flex;
       align-items: center;
       gap: 12px;
-      background: var(--dr-surface);
+      background: #fafafa;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
-    .dr-cat.dr-active {
-      border-color: rgba(16,185,129,0.22);
-      background: rgba(16,185,129,0.06);
+    .dr-cat.dr-on {
+      border-color: rgba(16,185,129,0.28);
+      background: #f0fdf8;
     }
 
-    .dr-cat-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: rgba(16,185,129,0.1);
-      border: 1px solid rgba(16,185,129,0.12);
+    /* Category icon */
+    .dr-cat-ico {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 15px;
       flex-shrink: 0;
-      font-size: 14px;
     }
-    .dr-cat-body { flex: 1; min-width: 0; }
-    .dr-cat-title {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--dr-text);
+    .dr-cat.dr-on .dr-cat-ico {
+      background: #f0fdf4;
+      border-color: rgba(16,185,129,0.2);
+    }
+
+    .dr-cat-info { flex: 1; min-width: 0; }
+    .dr-cat-name {
       display: flex;
       align-items: center;
       gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e293b;
       margin-bottom: 2px;
     }
     .dr-cat-desc {
       font-size: 11.5px;
-      color: var(--dr-text-muted);
+      color: #94a3b8;
       line-height: 1.5;
     }
+
+    /* Badge */
     .dr-badge {
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: rgba(16,185,129,0.7);
-      background: rgba(16,185,129,0.1);
-      border: 1px solid rgba(16,185,129,0.18);
+      color: #10b981;
+      background: #dcfce7;
       border-radius: 4px;
-      padding: 1.5px 5px;
+      padding: 2px 6px;
     }
 
-    /* Toggle */
+    /* ── Toggle switch ── */
     .dr-toggle {
-      flex-shrink: 0;
-      width: 36px;
-      height: 20px;
       position: relative;
+      width: 38px;
+      height: 22px;
+      flex-shrink: 0;
       cursor: pointer;
     }
-    .dr-toggle input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-      position: absolute;
-    }
+    .dr-toggle input { position: absolute; opacity: 0; width: 0; height: 0; }
     .dr-track {
       position: absolute;
       inset: 0;
-      background: rgba(209,250,229,0.1);
+      background: #e2e8f0;
       border-radius: 99px;
-      border: 1px solid rgba(209,250,229,0.12);
-      transition: background 0.22s ease, border-color 0.22s ease;
-      cursor: pointer;
+      transition: background 0.22s ease;
     }
-    .dr-toggle input:checked ~ .dr-track {
-      background: var(--dr-green);
-      border-color: var(--dr-green);
-    }
-    .dr-toggle input:disabled ~ .dr-track {
-      cursor: not-allowed;
-      background: rgba(16,185,129,0.35);
-      border-color: transparent;
-    }
+    .dr-toggle input:checked ~ .dr-track   { background: #10b981; }
+    .dr-toggle input:disabled ~ .dr-track  { background: #a7f3d0; cursor: not-allowed; }
     .dr-track::after {
       content: '';
       position: absolute;
-      top: 2px;
-      left: 2px;
-      width: 14px;
-      height: 14px;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
       background: #fff;
       border-radius: 50%;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-      transition: transform 0.22s var(--dr-ease);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      transition: transform 0.22s cubic-bezier(0.34,1.3,0.64,1);
     }
-    .dr-toggle input:checked ~ .dr-track::after {
-      transform: translateX(16px);
-    }
-    .dr-toggle:focus-within .dr-track {
-      box-shadow: 0 0 0 2px rgba(16,185,129,0.4);
-    }
+    .dr-toggle input:checked ~ .dr-track::after { transform: translateX(16px); }
+    .dr-toggle:focus-within .dr-track { box-shadow: 0 0 0 3px rgba(16,185,129,0.25); }
 
-    /* Modal footer */
-    .dr-modal-foot {
-      padding: 12px 14px 16px;
+    /* ── Modal footer ── */
+    .dr-card-foot {
+      padding: 12px 16px 18px;
       display: flex;
       gap: 7px;
-      border-top: 1px solid var(--dr-divider);
+      border-top: 1px solid #f1f5f9;
+    }
+    .dr-card-foot .dr-btn {
+      flex: 1;
+      padding: 10px 14px;
+      font-size: 13px;
     }
 
-    /* ── Responsive ─────────────────────────────────────────────────────── */
-    @media (max-width: 600px) {
+    /* ══════════════════════════════════════
+       MOBILE
+    ══════════════════════════════════════ */
+    @media (max-width: 580px) {
       #dr-banner {
         bottom: 12px;
         width: calc(100vw - 24px);
         flex-direction: column;
         align-items: flex-start;
-        padding: 14px 16px;
-        gap: 12px;
+        padding: 16px;
+        gap: 14px;
       }
-      .dr-banner-actions {
+      .dr-btns {
         width: 100%;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 6px;
+        gap: 7px;
       }
-      .dr-btn-accept {
-        grid-column: 1 / -1;
-      }
-      .dr-modal { border-radius: 16px; }
+      .dr-btn-accept { grid-column: 1 / -1; }
+      .dr-icon-pill { display: none; }
+    }
+    @media (max-width: 480px) {
+      .dr-card { border-radius: 16px; }
+      .dr-card-foot { flex-direction: column; }
     }
   `;
 
@@ -419,7 +413,7 @@
   document.head.appendChild(styleEl);
 
   /* ─────────────────────────────────────────────────────────────────────────
-     ROOT CONTAINER
+     ROOT
   ───────────────────────────────────────────────────────────────────────── */
   const root = document.createElement('div');
   root.id = 'dr-root';
@@ -430,24 +424,22 @@
   ───────────────────────────────────────────────────────────────────────── */
   const banner = document.createElement('div');
   banner.id = 'dr-banner';
-  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Cookie consent');
   banner.innerHTML = `
-    <div class="dr-banner-left">
-      <span class="dr-banner-title">We use cookies</span>
-      <span class="dr-banner-desc">
-        We use cookies to improve your experience and understand site usage.
-        Read our <a href="privacy.html">Privacy Policy</a>.
-      </span>
+    <div class="dr-icon-pill" aria-hidden="true">🍪</div>
+    <div class="dr-text">
+      <strong>We use cookies</strong>
+      <span>We use cookies to improve your experience and understand site usage. <a href="privacy.html">Privacy Policy</a>.</span>
     </div>
-    <div class="dr-banner-actions">
-      <button class="dr-btn dr-btn-reject"  id="dr-b-reject"  aria-label="Reject all cookies">Reject All</button>
-      <button class="dr-btn dr-btn-manage"  id="dr-b-manage"  aria-label="Manage cookie preferences">Manage</button>
-      <button class="dr-btn dr-btn-accept"  id="dr-b-accept"  aria-label="Accept all cookies">Accept All</button>
+    <div class="dr-btns">
+      <button class="dr-btn dr-btn-reject" id="dr-b-reject" aria-label="Reject all non-essential cookies">Reject All</button>
+      <button class="dr-btn dr-btn-manage" id="dr-b-manage" aria-label="Open cookie preferences">Manage</button>
+      <button class="dr-btn dr-btn-accept" id="dr-b-accept" aria-label="Accept all cookies">Accept All</button>
     </div>
   `;
   root.appendChild(banner);
-  requestAnimationFrame(() => setTimeout(() => banner.classList.add('dr-in'), 150));
+  requestAnimationFrame(() => setTimeout(() => banner.classList.add('dr-show'), 180));
 
   /* ─────────────────────────────────────────────────────────────────────────
      OVERLAY + MODAL
@@ -458,66 +450,66 @@
   overlay.setAttribute('aria-modal', 'true');
   overlay.setAttribute('aria-label', 'Cookie preferences');
   overlay.innerHTML = `
-    <div class="dr-modal" id="dr-modal">
+    <div class="dr-card" id="dr-card">
 
-      <div class="dr-modal-head">
-        <div class="dr-modal-head-text">
-          <h2>Cookie Preferences</h2>
-          <p>Choose what you allow. You can change your mind at any time.</p>
+      <div class="dr-card-head">
+        <div class="dr-card-head-left">
+          <div class="dr-modal-icon" aria-hidden="true">🍪</div>
+          <div>
+            <h2>Cookie Preferences</h2>
+            <p>Control what data we collect about you.</p>
+          </div>
         </div>
-        <button class="dr-modal-x" id="dr-m-close" aria-label="Close preferences">&#x2715;</button>
+        <button class="dr-close-btn" id="dr-m-close" aria-label="Close preferences">✕</button>
       </div>
 
-      <div class="dr-divider"></div>
+      <div class="dr-hr"></div>
 
       <div class="dr-cats">
 
-        <div class="dr-cat dr-active" id="dr-cat-essential">
-          <div class="dr-cat-icon">🔒</div>
-          <div class="dr-cat-body">
-            <div class="dr-cat-title">
-              Essential
-              <span class="dr-badge">Required</span>
-            </div>
-            <div class="dr-cat-desc">Enable core functions like security and login sessions. The site cannot function without these.</div>
+        <div class="dr-cat dr-on">
+          <div class="dr-cat-ico" aria-hidden="true">🔒</div>
+          <div class="dr-cat-info">
+            <div class="dr-cat-name">Essential <span class="dr-badge">Always on</span></div>
+            <div class="dr-cat-desc">Required for login, security, and core features. Cannot be disabled.</div>
           </div>
-          <label class="dr-toggle" aria-label="Essential cookies, always active">
+          <label class="dr-toggle" aria-label="Essential cookies — always active">
             <input type="checkbox" checked disabled>
             <span class="dr-track"></span>
           </label>
         </div>
 
-        <div class="dr-cat" id="dr-cat-analytics">
-          <div class="dr-cat-icon">📊</div>
-          <div class="dr-cat-body">
-            <div class="dr-cat-title">Analytics</div>
-            <div class="dr-cat-desc">Help us understand how visitors interact with our site so we can improve it.</div>
+        <div class="dr-cat" id="dr-row-analytics">
+          <div class="dr-cat-ico" aria-hidden="true">📊</div>
+          <div class="dr-cat-info">
+            <div class="dr-cat-name">Analytics</div>
+            <div class="dr-cat-desc">Helps us understand how visitors use the site so we can make it better.</div>
           </div>
-          <label class="dr-toggle" aria-label="Analytics cookies">
+          <label class="dr-toggle" aria-label="Toggle analytics cookies">
             <input type="checkbox" id="dr-t-analytics">
             <span class="dr-track"></span>
           </label>
         </div>
 
-        <div class="dr-cat" id="dr-cat-performance">
-          <div class="dr-cat-icon">⚡</div>
-          <div class="dr-cat-body">
-            <div class="dr-cat-title">Performance</div>
-            <div class="dr-cat-desc">Allow us to monitor and optimise site speed and reliability for a better experience.</div>
+        <div class="dr-cat" id="dr-row-performance">
+          <div class="dr-cat-ico" aria-hidden="true">⚡</div>
+          <div class="dr-cat-info">
+            <div class="dr-cat-name">Performance</div>
+            <div class="dr-cat-desc">Monitor and optimise site speed and reliability for a faster experience.</div>
           </div>
-          <label class="dr-toggle" aria-label="Performance cookies">
+          <label class="dr-toggle" aria-label="Toggle performance cookies">
             <input type="checkbox" id="dr-t-performance">
             <span class="dr-track"></span>
           </label>
         </div>
 
-        <div class="dr-cat" id="dr-cat-marketing">
-          <div class="dr-cat-icon">🎯</div>
-          <div class="dr-cat-body">
-            <div class="dr-cat-title">Marketing</div>
-            <div class="dr-cat-desc">Used to show relevant content and measure the effectiveness of campaigns across channels.</div>
+        <div class="dr-cat" id="dr-row-marketing">
+          <div class="dr-cat-ico" aria-hidden="true">🎯</div>
+          <div class="dr-cat-info">
+            <div class="dr-cat-name">Marketing</div>
+            <div class="dr-cat-desc">Show relevant content and measure campaign effectiveness across channels.</div>
           </div>
-          <label class="dr-toggle" aria-label="Marketing cookies">
+          <label class="dr-toggle" aria-label="Toggle marketing cookies">
             <input type="checkbox" id="dr-t-marketing">
             <span class="dr-track"></span>
           </label>
@@ -525,10 +517,10 @@
 
       </div>
 
-      <div class="dr-modal-foot">
-        <button class="dr-btn dr-btn-modal-reject" id="dr-m-reject" aria-label="Reject all non-essential cookies">Reject All</button>
-        <button class="dr-btn dr-btn-save"          id="dr-m-save"   aria-label="Save cookie preferences">Save Preferences</button>
-        <button class="dr-btn dr-btn-accept"        id="dr-m-accept" aria-label="Accept all cookies" style="flex:1;padding:10px 16px;font-size:13px;">Accept All</button>
+      <div class="dr-card-foot">
+        <button class="dr-btn dr-btn-reject" id="dr-m-reject" aria-label="Reject all non-essential cookies">Reject All</button>
+        <button class="dr-btn dr-btn-accept" id="dr-m-accept" aria-label="Accept all cookies">Accept All</button>
+        <button class="dr-btn dr-btn-accept" id="dr-m-save"   aria-label="Save selected preferences" style="background:#1e293b;box-shadow:none;">Save Preferences</button>
       </div>
 
     </div>
@@ -536,44 +528,30 @@
   root.appendChild(overlay);
 
   /* ─────────────────────────────────────────────────────────────────────────
-     TOGGLE → active state on category row
+     TOGGLE → row highlight
   ───────────────────────────────────────────────────────────────────────── */
   ['analytics', 'performance', 'marketing'].forEach(id => {
-    const toggle = document.getElementById(`dr-t-${id}`);
-    const cat    = document.getElementById(`dr-cat-${id}`);
-    toggle.addEventListener('change', () => cat.classList.toggle('dr-active', toggle.checked));
+    const input = document.getElementById(`dr-t-${id}`);
+    const row   = document.getElementById(`dr-row-${id}`);
+    input.addEventListener('change', () => row.classList.toggle('dr-on', input.checked));
   });
 
   /* ─────────────────────────────────────────────────────────────────────────
      HELPERS
   ───────────────────────────────────────────────────────────────────────── */
   function hideBanner() {
-    banner.classList.replace('dr-in', 'dr-out');
+    banner.classList.replace('dr-show', 'dr-hide');
     setTimeout(() => banner.remove(), 420);
   }
-
-  function openModal() {
-    overlay.classList.add('dr-in');
-    document.getElementById('dr-m-close').focus();
-  }
-
-  function closeModal() {
-    overlay.classList.remove('dr-in');
-  }
-
-  function save(prefs) {
+  function openModal()  { overlay.classList.add('dr-show'); document.getElementById('dr-m-close').focus(); }
+  function closeModal() { overlay.classList.remove('dr-show'); }
+  function save(prefs)  {
     localStorage.setItem(STORAGE_KEY, JSON.stringify({ ts: Date.now(), v: 1, ...prefs }));
     hideBanner();
     closeModal();
   }
-
-  function acceptAll() {
-    save({ essential: true, analytics: true, performance: true, marketing: true });
-  }
-
-  function rejectAll() {
-    save({ essential: true, analytics: false, performance: false, marketing: false });
-  }
+  const acceptAll = () => save({ essential:true, analytics:true, performance:true, marketing:true });
+  const rejectAll = () => save({ essential:true, analytics:false, performance:false, marketing:false });
 
   /* ─────────────────────────────────────────────────────────────────────────
      EVENTS
@@ -581,38 +559,28 @@
   document.getElementById('dr-b-accept').addEventListener('click', acceptAll);
   document.getElementById('dr-b-reject').addEventListener('click', rejectAll);
   document.getElementById('dr-b-manage').addEventListener('click', openModal);
-
-  document.getElementById('dr-m-close').addEventListener('click', closeModal);
+  document.getElementById('dr-m-close') .addEventListener('click', closeModal);
   document.getElementById('dr-m-accept').addEventListener('click', acceptAll);
   document.getElementById('dr-m-reject').addEventListener('click', rejectAll);
+  document.getElementById('dr-m-save')  .addEventListener('click', () => save({
+    essential:   true,
+    analytics:   document.getElementById('dr-t-analytics').checked,
+    performance: document.getElementById('dr-t-performance').checked,
+    marketing:   document.getElementById('dr-t-marketing').checked,
+  }));
 
-  document.getElementById('dr-m-save').addEventListener('click', () => {
-    save({
-      essential:   true,
-      analytics:   document.getElementById('dr-t-analytics').checked,
-      performance: document.getElementById('dr-t-performance').checked,
-      marketing:   document.getElementById('dr-t-marketing').checked,
-    });
-  });
-
-  // Close on backdrop click
   overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
-
-  // Keyboard: Escape closes modal
   document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && overlay.classList.contains('dr-in')) closeModal();
+    if (e.key === 'Escape' && overlay.classList.contains('dr-show')) closeModal();
   });
 
-  // Trap focus inside modal
+  // Focus trap
   overlay.addEventListener('keydown', e => {
     if (e.key !== 'Tab') return;
-    const focusable = overlay.querySelectorAll('button, input:not([disabled]), [tabindex]:not([tabindex="-1"])');
-    const first = focusable[0];
-    const last  = focusable[focusable.length - 1];
-    if (e.shiftKey ? document.activeElement === first : document.activeElement === last) {
-      e.preventDefault();
-      (e.shiftKey ? last : first).focus();
-    }
+    const els   = [...overlay.querySelectorAll('button:not([disabled]), input:not([disabled])')];
+    const first = els[0], last = els[els.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
 })();
