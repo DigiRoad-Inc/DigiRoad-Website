@@ -46,7 +46,7 @@
         0 32px 64px rgba(0,0,0,0.18),
         0 0 80px rgba(16,185,129,0.06);
 
-      padding: 28px;
+      padding: 36px 32px 32px;
       display: flex;
       flex-direction: column;
       gap: 0;
@@ -59,32 +59,32 @@
 
     /* Title */
     #dr-banner .dr-title {
-      font-size: 17px;
+      font-size: 18px;
       font-weight: 700;
       color: #f0fdf4;
       letter-spacing: -0.03em;
       line-height: 1.2;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     /* Description */
     #dr-banner .dr-desc {
-      font-size: 13px;
+      font-size: 13.5px;
       color: rgba(209, 250, 229, 0.6);
-      line-height: 1.65;
-      margin-bottom: 6px;
+      line-height: 1.7;
+      margin-bottom: 10px;
     }
 
     /* Inline link */
     #dr-banner .dr-link {
-      font-size: 13px;
+      font-size: 13.5px;
       font-weight: 500;
       color: #10b981;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
       transition: color 0.15s;
     }
     #dr-banner .dr-link:hover { color: #34d399; }
@@ -97,16 +97,16 @@
     #dr-banner .dr-btn-stack {
       display: flex;
       flex-direction: column;
-      gap: 9px;
+      gap: 10px;
     }
 
     /* ── Buttons ── */
     .dr-btn {
       width: 100%;
-      font-size: 13.5px;
+      font-size: 14px;
       font-weight: 600;
-      border-radius: 10px;
-      padding: 12px 20px;
+      border-radius: 7px;
+      padding: 14px 24px;
       cursor: pointer;
       border: 1px solid transparent;
       line-height: 1;
@@ -196,7 +196,7 @@
 
     /* Modal header */
     .dr-modal-head {
-      padding: 24px 24px 16px;
+      padding: 28px 24px 20px;
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
@@ -231,13 +231,13 @@
     .dr-x:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(16,185,129,0.35); }
 
     /* Categories */
-    .dr-cats { padding: 14px 16px 8px; display: flex; flex-direction: column; gap: 7px; }
+    .dr-cats { padding: 16px 20px 10px; display: flex; flex-direction: column; gap: 8px; }
 
     .dr-cat {
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 13px 14px;
+      gap: 14px;
+      padding: 15px 16px;
       border-radius: 11px;
       border: 1px solid rgba(209,250,229,0.06);
       background: rgba(209,250,229,0.03);
@@ -315,16 +315,16 @@
 
     /* Modal footer */
     .dr-modal-foot {
-      padding: 12px 16px 20px;
+      padding: 16px 20px 24px;
       display: flex;
-      gap: 7px;
+      gap: 8px;
       border-top: 1px solid rgba(209,250,229,0.07);
     }
     .dr-modal-foot .dr-btn {
       flex: 1;
-      padding: 10px 14px;
+      padding: 12px 16px;
       font-size: 13px;
-      border-radius: 9px;
+      border-radius: 7px;
     }
     /* Re-style for modal context */
     .dr-modal-foot .dr-btn-reject {
