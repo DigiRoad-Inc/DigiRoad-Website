@@ -33,71 +33,59 @@
       opacity: 0;
       z-index: 99998;
       width: calc(100vw - 48px);
-      max-width: 440px;
-      background: linear-gradient(160deg, rgba(255,255,255,0.82) 0%, rgba(246,249,252,0.76) 100%);
-      backdrop-filter: blur(72px) saturate(240%) brightness(1.02);
-      -webkit-backdrop-filter: blur(72px) saturate(240%) brightness(1.02);
-      border: 1px solid rgba(255, 255, 255, 0.55);
-      border-bottom-color: rgba(0, 0, 0, 0.06);
+      max-width: 460px;
+      background: #ffffff;
       border-radius: 22px;
       box-shadow:
-        0 1px 0 rgba(255, 255, 255, 0.95) inset,
-        0 -1px 0 rgba(0, 0, 0, 0.03) inset,
-        0 2px 4px rgba(0, 0, 0, 0.04),
-        0 8px 24px rgba(0, 0, 0, 0.09),
-        0 24px 56px rgba(0, 0, 0, 0.08),
-        0 48px 80px rgba(0, 0, 0, 0.04);
-      padding: 36px 36px 30px;
-      transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.34, 1.08, 0.64, 1);
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        0 12px 40px rgba(0, 0, 0, 0.12),
+        0 32px 64px rgba(0, 0, 0, 0.08);
+      padding: 36px 36px 32px;
+      transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.08, 0.64, 1);
     }
     #dr-banner.dr-show { opacity: 1; transform: translateX(-50%) translateY(0); }
     #dr-banner.dr-hide { opacity: 0; transform: translateX(-50%) translateY(14px); pointer-events: none; }
 
-    #dr-banner .dr-b-icon {
-      width: 44px;
-      height: 44px;
-      background: rgba(220, 252, 231, 0.85);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #16a34a;
-      margin-bottom: 20px;
-      flex-shrink: 0;
-      box-shadow: 0 0 0 7px rgba(22, 163, 74, 0.07), 0 1px 3px rgba(22,163,74,0.12) inset;
-    }
+    #dr-banner .dr-b-icon { display: none; }
 
     #dr-banner .dr-title {
-      font-size: 18px;
-      font-weight: 700;
+      font-size: 26px;
+      font-weight: 800;
       color: #0f172a;
-      letter-spacing: -0.03em;
-      line-height: 1.25;
-      margin-bottom: 12px;
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+      margin-bottom: 14px;
     }
 
     #dr-banner .dr-desc {
-      font-size: 13.5px;
-      color: #64748b;
-      line-height: 1.72;
-      margin-bottom: 26px;
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.65;
+      margin-bottom: 6px;
     }
 
-    #dr-banner .dr-desc a {
-      color: #16a34a;
-      font-weight: 500;
+    #dr-banner .dr-manage-link {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 400;
+      color: #111827;
       text-decoration: underline;
-      text-decoration-thickness: 1px;
+      text-decoration-thickness: 1.5px;
       text-underline-offset: 3px;
       cursor: pointer;
-      transition: color 0.15s;
+      margin-bottom: 28px;
+      transition: opacity 0.15s;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
     }
-    #dr-banner .dr-desc a:hover { color: #15803d; }
+    #dr-banner .dr-manage-link:hover { opacity: 0.65; }
 
     #dr-banner .dr-stack {
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 12px;
     }
 
     /* ══ BUTTONS ════════════════════════════════════════════════════════ */
@@ -111,8 +99,8 @@
       cursor: pointer;
       font-family: inherit;
       font-weight: 600;
-      letter-spacing: -0.015em;
-      border-radius: 8px;
+      letter-spacing: -0.01em;
+      border-radius: 9999px;
       transition: all 0.18s ease;
       white-space: nowrap;
       line-height: 1;
@@ -120,56 +108,31 @@
     .dr-btn:active { transform: scale(0.975) !important; }
 
     .dr-btn-accept {
-      background: #166534;
+      background: #16a34a;
       color: #fff;
-      font-size: 14.5px;
-      padding: 18px 28px;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 19px 32px;
       width: 100%;
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.12),
-        0 2px 6px rgba(22, 163, 74, 0.22),
-        0 8px 24px rgba(22, 163, 74, 0.28);
+      box-shadow: 0 2px 8px rgba(22,163,74,0.25), 0 6px 20px rgba(22,163,74,0.18);
     }
     .dr-btn-accept:hover {
-      background: #145f30;
-      transform: translateY(-1px);
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.14),
-        0 4px 10px rgba(22,163,74,0.28),
-        0 12px 32px rgba(22,163,74,0.32);
+      background: #15803d;
+      box-shadow: 0 4px 12px rgba(22,163,74,0.32), 0 8px 28px rgba(22,163,74,0.22);
     }
 
     .dr-btn-reject {
-      background: rgba(255,255,255,0.5);
+      background: rgba(0, 0, 0, 0.04);
       color: #374151;
-      font-size: 14.5px;
-      padding: 18px 28px;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 19px 32px;
       width: 100%;
-      border: 2px solid rgba(0, 0, 0, 0.11);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
     }
-    .dr-btn-reject:hover {
-      background: rgba(255,255,255,0.75);
-      border-color: rgba(0, 0, 0, 0.18);
-      color: #1f2937;
-    }
+    .dr-btn-reject:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.2); color: #111827; }
 
-    #dr-banner .dr-ghost {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #9ca3af;
-      text-align: center;
-      width: 100%;
-      padding: 10px 0 0;
-      display: block;
-      transition: color 0.15s;
-    }
-    #dr-banner .dr-ghost:hover { color: #6b7280; }
+    #dr-banner .dr-ghost { display: none; }
 
     /* ══ OVERLAY ════════════════════════════════════════════════════════ */
     #dr-overlay {
@@ -423,8 +386,8 @@
       align-items: center;
       justify-content: center;
       min-height: 48px;
-      padding: 14px 16px;
-      border-radius: 11px;
+      padding: 14px 18px;
+      border-radius: 9999px;
       font-size: 13.5px;
       font-weight: 600;
       letter-spacing: -0.015em;
@@ -439,35 +402,31 @@
     .dr-foot-btn:active { transform: scale(0.975); }
 
     .dr-foot-reject {
-      background: rgba(255,255,255,0.6);
+      background: rgba(0, 0, 0, 0.04);
       color: #4b5563;
       border: 1.5px solid rgba(0, 0, 0, 0.1);
+      font-weight: 600;
     }
-    .dr-foot-reject:hover { background: rgba(255,255,255,0.9); border-color: rgba(0,0,0,0.15); color: #374151; }
+    .dr-foot-reject:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.18); color: #111827; }
 
     .dr-foot-save {
-      background: rgba(241,245,249,0.8);
+      background: rgba(0, 0, 0, 0.04);
       color: #334155;
       border: 1.5px solid rgba(0, 0, 0, 0.09);
+      font-weight: 600;
     }
-    .dr-foot-save:hover { background: rgba(226,232,240,0.9); border-color: rgba(0,0,0,0.14); color: #1e293b; }
+    .dr-foot-save:hover { background: rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.16); color: #111827; }
 
     .dr-foot-accept {
-      background: #166534;
+      background: #16a34a;
       color: #fff;
       border: 1.5px solid transparent;
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.1),
-        0 3px 8px rgba(22, 163, 74, 0.24),
-        0 8px 24px rgba(22, 163, 74, 0.22);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(22,163,74,0.25), 0 6px 20px rgba(22,163,74,0.18);
     }
     .dr-foot-accept:hover {
-      background: #145f30;
-      transform: translateY(-1px);
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.12),
-        0 5px 12px rgba(22,163,74,0.3),
-        0 12px 32px rgba(22,163,74,0.28);
+      background: #15803d;
+      box-shadow: 0 4px 12px rgba(22,163,74,0.32), 0 8px 28px rgba(22,163,74,0.22);
     }
 
     /* ══ MOBILE ═════════════════════════════════════════════════════════ */
@@ -509,16 +468,12 @@
   banner.setAttribute('role', 'region');
   banner.setAttribute('aria-label', 'Cookie consent');
   banner.innerHTML = `
-    <div class="dr-b-icon">${SVG.shield}</div>
-    <div class="dr-title">We value your privacy</div>
-    <div class="dr-desc">
-      We use cookies to improve your experience, analyse traffic, and personalise content.
-      <a id="dr-b-manage">Manage preferences</a>
-    </div>
+    <div class="dr-title">Choose your cookies</div>
+    <div class="dr-desc">Cookies help us enhance your experience, tailor content to your interests, and improve our website.</div>
+    <button class="dr-manage-link" id="dr-b-manage">Learn more and manage</button>
     <div class="dr-stack">
-      <button class="dr-btn dr-btn-accept" id="dr-b-accept">Accept all cookies</button>
-      <button class="dr-btn dr-btn-reject" id="dr-b-reject">Reject non-essential</button>
-      <button class="dr-ghost" id="dr-b-ghost">I'll decide later</button>
+      <button class="dr-btn dr-btn-accept" id="dr-b-accept">Accept all</button>
+      <button class="dr-btn dr-btn-reject" id="dr-b-reject">Reject non-essential cookies</button>
     </div>
   `;
   root.appendChild(banner);
@@ -637,7 +592,6 @@
   /* ─── Events ─────────────────────────────────────────────────────── */
   document.getElementById('dr-b-accept').addEventListener('click', acceptAll);
   document.getElementById('dr-b-reject').addEventListener('click', rejectAll);
-  document.getElementById('dr-b-ghost') .addEventListener('click', closeModal);
   document.getElementById('dr-b-manage').addEventListener('click', openModal);
   document.getElementById('dr-m-close') .addEventListener('click', closeModal);
   document.getElementById('dr-m-accept').addEventListener('click', acceptAll);
